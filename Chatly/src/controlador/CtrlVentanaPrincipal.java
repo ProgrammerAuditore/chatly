@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import src.SrcChatly;
 import vista.ventanas.VentanaHome;
 import vista.ventanas.VentanaPrincipal;
 
@@ -45,16 +46,18 @@ public class CtrlVentanaPrincipal {
     }
 
     private void mtdBtnSingUp() {
-
+        mtdDestruirVentana();
+        
+        SrcChatly.ventanaHome = new VentanaHome();
+        CtrlVentanaHome home = new CtrlVentanaHome(SrcChatly.ventanaHome);
+        home.laVista.setVisible(true);
+    }
+    
+    private void mtdDestruirVentana(){
         // Se borra la ventana Principal liberando memoria
         this.laVista.setVisible(false); // Desaparece la ventana
         this.laVista.dispose(); // Se libera la memoria
-
-        VentanaHome vtn = new VentanaHome();
-        CtrlVentanaHome home = new CtrlVentanaHome(vtn);
-        home.laVista.setVisible(true);
-
-        //JOptionPane.showMessageDialog(null, this.laVista.cmpSingInEmail.getText(), "Ola como estás!!!", 0);
+        SrcChatly.ventanaPrincipal = null;
     }
 
 }

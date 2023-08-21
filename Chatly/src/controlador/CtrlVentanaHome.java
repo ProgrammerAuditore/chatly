@@ -3,6 +3,7 @@ package controlador;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import src.SrcChatly;
 import vista.ventanas.VentanaHome;
 import vista.ventanas.VentanaPrincipal;
 
@@ -45,13 +46,19 @@ public class CtrlVentanaHome {
     }
     
     private void mtdBtnCerrarSesion(){
-        this.laVista.setVisible(false);
-        this.laVista.dispose();
+        mtdDestruirVentana();
         
-        VentanaPrincipal vtn = new VentanaPrincipal();
-        CtrlVentanaPrincipal ctrl = new CtrlVentanaPrincipal(vtn);
+        SrcChatly.ventanaPrincipal = new VentanaPrincipal();
+        CtrlVentanaPrincipal ctrl = new CtrlVentanaPrincipal(SrcChatly.ventanaPrincipal);
         ctrl.laVista.setVisible(true);
         
+    }
+    
+    private void mtdDestruirVentana(){
+        // Se borra la ventana Principal liberando memoria
+        this.laVista.setVisible(false); // Desaparece la ventana
+        this.laVista.dispose(); // Se libera la memoria
+        SrcChatly.ventanaHome = null;
     }
     
 }

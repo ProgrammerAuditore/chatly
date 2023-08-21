@@ -10,22 +10,22 @@ public class Chatly {
     
     public void mtdTagInit() {
         
-        // * Crear la ventana principal con su respectivo patrón de diseño MVC
-        SrcChatly.ventana = new VentanaPrincipal();
-        CtrlVentanaPrincipal ctrl_p = new CtrlVentanaPrincipal(SrcChatly.ventana);
+        // * Crear la ventanaPrincipal principal con su respectivo patrón de diseño MVC
+        SrcChatly.ventanaPrincipal = new VentanaPrincipal();
+        CtrlVentanaPrincipal ctrl_p = new CtrlVentanaPrincipal(SrcChatly.ventanaPrincipal);
     
         // * Ejecutar hilos
         
-        // * Abrir la ventana del programa
-        SrcChatly.ventana.setState(JFrame.ICONIFIED);
-        SrcChatly.ventana.setVisible(true);
+        // * Abrir la ventanaPrincipal del programa
+        SrcChatly.ventanaPrincipal.setState(JFrame.ICONIFIED);
+        SrcChatly.ventanaPrincipal.setVisible(true);
         try {
             Thread.sleep(600);
         } catch (InterruptedException ex) {}
-        SrcChatly.ventana.setAutoRequestFocus(true);
-        SrcChatly.ventana.requestFocus();
-        SrcChatly.ventana.setExtendedState(JFrame.NORMAL);
-        SrcChatly.ventana.setVisible(true);
+        SrcChatly.ventanaPrincipal.setAutoRequestFocus(true);
+        SrcChatly.ventanaPrincipal.requestFocus();
+        SrcChatly.ventanaPrincipal.setExtendedState(JFrame.NORMAL);
+        SrcChatly.ventanaPrincipal.setVisible(true);
         
     }
     
