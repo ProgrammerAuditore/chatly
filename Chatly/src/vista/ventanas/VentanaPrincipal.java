@@ -215,7 +215,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(btnSingIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(111, 111, 111))
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
-                        .addComponent(jPanelBackground2, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+                        .addComponent(jPanelBackground2, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
                         .addContainerGap())))
         );
 
@@ -269,10 +269,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private vista.componentes.boton.Boton btnSingIn;
+    public vista.componentes.boton.Boton btnSingIn;
     private vista.componentes.boton.Boton btnSingUp;
-    private vista.componentes.campos.CampoCorreo cmpSingInEmail;
-    private vista.componentes.campos.CampoPassword cmpSingInPassword;
+    public vista.componentes.campos.CampoCorreo cmpSingInEmail;
+    public vista.componentes.campos.CampoPassword cmpSingInPassword;
     private vista.componentes.campos.CampoCorreo cmpSingUpEmail;
     private vista.componentes.campos.CampoDatos cmpSingUpFirstNames;
     private vista.componentes.campos.CampoDatos cmpSingUpLasttNames;

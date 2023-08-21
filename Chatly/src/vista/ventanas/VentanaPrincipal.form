@@ -114,7 +114,7 @@
                           <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jPanelBackground2" pref="518" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground2" pref="514" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -256,11 +256,17 @@
           <Properties>
             <Property name="placeholder" type="java.lang.String" value="Ingrese correo el&#xe9;ctronico"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="vista.componentes.campos.CampoPassword" name="cmpSingInPassword">
           <Properties>
             <Property name="placeholder" type="java.lang.String" value="Ingrese contrase&#xf1;a"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="vista.componentes.etiqueta.Mensaje" name="singIn_email">
           <Properties>
@@ -284,6 +290,9 @@
             <Property name="imgButtonType" type="java.lang.String" value="success"/>
             <Property name="texto" type="java.lang.String" value="Acceder"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="vista.componentes.etiqueta.Titulo" name="titulo2">
           <Properties>

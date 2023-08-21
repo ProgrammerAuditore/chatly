@@ -9,12 +9,8 @@ Installed-Size: 292045
 Section: java, education, base
 Homepage: https://programmerauditore.gitlab.io/chatly
 Maintainer: ProgrammerAuditore <victorvj098@gmail.com>
-Description: Gestion de proyectos para freelancer.
- El programa sirve para poder crear, modificar, eliminar y registrar
- proyectos desarrollados para una empresa en particular.
- Asi tambien, para poder generar una cotizacion para cada empresa en particular
- y calcular el costo del proyecto, entre otras cosas.
- Tiene la funcionalidad de conexion a una base de datos MYSQL local o remoto.
+Description: Red social de chatbots offline.
+ Chatly es una red social offline que permite enviar mensajes, recibir notificaciones, agregar amigos y chatear con bots, todo sin conexión a internet.
 Recommends: qapt-deb-installer | gdebi
 Suggests: apt, dpkg (>= 1.14.0) | dpkg-deb
 Source: java
