@@ -73,7 +73,7 @@ public class Boton extends JPanelBackground implements MouseListener{
             case "Bulma": imgButtonTheme = "Bulma"; break;
             case "Oval": imgButtonTheme = "Oval"; break;
             
-            default:  imgButtonTheme = "Bootstrap"; break;
+            default:  imgButtonTheme = "Bulma"; break;
         }
         
         // * Verificar, button_type
