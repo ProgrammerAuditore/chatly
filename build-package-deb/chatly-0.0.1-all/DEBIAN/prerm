@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# PATH run Chatly
+CHLY_BIN=/usr/bin/chatly
+
+# Delete chatly BIN
+if [ -f "$CHLY_BIN" ]; then
+    rm -f $CHLY_BIN 
+    echo "chatly removed success"
+fi
