@@ -174,13 +174,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jPanelBackground3" pref="139" max="32767" attributes="0"/>
-                      <Component id="jPanelBackground2" pref="139" max="32767" attributes="0"/>
+                      <Component id="jPanelBackground3" pref="140" max="32767" attributes="0"/>
+                      <Component id="jPanelBackground2" pref="140" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanelBackground4" pref="331" max="32767" attributes="0"/>
-                      <Component id="jPanelBackground5" pref="331" max="32767" attributes="0"/>
+                      <Component id="jPanelBackground4" pref="330" max="32767" attributes="0"/>
+                      <Component id="jPanelBackground5" pref="330" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -223,29 +223,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="campoPassword1" pref="200" max="32767" attributes="0"/>
-                          <Component id="mensaje3" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="mensaje3" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="270" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="mensaje2" max="32767" attributes="0"/>
+                          <Component id="campoDatos2" pref="200" max="32767" attributes="0"/>
                           <Component id="campoDatos1" alignment="0" max="32767" attributes="0"/>
                           <Component id="mensaje1" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="mensaje2" max="32767" attributes="0"/>
-                                  <Component id="campoDatos2" pref="200" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="112" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="boton1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="boton2" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="boton3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="boton1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="boton2" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="boton3" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -263,20 +258,24 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="boton3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jSeparator1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="mensaje1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="mensaje2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="mensaje3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="campoDatos1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="campoDatos2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="campoDatos1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="mensaje2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <Component id="campoDatos2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane2" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="mensaje3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="campoPassword1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -309,13 +308,7 @@
             </Component>
             <Component class="vista.componentes.etiqueta.Mensaje" name="mensaje3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
-              </Properties>
-            </Component>
-            <Component class="vista.componentes.campos.CampoPassword" name="campoPassword1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="campoPassword1"/>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value="Bio"/>
               </Properties>
             </Component>
             <Component class="vista.componentes.boton.Boton" name="boton1">
@@ -336,6 +329,33 @@
                 <Property name="texto" type="java.lang.String" value="Conversaciones"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator1">
+              <Properties>
+                <Property name="orientation" type="int" value="1"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Monospaced" size="11" style="0"/>
+                    </Property>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="text" type="java.lang.String" value="Ing. Sistemas de computaciones&#xa;Desarrollador web&#xa;Trabajo en Google"/>
+                    <Property name="autoscrolls" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="vista.componentes.jpanelbackground.JPanelBackground" name="jPanelBackground4">
@@ -346,12 +366,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="577" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="330" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -380,7 +400,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="mensaje4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="289" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="288" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
