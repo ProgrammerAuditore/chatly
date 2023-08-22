@@ -47,9 +47,9 @@ public class VentanaHome extends javax.swing.JFrame {
         campoDatos2 = new vista.componentes.campos.CampoDatos();
         mensaje2 = new vista.componentes.etiqueta.Mensaje();
         mensaje3 = new vista.componentes.etiqueta.Mensaje();
-        boton1 = new vista.componentes.boton.Boton();
+        btnCoumidad = new vista.componentes.boton.Boton();
         boton2 = new vista.componentes.boton.Boton();
-        boton3 = new vista.componentes.boton.Boton();
+        btnConversaciones = new vista.componentes.boton.Boton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -60,9 +60,9 @@ public class VentanaHome extends javax.swing.JFrame {
         mensaje4 = new vista.componentes.etiqueta.Mensaje();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        menuItemComunidad = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        menuItemConversaciones = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -118,14 +118,14 @@ public class VentanaHome extends javax.swing.JFrame {
 
         mensaje3.setText("Bio");
 
-        boton1.setImgButtonType("info");
-        boton1.setTexto("Comunidad");
+        btnCoumidad.setImgButtonType("info");
+        btnCoumidad.setTexto("Comunidad");
 
         boton2.setImgButtonType("danger");
         boton2.setTexto("Amigos");
 
-        boton3.setImgButtonType("peace");
-        boton3.setTexto("Conversaciones");
+        btnConversaciones.setImgButtonType("peace");
+        btnConversaciones.setTexto("Conversaciones");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -157,9 +157,9 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(boton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCoumidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(boton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnConversaciones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanelBackground3Layout.setVerticalGroup(
@@ -168,11 +168,11 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBackground3Layout.createSequentialGroup()
-                        .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCoumidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(boton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(boton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnConversaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1)
                     .addGroup(jPanelBackground3Layout.createSequentialGroup()
                         .addGap(0, 3, Short.MAX_VALUE)
@@ -271,14 +271,14 @@ public class VentanaHome extends javax.swing.JFrame {
 
         jMenu3.setText("Red social");
 
-        jMenuItem9.setText("Ver comunidad");
-        jMenu3.add(jMenuItem9);
+        menuItemComunidad.setText("Ver comunidad");
+        jMenu3.add(menuItemComunidad);
 
         jMenuItem7.setText("Ver amigos");
         jMenu3.add(jMenuItem7);
 
-        jMenuItem10.setText("Ver conversaciones");
-        jMenu3.add(jMenuItem10);
+        menuItemConversaciones.setText("Ver conversaciones");
+        jMenu3.add(menuItemConversaciones);
 
         jMenuItem8.setText("Ver solicitud de amistad");
         jMenu3.add(jMenuItem8);
@@ -370,9 +370,9 @@ public class VentanaHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private vista.componentes.boton.Boton boton1;
     private vista.componentes.boton.Boton boton2;
-    private vista.componentes.boton.Boton boton3;
+    public vista.componentes.boton.Boton btnConversaciones;
+    public vista.componentes.boton.Boton btnCoumidad;
     public javax.swing.JMenuItem btnHomeCerrarSesion;
     public javax.swing.JMenuItem btnHomeSalir;
     private vista.componentes.campos.CampoDatos campoDatos1;
@@ -384,7 +384,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -392,7 +391,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground3;
@@ -407,5 +405,7 @@ public class VentanaHome extends javax.swing.JFrame {
     private vista.componentes.etiqueta.Mensaje mensaje2;
     private vista.componentes.etiqueta.Mensaje mensaje3;
     private vista.componentes.etiqueta.Mensaje mensaje4;
+    public javax.swing.JMenuItem menuItemComunidad;
+    public javax.swing.JMenuItem menuItemConversaciones;
     // End of variables declaration//GEN-END:variables
 }

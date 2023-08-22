@@ -3,6 +3,8 @@ package src;
 import java.io.File;
 import java.util.Properties;
 import src.idiomas.Idiomas;
+import vista.ventanas.VentanaComunidad;
+import vista.ventanas.VentanaConversaciones;
 import vista.ventanas.VentanaHome;
 import vista.ventanas.VentanaPrincipal;
 
@@ -10,6 +12,8 @@ public class SrcChatly {
     
     public static VentanaPrincipal ventanaPrincipal;
     public static VentanaHome ventanaHome;
+    public static VentanaComunidad ventanaComunidad;
+    public static VentanaConversaciones ventanaConversaciones;
     public static Properties idioma = new Idiomas("en");
     public static long ctrlID;
     public static String IdiomaDefinido;

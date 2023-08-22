@@ -20,20 +20,26 @@
             <Property name="text" type="java.lang.String" value="Red social"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemComunidad">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver comunidad"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver amigos"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemConversaciones">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver conversaciones"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
               <Properties>
@@ -238,9 +244,9 @@
                       <Component id="jSeparator1" min="-2" pref="25" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="boton1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCoumidad" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="boton2" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="boton3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnConversaciones" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -252,11 +258,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="boton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCoumidad" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="boton2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="boton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnConversaciones" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
@@ -311,11 +317,14 @@
                 <Property name="text" type="java.lang.String" value="Bio"/>
               </Properties>
             </Component>
-            <Component class="vista.componentes.boton.Boton" name="boton1">
+            <Component class="vista.componentes.boton.Boton" name="btnCoumidad">
               <Properties>
                 <Property name="imgButtonType" type="java.lang.String" value="info"/>
                 <Property name="texto" type="java.lang.String" value="Comunidad"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="vista.componentes.boton.Boton" name="boton2">
               <Properties>
@@ -323,11 +332,14 @@
                 <Property name="texto" type="java.lang.String" value="Amigos"/>
               </Properties>
             </Component>
-            <Component class="vista.componentes.boton.Boton" name="boton3">
+            <Component class="vista.componentes.boton.Boton" name="btnConversaciones">
               <Properties>
                 <Property name="imgButtonType" type="java.lang.String" value="peace"/>
                 <Property name="texto" type="java.lang.String" value="Conversaciones"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
               <Properties>

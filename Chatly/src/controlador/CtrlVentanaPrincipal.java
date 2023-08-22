@@ -14,8 +14,10 @@ public class CtrlVentanaPrincipal {
     public VentanaPrincipal laVista;
 
     // * Modelos
+    
     // * Atributos
-    // * Catcher
+    
+    // ****** Constructores
     public CtrlVentanaPrincipal(VentanaPrincipal laVista) {
         this.laVista = laVista;
 
