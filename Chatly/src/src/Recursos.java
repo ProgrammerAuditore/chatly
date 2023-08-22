@@ -45,7 +45,7 @@ public class Recursos {
     public static String styleButtonDefault = "bulma";
     
     // Dimension de los paneles para el modal
-    public static final Dimension tamDialogModal = new Dimension(850, 534);
+    public static final Dimension tamDialogModal = new Dimension(419, 400);
     public static final Dimension tamDialogInfo = new Dimension(460, 444);
     
     // Informacion del sistema

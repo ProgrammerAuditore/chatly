@@ -3,7 +3,10 @@ package controlador;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JDialog;
 import src.SrcChatly;
+import vista.paneles.PanelDatos;
+import vista.paneles.PanelPassword;
 import vista.ventanas.VentanaComunidad;
 import vista.ventanas.VentanaConversaciones;
 import vista.ventanas.VentanaHome;
@@ -95,6 +98,34 @@ public class CtrlVentanaHome {
         this.laVista.menuItemConversaciones.addMouseListener(evtComunidad);
     }
     
+    private void mtdBuildEventMenuItemDatos(){
+        MouseListener evtDatos = null;
+        this.laVista.menuItemDatos.removeMouseListener(evtDatos);
+        
+        evtDatos = new MouseAdapter(){
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                mtdBtnDatos();
+            }
+        };
+        
+        this.laVista.menuItemDatos.addMouseListener(evtDatos);
+    }
+    
+    private void mtdBuildEventMenuItemPassword(){
+        MouseListener evtDatos = null;
+        this.laVista.menuItemPassword.removeMouseListener(evtDatos);
+        
+        evtDatos = new MouseAdapter(){
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                mtdBtnPassword();
+            }
+        };
+        
+        this.laVista.menuItemPassword.addMouseListener(evtDatos);
+    }
+    
     // ****** Métodos
     private void mtdInit(){
         
@@ -105,6 +136,8 @@ public class CtrlVentanaHome {
         mtdBuildEventMenuItemComunidad();
         mtdBuildEventBtnConversaciones();
         mtdBuildEventMenuItemConversaciones();
+        mtdBuildEventMenuItemDatos();
+        mtdBuildEventMenuItemPassword();
     }
     
     private void mtdBtnCerrarSesion(){
@@ -128,6 +161,24 @@ public class CtrlVentanaHome {
         ctrl.laVista.setVisible(true);
     }
     
+    private void mtdBtnDatos(){
+        PanelDatos panel = new PanelDatos();
+        CtrlPanelDatos ctrl = new CtrlPanelDatos(panel);
+        ctrl.modal = new JDialog(laVista);
+        ctrl.mtdInit();
+        ctrl.modal.setLocationRelativeTo(laVista);
+        ctrl.modal.setVisible(true);
+    }
+    
+    private void mtdBtnPassword(){
+        PanelPassword panel = new PanelPassword();
+        CtrlPanelPassword ctrl = new CtrlPanelPassword(panel);
+        ctrl.modal = new JDialog(laVista);
+        ctrl.mtdInit();
+        ctrl.modal.setLocationRelativeTo(laVista);
+        ctrl.modal.setVisible(true);
+    }
+   
     private void mtdDestruirVentana(){
         // Se borra la ventana Principal liberando memoria
         this.laVista.setVisible(false); // Desaparece la ventana

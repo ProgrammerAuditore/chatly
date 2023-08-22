@@ -69,8 +69,8 @@ public class VentanaHome extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuItemDatos = new javax.swing.JMenuItem();
+        menuItemPassword = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         btnHomeCerrarSesion = new javax.swing.JMenuItem();
@@ -207,10 +207,11 @@ public class VentanaHome extends javax.swing.JFrame {
         jPanelBackground5.setBackground(new java.awt.Color(51, 51, 51));
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Sin notificaciones..." };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jList1.setEnabled(false);
         jScrollPane1.setViewportView(jList1);
 
         mensaje4.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,11 +301,11 @@ public class VentanaHome extends javax.swing.JFrame {
 
         jMenu1.setText("Cuenta");
 
-        jMenuItem2.setText("Cambiar datos");
-        jMenu1.add(jMenuItem2);
+        menuItemDatos.setText("Cambiar datos");
+        jMenu1.add(menuItemDatos);
 
-        jMenuItem3.setText("Cambiar contraseña");
-        jMenu1.add(jMenuItem3);
+        menuItemPassword.setText("Cambiar contraseña");
+        jMenu1.add(menuItemPassword);
 
         jMenuItem4.setText("Eliminar cuenta");
         jMenu1.add(jMenuItem4);
@@ -384,8 +385,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
@@ -407,5 +406,7 @@ public class VentanaHome extends javax.swing.JFrame {
     private vista.componentes.etiqueta.Mensaje mensaje4;
     public javax.swing.JMenuItem menuItemComunidad;
     public javax.swing.JMenuItem menuItemConversaciones;
+    public javax.swing.JMenuItem menuItemDatos;
+    public javax.swing.JMenuItem menuItemPassword;
     // End of variables declaration//GEN-END:variables
 }
