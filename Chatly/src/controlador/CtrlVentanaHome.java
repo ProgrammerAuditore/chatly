@@ -7,6 +7,7 @@ import javax.swing.JDialog;
 import src.SrcChatly;
 import vista.paneles.PanelDatos;
 import vista.paneles.PanelPassword;
+import vista.ventanas.VentanaAmigos;
 import vista.ventanas.VentanaComunidad;
 import vista.ventanas.VentanaConversaciones;
 import vista.ventanas.VentanaHome;
@@ -98,6 +99,34 @@ public class CtrlVentanaHome {
         this.laVista.menuItemConversaciones.addMouseListener(evtComunidad);
     }
     
+    private void mtdBuildEventBtnAmigos(){
+        MouseListener evtAmigos = null;
+        this.laVista.btnAmigos.removeMouseListener(evtAmigos);
+        
+        evtAmigos = new MouseAdapter(){
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                mtdBtnAmigos();
+            }
+        };
+        
+        this.laVista.btnAmigos.addMouseListener(evtAmigos);
+    }
+    
+    private void mtdBuildEventMenuItemAmigos(){
+        MouseListener evtAmigos = null;
+        this.laVista.menuItemAmigos.removeMouseListener(evtAmigos);
+        
+        evtAmigos = new MouseAdapter(){
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                mtdBtnAmigos();
+            }
+        };
+        
+        this.laVista.menuItemAmigos.addMouseListener(evtAmigos);
+    }
+    
     private void mtdBuildEventMenuItemDatos(){
         MouseListener evtDatos = null;
         this.laVista.menuItemDatos.removeMouseListener(evtDatos);
@@ -133,11 +162,14 @@ public class CtrlVentanaHome {
         laVista.setLocationRelativeTo(null);
         mtdBuildEventBtnCerrarSesion();
         mtdBuildEventBtnComunidad();
-        mtdBuildEventMenuItemComunidad();
         mtdBuildEventBtnConversaciones();
+        mtdBuildEventBtnAmigos();
+        mtdBuildEventMenuItemComunidad();
         mtdBuildEventMenuItemConversaciones();
+        mtdBuildEventMenuItemAmigos();
         mtdBuildEventMenuItemDatos();
         mtdBuildEventMenuItemPassword();
+        
     }
     
     private void mtdBtnCerrarSesion(){
@@ -158,6 +190,13 @@ public class CtrlVentanaHome {
         mtdDestruirVentana();
         SrcChatly.ventanaConversaciones = new VentanaConversaciones();
         CtrlVentanaConversaciones ctrl = new CtrlVentanaConversaciones(SrcChatly.ventanaConversaciones);
+        ctrl.laVista.setVisible(true);
+    }
+    
+    private void mtdBtnAmigos(){
+        mtdDestruirVentana();
+        SrcChatly.ventanaAmigos = new VentanaAmigos();
+        CtrlVentanaAmigos ctrl = new CtrlVentanaAmigos(SrcChatly.ventanaAmigos);
         ctrl.laVista.setVisible(true);
     }
     

@@ -48,7 +48,7 @@ public class VentanaHome extends javax.swing.JFrame {
         mensaje2 = new vista.componentes.etiqueta.Mensaje();
         mensaje3 = new vista.componentes.etiqueta.Mensaje();
         btnCoumidad = new vista.componentes.boton.Boton();
-        boton2 = new vista.componentes.boton.Boton();
+        btnAmigos = new vista.componentes.boton.Boton();
         btnConversaciones = new vista.componentes.boton.Boton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -61,7 +61,7 @@ public class VentanaHome extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         menuItemComunidad = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        menuItemAmigos = new javax.swing.JMenuItem();
         menuItemConversaciones = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -121,8 +121,8 @@ public class VentanaHome extends javax.swing.JFrame {
         btnCoumidad.setImgButtonType("info");
         btnCoumidad.setTexto("Comunidad");
 
-        boton2.setImgButtonType("danger");
-        boton2.setTexto("Amigos");
+        btnAmigos.setImgButtonType("danger");
+        btnAmigos.setTexto("Amigos");
 
         btnConversaciones.setImgButtonType("peace");
         btnConversaciones.setTexto("Conversaciones");
@@ -158,7 +158,7 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCoumidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAmigos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConversaciones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -170,7 +170,7 @@ public class VentanaHome extends javax.swing.JFrame {
                     .addGroup(jPanelBackground3Layout.createSequentialGroup()
                         .addComponent(btnCoumidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnConversaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1)
@@ -275,8 +275,8 @@ public class VentanaHome extends javax.swing.JFrame {
         menuItemComunidad.setText("Ver comunidad");
         jMenu3.add(menuItemComunidad);
 
-        jMenuItem7.setText("Ver amigos");
-        jMenu3.add(jMenuItem7);
+        menuItemAmigos.setText("Ver amigos");
+        jMenu3.add(menuItemAmigos);
 
         menuItemConversaciones.setText("Ver conversaciones");
         jMenu3.add(menuItemConversaciones);
@@ -371,7 +371,7 @@ public class VentanaHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private vista.componentes.boton.Boton boton2;
+    public vista.componentes.boton.Boton btnAmigos;
     public vista.componentes.boton.Boton btnConversaciones;
     public vista.componentes.boton.Boton btnCoumidad;
     public javax.swing.JMenuItem btnHomeCerrarSesion;
@@ -388,7 +388,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
@@ -404,6 +403,7 @@ public class VentanaHome extends javax.swing.JFrame {
     private vista.componentes.etiqueta.Mensaje mensaje2;
     private vista.componentes.etiqueta.Mensaje mensaje3;
     private vista.componentes.etiqueta.Mensaje mensaje4;
+    public javax.swing.JMenuItem menuItemAmigos;
     public javax.swing.JMenuItem menuItemComunidad;
     public javax.swing.JMenuItem menuItemConversaciones;
     public javax.swing.JMenuItem menuItemDatos;
