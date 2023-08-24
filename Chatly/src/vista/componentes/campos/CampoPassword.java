@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.Arrays;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -148,6 +149,15 @@ public class CampoPassword extends JPasswordField implements FocusListener{
     public void setComponenteDidireccional(JLabel componenteDidireccional) {
         this.componenteDidireccional = componenteDidireccional;
         setPlaceholder(componenteDidireccional.getText());
+    }
+    
+    public boolean isAprobado(){
+        return !String.valueOf(getPassword()).equals( getPlaceholder() ) &&
+                String.valueOf(getPassword()).length() >= 4;         
+    }
+    
+    public boolean isVacia(){
+        return String.valueOf(getPassword()).isEmpty();          
     }
     
 }

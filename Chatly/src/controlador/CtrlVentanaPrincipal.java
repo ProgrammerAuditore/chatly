@@ -3,6 +3,7 @@ package controlador;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import src.SrcChatly;
 import vista.ventanas.VentanaHome;
@@ -26,33 +27,76 @@ public class CtrlVentanaPrincipal {
     }
 
     // * Construir eventos
-    private void mtdBuildEventBtnSingUp() {
-        MouseListener eventoBtnSingUp = null;
-        this.laVista.btnSingIn.removeMouseListener(eventoBtnSingUp);
-
-        eventoBtnSingUp = new MouseAdapter() {
+    private void mtdBuildEvents(){
+        MouseListener evt = null;
+        this.laVista.removeMouseListener(evt);
+        
+        evt = new MouseAdapter(){
             @Override
             public void mouseReleased(MouseEvent e) {
-                mtdBtnSingUp();
+                if( e.getSource() == laVista.btnSingIn ){
+                    mtdBtnSingIn();
+                } else 
+                if ( e.getSource() == laVista.btnSingUp ){
+                    mtdBtnSingUp();
+                }
             }
         };
-
-        this.laVista.btnSingIn.addMouseListener(eventoBtnSingUp);
+        
+        this.laVista.btnSingIn.addMouseListener(evt);
+        this.laVista.btnSingUp.addMouseListener(evt);
+        this.laVista.addMouseListener(evt);
     }
 
     private void mtdInit() {
 
         // * Definir oyentes
         laVista.setLocationRelativeTo(null);
-        mtdBuildEventBtnSingUp();
+        mtdBuildEvents();
     }
 
-    private void mtdBtnSingUp() {
+    private void mtdBtnSingIn() {
         mtdDestruirVentana();
         
         SrcChatly.ventanaHome = new VentanaHome();
         CtrlVentanaHome home = new CtrlVentanaHome(SrcChatly.ventanaHome);
         home.laVista.setVisible(true);
+    }
+    
+    private void mtdBtnSingUp(){
+        mtdVerificarDatos();
+    }   
+    
+    private boolean mtdVerificarDatos(){
+        String msg = "Datos ingresados incorrectos: \n";
+        int msg_tam = msg.length();
+        
+        if( this.laVista.cmpSingUpFirstNames.getText().isEmpty() 
+            || !this.laVista.cmpSingUpFirstNames.isAprobado()){
+            msg += "* El campo nombre(s) es incorrecto. \n";
+        }
+        
+        if( this.laVista.cmpSingUpLasttNames.getText().isEmpty()
+            || !this.laVista.cmpSingUpLasttNames.isAprobado()){
+            msg += "* El campo apellido(s) es incorrecto. \n";
+        }
+        
+        if( this.laVista.cmpSingUpEmail.getText().isEmpty()
+            || !this.laVista.cmpSingUpEmail.isAprobado()){
+            msg += "* El campo correo eléctronico es incorrecto. \n";
+        }
+        
+        if( this.laVista.cmpSingInPassword.isVacia()
+            || !this.laVista.cmpSingUpPassword.isAprobado()){
+            msg += "* El campo contraseña debe ser mayor a 3 caracteres. \n";
+        }
+        
+        if(msg_tam == msg.length()){
+            return true;
+        }else {
+            JOptionPane.showMessageDialog(laVista, msg, "Registrarme", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
     }
     
     private void mtdDestruirVentana(){

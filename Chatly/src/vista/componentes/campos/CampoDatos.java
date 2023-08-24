@@ -134,9 +134,13 @@ public class CampoDatos extends JTextField implements FocusListener, KeyListener
     }
     
     public boolean isAprobado(){
-        return !getText().equals( getPlaceholder() );          
+        return !getText().trim().equals( getPlaceholder() );          
     }
     
+    public boolean isVacia(){
+        return (!isAprobado() || getText().trim().length() == 0);          
+    }
+        
     @Override
     public void focusGained(FocusEvent e) {
         getEstiloTextEscritura();

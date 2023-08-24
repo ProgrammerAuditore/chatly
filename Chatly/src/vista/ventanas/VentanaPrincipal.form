@@ -114,7 +114,7 @@
                           <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jPanelBackground2" pref="514" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground2" pref="518" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -187,30 +187,44 @@
           <SubComponents>
             <Component class="vista.componentes.boton.Boton" name="btnSingUp">
               <Properties>
-                <Property name="imgButtonTheme" type="java.lang.String" value="Bulma"/>
                 <Property name="texto" type="java.lang.String" value="Registrarme"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="vista.componentes.campos.CampoDatos" name="cmpSingUpFirstNames">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&lt;b&gt;&lt;font color=white&gt;Ingrese nombre (s) aqu&#xed;&lt;/font&gt;&lt;/b&gt;&lt;/html&gt;"/>
                 <Property name="placeholder" type="java.lang.String" value="Ingrese nombre (s)"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="vista.componentes.campos.CampoDatos" name="cmpSingUpLasttNames">
               <Properties>
                 <Property name="placeholder" type="java.lang.String" value="Ingrese apellido (s)"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="vista.componentes.campos.CampoPassword" name="cmpSingUpPassword">
               <Properties>
                 <Property name="placeholder" type="java.lang.String" value="Ingrese contrase&#xf1;a"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="vista.componentes.campos.CampoCorreo" name="cmpSingUpEmail">
               <Properties>
                 <Property name="placeholder" type="java.lang.String" value="Ingrese correo el&#xe9;ctronico"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="vista.componentes.etiqueta.Mensaje" name="mensaje3">
               <Properties>
@@ -286,7 +300,6 @@
         </Component>
         <Component class="vista.componentes.boton.Boton" name="btnSingIn">
           <Properties>
-            <Property name="imgButtonTheme" type="java.lang.String" value="Bulma"/>
             <Property name="imgButtonType" type="java.lang.String" value="success"/>
             <Property name="texto" type="java.lang.String" value="Acceder"/>
           </Properties>

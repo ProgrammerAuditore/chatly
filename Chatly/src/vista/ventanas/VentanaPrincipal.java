@@ -85,7 +85,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanelBackground2.setImgRutaInterno("/storage/img/bkg03.jpg");
         jPanelBackground2.setOpaque(false);
 
-        btnSingUp.setImgButtonTheme("Bulma");
         btnSingUp.setTexto("Registrarme");
 
         cmpSingUpFirstNames.setToolTipText("<html><b><font color=white>Ingrese nombre (s) aquí</font></b></html>");
@@ -164,7 +163,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         singIn_password.setForeground(new java.awt.Color(255, 255, 255));
         singIn_password.setText("Contraseña");
 
-        btnSingIn.setImgButtonTheme("Bulma");
         btnSingIn.setImgButtonType("success");
         btnSingIn.setTexto("Acceder");
 
@@ -215,7 +213,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(btnSingIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(111, 111, 111))
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
-                        .addComponent(jPanelBackground2, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
+                        .addComponent(jPanelBackground2, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
                         .addContainerGap())))
         );
 
@@ -270,13 +268,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public vista.componentes.boton.Boton btnSingIn;
-    private vista.componentes.boton.Boton btnSingUp;
+    public vista.componentes.boton.Boton btnSingUp;
     public vista.componentes.campos.CampoCorreo cmpSingInEmail;
     public vista.componentes.campos.CampoPassword cmpSingInPassword;
-    private vista.componentes.campos.CampoCorreo cmpSingUpEmail;
-    private vista.componentes.campos.CampoDatos cmpSingUpFirstNames;
-    private vista.componentes.campos.CampoDatos cmpSingUpLasttNames;
-    private vista.componentes.campos.CampoPassword cmpSingUpPassword;
+    public vista.componentes.campos.CampoCorreo cmpSingUpEmail;
+    public vista.componentes.campos.CampoDatos cmpSingUpFirstNames;
+    public vista.componentes.campos.CampoDatos cmpSingUpLasttNames;
+    public vista.componentes.campos.CampoPassword cmpSingUpPassword;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -160,7 +160,7 @@ public class CampoCorreo extends JTextField implements FocusListener, KeyListene
     }
     
     public boolean isAprobado(){
-        return !getText().equals( getPlaceholder() ) && comprobarCorreo();          
+        return !getText().trim().equals( getPlaceholder() ) && comprobarCorreo();          
     }
     
     @Override
