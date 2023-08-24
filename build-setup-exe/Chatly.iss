@@ -66,6 +66,8 @@ Source: "{#MyAppDir}\{#MyAppRunName}"; DestDir: "{app}"; BeforeInstall: Instalan
 ; Seleccionar el ejecutable (Programa) (Modificar)
 Source: "{#MyAppDir}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion replacesameversion restartreplace 
 Source: "{#MyAppDir}\*"; DestDir: "{app}"; Flags: ignoreversion replacesameversion restartreplace recursesubdirs createallsubdirs
+; Copiar archivos a la carpeta de datos locales del usuario
+Source: "{#MyAppDir}\storage_profiles\*"; DestDir: "{userappdata}\.local\chatly\storage_profiles"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
