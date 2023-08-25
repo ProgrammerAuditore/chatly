@@ -3,7 +3,6 @@ package controlador;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import src.SrcChatly;
 import vista.ventanas.VentanaHome;
@@ -56,18 +55,47 @@ public class CtrlVentanaPrincipal {
     }
 
     private void mtdBtnSingIn() {
-        mtdDestruirVentana();
+        if(!mtdVerificarDatosSingIn()){
+            return;
+        }
         
+        mtdDestruirVentana();
         SrcChatly.ventanaHome = new VentanaHome();
         CtrlVentanaHome home = new CtrlVentanaHome(SrcChatly.ventanaHome);
         home.laVista.setVisible(true);
     }
     
+    private boolean mtdVerificarDatosSingIn(){
+        String msg = "Datos ingresados incorrectos: \n";
+        int msg_tam = msg.length();
+        
+        if( this.laVista.cmpSingInEmail.getText().isEmpty()
+            || !this.laVista.cmpSingInEmail.isAprobado()){
+            msg += "* El campo correo eléctronico es incorrecto. \n";
+        }
+        
+        if( this.laVista.cmpSingInPassword.isVacia()
+            || !this.laVista.cmpSingInPassword.isAprobado()){
+            msg += "* El campo contraseña debe ser mayor a 3 caracteres. \n";
+        }
+        
+        if(msg_tam == msg.length()){
+            return true;
+        }else {
+            JOptionPane.showMessageDialog(laVista, msg, "Acceder", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+    
     private void mtdBtnSingUp(){
-        mtdVerificarDatos();
+        if(!mtdVerificarDatosSingUp()){
+            return;
+        }
+        
+        JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente!!", "Registrarme", JOptionPane.INFORMATION_MESSAGE);
     }   
     
-    private boolean mtdVerificarDatos(){
+    private boolean mtdVerificarDatosSingUp(){
         String msg = "Datos ingresados incorrectos: \n";
         int msg_tam = msg.length();
         
@@ -86,7 +114,7 @@ public class CtrlVentanaPrincipal {
             msg += "* El campo correo eléctronico es incorrecto. \n";
         }
         
-        if( this.laVista.cmpSingInPassword.isVacia()
+        if( this.laVista.cmpSingUpPassword.isVacia()
             || !this.laVista.cmpSingUpPassword.isAprobado()){
             msg += "* El campo contraseña debe ser mayor a 3 caracteres. \n";
         }
