@@ -46,11 +46,11 @@ public class PanelPassword extends javax.swing.JPanel {
         jPanelBackground2 = new vista.componentes.jpanelbackground.JPanelBackground();
         mensaje1 = new vista.componentes.etiqueta.Mensaje();
         mensaje2 = new vista.componentes.etiqueta.Mensaje();
-        boton1 = new vista.componentes.boton.Boton();
-        campoPassword1 = new vista.componentes.campos.CampoPassword();
-        campoPassword2 = new vista.componentes.campos.CampoPassword();
+        btnAceptar = new vista.componentes.boton.Boton();
+        cmpPasswdActual = new vista.componentes.campos.CampoPassword();
+        cmpPasswdNueva = new vista.componentes.campos.CampoPassword();
         mensaje3 = new vista.componentes.etiqueta.Mensaje();
-        campoPassword3 = new vista.componentes.campos.CampoPassword();
+        cmpPasswdNuevaRepetir = new vista.componentes.campos.CampoPassword();
 
         jPanelBackground1.setImgBackgroundEnabled(true);
         jPanelBackground1.setImgRutaInterno("/storage/img/bkg02.jpg");
@@ -64,17 +64,17 @@ public class PanelPassword extends javax.swing.JPanel {
         mensaje2.setForeground(new java.awt.Color(255, 255, 255));
         mensaje2.setText("Nueva contraseña");
 
-        boton1.setImgButtonType("success");
-        boton1.setTexto("Aceptar");
+        btnAceptar.setImgButtonType("success");
+        btnAceptar.setTexto("Aceptar");
 
-        campoPassword1.setPlaceholder("Ingrese contraseña actual");
+        cmpPasswdActual.setPlaceholder("Ingrese contraseña actual");
 
-        campoPassword2.setPlaceholder("Ingrese nueva contraseña");
+        cmpPasswdNueva.setPlaceholder("Ingrese nueva contraseña");
 
         mensaje3.setForeground(new java.awt.Color(255, 255, 255));
         mensaje3.setText("Repetir nueva contraseña");
 
-        campoPassword3.setPlaceholder("Repite la nueva contraseña");
+        cmpPasswdNuevaRepetir.setPlaceholder("Repite la nueva contraseña");
 
         javax.swing.GroupLayout jPanelBackground2Layout = new javax.swing.GroupLayout(jPanelBackground2);
         jPanelBackground2.setLayout(jPanelBackground2Layout);
@@ -85,13 +85,13 @@ public class PanelPassword extends javax.swing.JPanel {
                 .addGroup(jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(mensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mensaje2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(campoPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-                    .addComponent(campoPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmpPasswdActual, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+                    .addComponent(cmpPasswdNueva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mensaje3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelBackground2Layout.createSequentialGroup()
-                        .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(campoPassword3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmpPasswdNuevaRepetir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelBackground2Layout.setVerticalGroup(
@@ -100,17 +100,17 @@ public class PanelPassword extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmpPasswdActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(mensaje2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmpPasswdNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoPassword3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmpPasswdNuevaRepetir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87)
-                .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -145,10 +145,10 @@ public class PanelPassword extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private vista.componentes.boton.Boton boton1;
-    private vista.componentes.campos.CampoPassword campoPassword1;
-    private vista.componentes.campos.CampoPassword campoPassword2;
-    private vista.componentes.campos.CampoPassword campoPassword3;
+    public vista.componentes.boton.Boton btnAceptar;
+    public vista.componentes.campos.CampoPassword cmpPasswdActual;
+    public vista.componentes.campos.CampoPassword cmpPasswdNueva;
+    public vista.componentes.campos.CampoPassword cmpPasswdNuevaRepetir;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
     private vista.componentes.etiqueta.Mensaje mensaje1;

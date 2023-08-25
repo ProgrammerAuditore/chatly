@@ -138,7 +138,10 @@ public class CampoPassword extends JPasswordField implements FocusListener{
             setText(getPlaceholder());
             getEstiloTextEmpty();
         }else{
-            getEstiloAprobado();
+            if( isAprobado() )
+                getEstiloAprobado();
+            else 
+                getEstiloNoAprobado();
         }
     }
 
