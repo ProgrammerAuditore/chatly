@@ -44,14 +44,14 @@ public class PanelDatos extends javax.swing.JPanel {
 
         jPanelBackground1 = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground2 = new vista.componentes.jpanelbackground.JPanelBackground();
-        campoDatos1 = new vista.componentes.campos.CampoDatos();
-        campoDatos2 = new vista.componentes.campos.CampoDatos();
+        cmpNombres = new vista.componentes.campos.CampoDatos();
+        cmpApellidos = new vista.componentes.campos.CampoDatos();
         mensaje1 = new vista.componentes.etiqueta.Mensaje();
         mensaje2 = new vista.componentes.etiqueta.Mensaje();
         mensaje3 = new vista.componentes.etiqueta.Mensaje();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        boton1 = new vista.componentes.boton.Boton();
+        cmpBio = new javax.swing.JTextArea();
+        btnAceptar = new vista.componentes.boton.Boton();
 
         jPanelBackground1.setImgBackgroundEnabled(true);
         jPanelBackground1.setImgRutaInterno("/storage/img/bkg02.jpg");
@@ -59,9 +59,9 @@ public class PanelDatos extends javax.swing.JPanel {
         jPanelBackground2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cambiar datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanelBackground2.setOpaque(false);
 
-        campoDatos1.setPlaceholder("Ingrese nombre (s)");
+        cmpNombres.setPlaceholder("Ingrese nombre (s)");
 
-        campoDatos2.setPlaceholder("Ingrese apellido (s)");
+        cmpApellidos.setPlaceholder("Ingrese apellido (s)");
 
         mensaje1.setForeground(new java.awt.Color(255, 255, 255));
         mensaje1.setText("Nombre (s)");
@@ -72,12 +72,12 @@ public class PanelDatos extends javax.swing.JPanel {
         mensaje3.setForeground(new java.awt.Color(255, 255, 255));
         mensaje3.setText("Bio");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        cmpBio.setColumns(20);
+        cmpBio.setRows(5);
+        jScrollPane1.setViewportView(cmpBio);
 
-        boton1.setImgButtonType("success");
-        boton1.setTexto("Aceptar");
+        btnAceptar.setImgButtonType("success");
+        btnAceptar.setTexto("Aceptar");
 
         javax.swing.GroupLayout jPanelBackground2Layout = new javax.swing.GroupLayout(jPanelBackground2);
         jPanelBackground2.setLayout(jPanelBackground2Layout);
@@ -86,16 +86,16 @@ public class PanelDatos extends javax.swing.JPanel {
             .addGroup(jPanelBackground2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campoDatos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmpNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelBackground2Layout.createSequentialGroup()
                         .addGroup(jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(mensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(mensaje2, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                                 .addComponent(mensaje3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(campoDatos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmpApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -105,17 +105,17 @@ public class PanelDatos extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoDatos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmpNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(mensaje2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoDatos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmpApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -150,13 +150,13 @@ public class PanelDatos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private vista.componentes.boton.Boton boton1;
-    private vista.componentes.campos.CampoDatos campoDatos1;
-    private vista.componentes.campos.CampoDatos campoDatos2;
+    public vista.componentes.boton.Boton btnAceptar;
+    public vista.componentes.campos.CampoDatos cmpApellidos;
+    public javax.swing.JTextArea cmpBio;
+    public vista.componentes.campos.CampoDatos cmpNombres;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private vista.componentes.etiqueta.Mensaje mensaje1;
     private vista.componentes.etiqueta.Mensaje mensaje2;
     private vista.componentes.etiqueta.Mensaje mensaje3;
