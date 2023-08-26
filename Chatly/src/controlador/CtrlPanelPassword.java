@@ -94,6 +94,13 @@ public class CtrlPanelPassword {
             msg += "* El campo reptir contraseña debe ser mayor a 3 caracteres. \n";
         }
         
+        if( !String.valueOf(this.laVista.cmpPasswdNueva.getPassword())
+            .equals(String.valueOf(this.laVista.cmpPasswdNuevaRepetir.getPassword())) ){
+            this.laVista.cmpPasswdNueva.getEstiloNoAprobado();
+            this.laVista.cmpPasswdNuevaRepetir.getEstiloNoAprobado();
+            msg += "* La contraseña nueva no coinciden. \n";
+        }
+        
         if( msg.length() != msg_tam ){
             JOptionPane.showMessageDialog(null, msg, "Cambiar contraseña", JOptionPane.ERROR_MESSAGE);
             return false;
