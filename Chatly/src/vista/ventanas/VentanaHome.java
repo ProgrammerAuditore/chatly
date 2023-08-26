@@ -72,7 +72,7 @@ public class VentanaHome extends javax.swing.JFrame {
         menuItemSalir = new javax.swing.JMenu();
         menuItemDatos = new javax.swing.JMenuItem();
         menuItemPassword = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        menuItemEliminarCuenta = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         btnHomeCerrarSesion = new javax.swing.JMenuItem();
         btnItemSalir = new javax.swing.JMenuItem();
@@ -310,8 +310,8 @@ public class VentanaHome extends javax.swing.JFrame {
         menuItemPassword.setText("Cambiar contraseña");
         menuItemSalir.add(menuItemPassword);
 
-        jMenuItem4.setText("Eliminar cuenta");
-        menuItemSalir.add(jMenuItem4);
+        menuItemEliminarCuenta.setText("Eliminar cuenta");
+        menuItemSalir.add(menuItemEliminarCuenta);
         menuItemSalir.add(jSeparator2);
 
         btnHomeCerrarSesion.setText("Cerrar sesión");
@@ -388,7 +388,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem8;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
@@ -408,6 +407,7 @@ public class VentanaHome extends javax.swing.JFrame {
     public javax.swing.JMenuItem menuItemComunidad;
     public javax.swing.JMenuItem menuItemConversaciones;
     public javax.swing.JMenuItem menuItemDatos;
+    public javax.swing.JMenuItem menuItemEliminarCuenta;
     public javax.swing.JMenuItem menuItemPassword;
     public javax.swing.JMenu menuItemSalir;
     public javax.swing.JMenuItem menuItemVaciarMural;

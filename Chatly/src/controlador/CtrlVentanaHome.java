@@ -57,6 +57,8 @@ public class CtrlVentanaHome {
                     mtdBtnVaciarNotificaciones();
                 } else if (e.getSource() == laVista.menuItemVaciarMural) {
                     mtdBtnVaciarMural();
+                } else if (e.getSource() == laVista.menuItemEliminarCuenta) {
+                    mtdBtnEliminarCuenta();
                 } else if (e.getSource() == laVista.btnItemSalir) {
                     mtdBtnSalir();
                 }
@@ -74,6 +76,7 @@ public class CtrlVentanaHome {
         this.laVista.menuItemPassword.addMouseListener(evt);
         this.laVista.menuItemVaciarNotificaciones.addMouseListener(evt);
         this.laVista.menuItemVaciarMural.addMouseListener(evt);
+        this.laVista.menuItemEliminarCuenta.addMouseListener(evt);
         this.laVista.btnItemSalir.addMouseListener(evt);
         this.laVista.addMouseListener(evt);
     }
@@ -148,6 +151,15 @@ public class CtrlVentanaHome {
 
         if (respuesta == JOptionPane.YES_OPTION) {
             JOptionPane.showMessageDialog(null, "Se eliminaron todas las firmas del mural, exitosamente.");
+        }
+    }
+    
+    private void mtdBtnEliminarCuenta(){
+        int respuesta = JOptionPane.showConfirmDialog(null, "Seguro que deseas eliminar la cuenta? ",
+                "Confirmar...", JOptionPane.YES_NO_OPTION);
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Cuenta eliminado, exitosamente.");
         }
     }
     
