@@ -156,7 +156,10 @@ public class CampoDatos extends JTextField implements FocusListener, KeyListener
             setText(getPlaceholder());
             getEstiloTextEmpty();
         }else{
-            getEstiloAprobado();
+            if( isAprobado() )
+                getEstiloAprobado();
+            else 
+                getEstiloNoAprobado();
         }
     }
 

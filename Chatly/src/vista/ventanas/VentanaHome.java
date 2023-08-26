@@ -39,6 +39,7 @@ public class VentanaHome extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jButton1 = new javax.swing.JButton();
         jPanelBackground1 = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground2 = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground3 = new vista.componentes.jpanelbackground.JPanelBackground();
@@ -66,18 +67,20 @@ public class VentanaHome extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        menuItemVaciarMural = new javax.swing.JMenuItem();
+        menuItemVaciarNotificaciones = new javax.swing.JMenuItem();
+        menuItemSalir = new javax.swing.JMenu();
         menuItemDatos = new javax.swing.JMenuItem();
         menuItemPassword = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         btnHomeCerrarSesion = new javax.swing.JMenuItem();
-        btnHomeSalir = new javax.swing.JMenuItem();
+        btnItemSalir = new javax.swing.JMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -291,33 +294,33 @@ public class VentanaHome extends javax.swing.JFrame {
         jMenuItem1.setText("Cambiar foto");
         jMenu2.add(jMenuItem1);
 
-        jMenuItem5.setText("Vaciar mural");
-        jMenu2.add(jMenuItem5);
+        menuItemVaciarMural.setText("Vaciar mural");
+        jMenu2.add(menuItemVaciarMural);
 
-        jMenuItem6.setText("Vaciar notificaciones");
-        jMenu2.add(jMenuItem6);
+        menuItemVaciarNotificaciones.setText("Vaciar notificaciones");
+        jMenu2.add(menuItemVaciarNotificaciones);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu1.setText("Cuenta");
+        menuItemSalir.setText("Cuenta");
 
         menuItemDatos.setText("Cambiar datos");
-        jMenu1.add(menuItemDatos);
+        menuItemSalir.add(menuItemDatos);
 
         menuItemPassword.setText("Cambiar contraseña");
-        jMenu1.add(menuItemPassword);
+        menuItemSalir.add(menuItemPassword);
 
         jMenuItem4.setText("Eliminar cuenta");
-        jMenu1.add(jMenuItem4);
-        jMenu1.add(jSeparator2);
+        menuItemSalir.add(jMenuItem4);
+        menuItemSalir.add(jSeparator2);
 
         btnHomeCerrarSesion.setText("Cerrar sesión");
-        jMenu1.add(btnHomeCerrarSesion);
+        menuItemSalir.add(btnHomeCerrarSesion);
 
-        btnHomeSalir.setText("Salir");
-        jMenu1.add(btnHomeSalir);
+        btnItemSalir.setText("Salir");
+        menuItemSalir.add(btnItemSalir);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuItemSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -375,19 +378,17 @@ public class VentanaHome extends javax.swing.JFrame {
     public vista.componentes.boton.Boton btnConversaciones;
     public vista.componentes.boton.Boton btnCoumidad;
     public javax.swing.JMenuItem btnHomeCerrarSesion;
-    public javax.swing.JMenuItem btnHomeSalir;
+    public javax.swing.JMenuItem btnItemSalir;
     private vista.componentes.campos.CampoDatos campoDatos1;
     private vista.componentes.campos.CampoDatos campoDatos2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
@@ -408,5 +409,8 @@ public class VentanaHome extends javax.swing.JFrame {
     public javax.swing.JMenuItem menuItemConversaciones;
     public javax.swing.JMenuItem menuItemDatos;
     public javax.swing.JMenuItem menuItemPassword;
+    public javax.swing.JMenu menuItemSalir;
+    public javax.swing.JMenuItem menuItemVaciarMural;
+    public javax.swing.JMenuItem menuItemVaciarNotificaciones;
     // End of variables declaration//GEN-END:variables
 }
