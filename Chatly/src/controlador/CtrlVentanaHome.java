@@ -3,8 +3,11 @@ package controlador;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import src.SrcChatly;
 import vista.paneles.PanelDatos;
 import vista.paneles.PanelPassword;
@@ -53,6 +56,8 @@ public class CtrlVentanaHome {
                     mtdBtnDatos();
                 } else if (e.getSource() == laVista.menuItemPassword) {
                     mtdBtnPassword();
+                } else if (e.getSource() == laVista.menuItemCambiarFoto) {
+                    mtdBtnCambiarFoto();
                 } else if (e.getSource() == laVista.menuItemVaciarNotificaciones) {
                     mtdBtnVaciarNotificaciones();
                 } else if (e.getSource() == laVista.menuItemVaciarMural) {
@@ -76,6 +81,7 @@ public class CtrlVentanaHome {
         this.laVista.menuItemPassword.addMouseListener(evt);
         this.laVista.menuItemVaciarNotificaciones.addMouseListener(evt);
         this.laVista.menuItemVaciarMural.addMouseListener(evt);
+        this.laVista.menuItemCambiarFoto.addMouseListener(evt);
         this.laVista.menuItemEliminarCuenta.addMouseListener(evt);
         this.laVista.btnItemSalir.addMouseListener(evt);
         this.laVista.addMouseListener(evt);
@@ -136,6 +142,26 @@ public class CtrlVentanaHome {
         ctrl.modal.setVisible(true);
     }
 
+    private void mtdBtnCambiarFoto() {
+        // Cambiar foto de perfil
+        JFileChooser elegirArchivo = new JFileChooser();
+        elegirArchivo.setAcceptAllFileFilterUsed(false);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("gif", "jpg", "jpeg", "png");
+        elegirArchivo.addChoosableFileFilter(filter);
+        int respuesta = elegirArchivo.showOpenDialog(this.laVista);
+
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            File archivo = elegirArchivo.getSelectedFile();
+            if (archivo.length() > 1000000) {
+                JOptionPane.showMessageDialog(null, "Lo siento, la imagen tiene que ser menor de 1MB.");
+            } else {
+                // Mostar mensaje de operacion
+                JOptionPane.showMessageDialog(null, "Foto de perfil actualizado exitosamente.");
+            }
+        }
+
+    }
+
     private void mtdBtnVaciarNotificaciones() {
         int respuesta = JOptionPane.showConfirmDialog(null, "Seguro que deseas eliminar todas las notificaciones? ",
                 "Confirmar...", JOptionPane.YES_NO_OPTION);
@@ -144,7 +170,7 @@ public class CtrlVentanaHome {
             JOptionPane.showMessageDialog(null, "Se eliminaron todas las notificaciones, exitosamente.");
         }
     }
-    
+
     private void mtdBtnVaciarMural() {
         int respuesta = JOptionPane.showConfirmDialog(null, "Seguro que deseas eliminar todas las firmas del mural? ",
                 "Confirmar...", JOptionPane.YES_NO_OPTION);
@@ -153,8 +179,8 @@ public class CtrlVentanaHome {
             JOptionPane.showMessageDialog(null, "Se eliminaron todas las firmas del mural, exitosamente.");
         }
     }
-    
-    private void mtdBtnEliminarCuenta(){
+
+    private void mtdBtnEliminarCuenta() {
         int respuesta = JOptionPane.showConfirmDialog(null, "Seguro que deseas eliminar la cuenta? ",
                 "Confirmar...", JOptionPane.YES_NO_OPTION);
 
@@ -162,8 +188,8 @@ public class CtrlVentanaHome {
             JOptionPane.showMessageDialog(null, "Cuenta eliminado, exitosamente.");
         }
     }
-    
-    private void mtdBtnSalir(){
+
+    private void mtdBtnSalir() {
         // * Método para cerrar el programa
         mtdDestruirVentana();
         System.exit(0);

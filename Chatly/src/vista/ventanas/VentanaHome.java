@@ -66,7 +66,7 @@ public class VentanaHome extends javax.swing.JFrame {
         menuItemConversaciones = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuItemCambiarFoto = new javax.swing.JMenuItem();
         menuItemVaciarMural = new javax.swing.JMenuItem();
         menuItemVaciarNotificaciones = new javax.swing.JMenuItem();
         menuItemSalir = new javax.swing.JMenu();
@@ -291,8 +291,8 @@ public class VentanaHome extends javax.swing.JFrame {
 
         jMenu2.setText("Perfil");
 
-        jMenuItem1.setText("Cambiar foto");
-        jMenu2.add(jMenuItem1);
+        menuItemCambiarFoto.setText("Cambiar foto");
+        jMenu2.add(menuItemCambiarFoto);
 
         menuItemVaciarMural.setText("Vaciar mural");
         jMenu2.add(menuItemVaciarMural);
@@ -387,7 +387,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem8;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
@@ -404,6 +403,7 @@ public class VentanaHome extends javax.swing.JFrame {
     private vista.componentes.etiqueta.Mensaje mensaje3;
     private vista.componentes.etiqueta.Mensaje mensaje4;
     public javax.swing.JMenuItem menuItemAmigos;
+    public javax.swing.JMenuItem menuItemCambiarFoto;
     public javax.swing.JMenuItem menuItemComunidad;
     public javax.swing.JMenuItem menuItemConversaciones;
     public javax.swing.JMenuItem menuItemDatos;
