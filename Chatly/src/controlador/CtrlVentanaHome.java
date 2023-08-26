@@ -29,130 +29,53 @@ public class CtrlVentanaHome {
     }
     
     // ****** Construir eventos
-    private void mtdBuildEventBtnCerrarSesion(){
-        MouseListener evtCerrarSesion = null;
-        this.laVista.btnHomeCerrarSesion.removeMouseListener(evtCerrarSesion);
+    private void mtdBuildEvents(){
+        MouseListener evt = null;
+        this.laVista.removeMouseListener(evt);
         
-        evtCerrarSesion = new MouseAdapter(){
+        evt = new MouseAdapter(){
             @Override
             public void mouseReleased(MouseEvent e) {
-                mtdBtnCerrarSesion();
+                if( e.getSource() == laVista.btnHomeCerrarSesion  ){
+                    mtdBtnCerrarSesion();
+                } else 
+                if( e.getSource() == laVista.btnCoumidad ){
+                    mtdBtnComunidad();
+                } else 
+                if( e.getSource() == laVista.btnConversaciones ){
+                    mtdBtnConversaciones();
+                } else 
+                if( e.getSource() == laVista.btnAmigos ){
+                    mtdBtnAmigos();
+                } else 
+                if( e.getSource() == laVista.menuItemComunidad ){
+                    mtdBtnComunidad();
+                } else 
+                if( e.getSource() == laVista.menuItemConversaciones ){
+                    mtdBtnConversaciones();
+                } else 
+                if( e.getSource() == laVista.menuItemAmigos ){
+                    mtdBtnAmigos();
+                } else 
+                if( e.getSource() == laVista.menuItemDatos ){
+                    mtdBtnDatos();
+                } else 
+                if( e.getSource() == laVista.menuItemPassword ){
+                    mtdBtnPassword();
+                }
             }
         };
         
-        this.laVista.btnHomeCerrarSesion.addMouseListener(evtCerrarSesion);
-    }
-    
-    private void mtdBuildEventBtnComunidad(){
-        MouseListener evtComunidad = null;
-        this.laVista.btnCoumidad.removeMouseListener(evtComunidad);
-        
-        evtComunidad = new MouseAdapter(){
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mtdBtnComunidad();
-            }
-        };
-        
-        this.laVista.btnCoumidad.addMouseListener(evtComunidad);
-    }
-    
-    private void mtdBuildEventMenuItemComunidad(){
-        MouseListener evtComunidad = null;
-        this.laVista.menuItemComunidad.removeMouseListener(evtComunidad);
-        
-        evtComunidad = new MouseAdapter(){
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mtdBtnComunidad();
-            }
-        };
-        
-        this.laVista.menuItemComunidad.addMouseListener(evtComunidad);
-    }
-    
-    private void mtdBuildEventBtnConversaciones(){
-        MouseListener evtComunidad = null;
-        this.laVista.btnConversaciones.removeMouseListener(evtComunidad);
-        
-        evtComunidad = new MouseAdapter(){
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mtdBtnConversaciones();
-            }
-        };
-        
-        this.laVista.btnConversaciones.addMouseListener(evtComunidad);
-    }
-    
-    private void mtdBuildEventMenuItemConversaciones(){
-        MouseListener evtComunidad = null;
-        this.laVista.menuItemConversaciones.removeMouseListener(evtComunidad);
-        
-        evtComunidad = new MouseAdapter(){
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mtdBtnConversaciones();
-            }
-        };
-        
-        this.laVista.menuItemConversaciones.addMouseListener(evtComunidad);
-    }
-    
-    private void mtdBuildEventBtnAmigos(){
-        MouseListener evtAmigos = null;
-        this.laVista.btnAmigos.removeMouseListener(evtAmigos);
-        
-        evtAmigos = new MouseAdapter(){
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mtdBtnAmigos();
-            }
-        };
-        
-        this.laVista.btnAmigos.addMouseListener(evtAmigos);
-    }
-    
-    private void mtdBuildEventMenuItemAmigos(){
-        MouseListener evtAmigos = null;
-        this.laVista.menuItemAmigos.removeMouseListener(evtAmigos);
-        
-        evtAmigos = new MouseAdapter(){
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mtdBtnAmigos();
-            }
-        };
-        
-        this.laVista.menuItemAmigos.addMouseListener(evtAmigos);
-    }
-    
-    private void mtdBuildEventMenuItemDatos(){
-        MouseListener evtDatos = null;
-        this.laVista.menuItemDatos.removeMouseListener(evtDatos);
-        
-        evtDatos = new MouseAdapter(){
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mtdBtnDatos();
-            }
-        };
-        
-        this.laVista.menuItemDatos.addMouseListener(evtDatos);
-    }
-    
-    private void mtdBuildEventMenuItemPassword(){
-        MouseListener evtDatos = null;
-        this.laVista.menuItemPassword.removeMouseListener(evtDatos);
-        
-        evtDatos = new MouseAdapter(){
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mtdBtnPassword();
-            }
-        };
-        
-        this.laVista.menuItemPassword.addMouseListener(evtDatos);
+        this.laVista.btnHomeCerrarSesion.addMouseListener(evt);
+        this.laVista.btnCoumidad.addMouseListener(evt);
+        this.laVista.btnConversaciones.addMouseListener(evt);
+        this.laVista.btnAmigos.addMouseListener(evt);
+        this.laVista.menuItemComunidad.addMouseListener(evt);
+        this.laVista.menuItemConversaciones.addMouseListener(evt);
+        this.laVista.menuItemAmigos.addMouseListener(evt);
+        this.laVista.menuItemDatos.addMouseListener(evt);
+        this.laVista.menuItemPassword.addMouseListener(evt);
+        this.laVista.addMouseListener(evt);
     }
     
     // ****** Métodos
@@ -160,15 +83,7 @@ public class CtrlVentanaHome {
         
         // * Definir oyentes
         laVista.setLocationRelativeTo(null);
-        mtdBuildEventBtnCerrarSesion();
-        mtdBuildEventBtnComunidad();
-        mtdBuildEventBtnConversaciones();
-        mtdBuildEventBtnAmigos();
-        mtdBuildEventMenuItemComunidad();
-        mtdBuildEventMenuItemConversaciones();
-        mtdBuildEventMenuItemAmigos();
-        mtdBuildEventMenuItemDatos();
-        mtdBuildEventMenuItemPassword();
+        mtdBuildEvents();
         
     }
     
