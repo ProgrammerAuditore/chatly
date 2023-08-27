@@ -4,6 +4,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import modelo.Storage;
+import modelo.dao.PerfilDao;
+import modelo.dto.PerfilDto;
 import src.SrcChatly;
 import vista.ventanas.VentanaHome;
 import vista.ventanas.VentanaPrincipal;
@@ -14,12 +17,17 @@ public class CtrlVentanaPrincipal {
     public VentanaPrincipal laVista;
 
     // * Modelos
+    private PerfilDao dao;
+    private PerfilDto dto;
+    
     
     // * Atributos
     
     // ****** Constructores
-    public CtrlVentanaPrincipal(VentanaPrincipal laVista) {
+    public CtrlVentanaPrincipal(VentanaPrincipal laVista, PerfilDao dao, PerfilDto dto) {
         this.laVista = laVista;
+        this.dao = dao;
+        this.dto = dto;
 
         // * Inicializar
         mtdInit();
@@ -90,9 +98,18 @@ public class CtrlVentanaPrincipal {
     private void mtdBtnSingUp(){
         if(!mtdVerificarDatosSingUp()){
             return;
+        }else
+        if(dao.mtdVerificarCuenta(this.dto) || Storage.fncStorageVerificarUnaCuenta(dto.getsCorreo()) ){
+            JOptionPane.showMessageDialog(null, "Usuario ya está registrado!!", "Registrarme", JOptionPane.ERROR_MESSAGE);
+            return;
         }
         
-        JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente!!", "Registrarme", JOptionPane.INFORMATION_MESSAGE);
+        if( dao.mtdCrearCuenta(dto) && Storage.fncStorageVerificarUnaCuenta(dto.getsCorreo()) ){
+            JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente!!", "Registrarme", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Hubo un error al crear la cuenta!!\nIntentalo otra vez!!", "Registrarme", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }   
     
     private boolean mtdVerificarDatosSingUp(){
@@ -119,12 +136,19 @@ public class CtrlVentanaPrincipal {
             msg += "* El campo contraseña debe ser mayor a 3 caracteres. \n";
         }
         
-        if(msg_tam == msg.length()){
-            return true;
-        }else {
+        if(msg_tam != msg.length()){
             JOptionPane.showMessageDialog(laVista, msg, "Registrarme", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+        
+        // * Si no hay error se establece los valores a DTO
+        this.dto.setsNombres(this.laVista.cmpSingUpFirstNames.getText().trim());
+        this.dto.setsApellidos(this.laVista.cmpSingUpLasttNames.getText().trim());
+        this.dto.setsCorreo(this.laVista.cmpSingUpEmail.getText().trim());
+        this.dto.setsPassword(String.valueOf(this.laVista.cmpSingUpPassword.getPassword()).trim());
+        this.dto.setsFotoPerfil("user_default.png");
+        
+        return true;
     }
     
     private void mtdDestruirVentana(){

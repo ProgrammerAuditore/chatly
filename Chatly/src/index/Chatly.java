@@ -2,6 +2,8 @@ package index;
 
 import controlador.CtrlVentanaPrincipal;
 import javax.swing.JFrame;
+import modelo.dao.PerfilDao;
+import modelo.dto.PerfilDto;
 import src.Info;
 import src.SrcChatly;
 import vista.ventanas.VentanaPrincipal;
@@ -12,7 +14,9 @@ public class Chatly {
         
         // * Crear la ventanaPrincipal principal con su respectivo patrón de diseño MVC
         SrcChatly.ventanaPrincipal = new VentanaPrincipal();
-        CtrlVentanaPrincipal ctrl_p = new CtrlVentanaPrincipal(SrcChatly.ventanaPrincipal);
+        PerfilDao dao = new PerfilDao();
+        PerfilDto dto = new PerfilDto();
+        CtrlVentanaPrincipal ctrl_p = new CtrlVentanaPrincipal(SrcChatly.ventanaPrincipal, dao, dto);
     
         // * Ejecutar hilos
         

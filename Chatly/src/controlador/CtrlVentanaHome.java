@@ -8,6 +8,8 @@ import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import modelo.dao.PerfilDao;
+import modelo.dto.PerfilDto;
 import src.SrcChatly;
 import vista.paneles.PanelDatos;
 import vista.paneles.PanelPassword;
@@ -99,7 +101,9 @@ public class CtrlVentanaHome {
     private void mtdBtnCerrarSesion() {
         mtdDestruirVentana();
         SrcChatly.ventanaPrincipal = new VentanaPrincipal();
-        CtrlVentanaPrincipal ctrl = new CtrlVentanaPrincipal(SrcChatly.ventanaPrincipal);
+        PerfilDao dao = new PerfilDao();
+        PerfilDto dto = new PerfilDto();
+        CtrlVentanaPrincipal ctrl = new CtrlVentanaPrincipal(SrcChatly.ventanaPrincipal, dao, dto);
         ctrl.laVista.setVisible(true);
     }
 
