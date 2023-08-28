@@ -1,11 +1,38 @@
 package modelo.dao;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.util.Scanner;
 import modelo.Storage;
 import modelo.dto.PerfilDto;
 
 public class PerfilDao {
+    
+    public boolean mtdObtenerPerfil(PerfilDto dto){
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+        Scanner scanner;
+        
+        try {
+            scanner = new Scanner(new File( srcFile
+                        .replaceAll("%correo%", dto.getsCorreo())
+                        .replaceFirst("%ext%", "data") ));
+            
+            scanner.useDelimiter("\n");
+            
+            dto.setsNombres(scanner.next().trim());
+            dto.setsApellidos(scanner.next().trim());
+            dto.setsCorreo(scanner.next().trim());
+            dto.setsPassword(scanner.next());
+            dto.setsFotoPerfil(scanner.next().trim());
+            
+            scanner.close();
+        } catch (FileNotFoundException ex) {
+            return false;
+        }
+        
+        return true;
+    }
 
     public boolean mtdVerificarCuenta(PerfilDto dto) {
 

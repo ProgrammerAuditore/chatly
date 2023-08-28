@@ -60,17 +60,32 @@ public class CtrlVentanaPrincipal {
         // * Definir oyentes
         laVista.setLocationRelativeTo(null);
         mtdBuildEvents();
+        
     }
 
     private void mtdBtnSingIn() {
         if(!mtdVerificarDatosSingIn()){
             return;
+        } else
+        if(!dao.mtdVerificarCuenta(this.dto) || !Storage.fncStorageVerificarUnaCuenta(dto.getsCorreo()) ){
+            JOptionPane.showMessageDialog(null, "Usuario no existente!! Registrate !!", "Acceder", JOptionPane.ERROR_MESSAGE);
+            return;
         }
         
-        mtdDestruirVentana();
-        SrcChatly.ventanaHome = new VentanaHome();
-        CtrlVentanaHome home = new CtrlVentanaHome(SrcChatly.ventanaHome);
-        home.laVista.setVisible(true);
+        // * Obtenemos los datos de la cuenta y verificamos la contraseña
+        dao.mtdObtenerPerfil(this.dto);
+        if( this.dto.getsPassword().equals(String.valueOf(this.laVista.cmpSingInPassword.getPassword())) ){
+            
+            mtdDestruirVentana();
+            SrcChatly.ventanaHome = new VentanaHome();
+            CtrlVentanaHome home = new CtrlVentanaHome(SrcChatly.ventanaHome);
+            home.laVista.setVisible(true);
+            
+        } else  {
+            JOptionPane.showMessageDialog(null, "Correo eléctronico o Contraseña incorrecto !!", "Acceder", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
     }
     
     private boolean mtdVerificarDatosSingIn(){
@@ -87,12 +102,16 @@ public class CtrlVentanaPrincipal {
             msg += "* El campo contraseña debe ser mayor a 3 caracteres. \n";
         }
         
-        if(msg_tam == msg.length()){
-            return true;
-        }else {
+        if(msg_tam != msg.length()){
             JOptionPane.showMessageDialog(laVista, msg, "Acceder", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+        
+        // * Si no hay error se establece los valores a DTO
+        this.dto.setsCorreo(this.laVista.cmpSingInEmail.getText().trim());
+        this.dto.setsPassword(String.valueOf(this.laVista.cmpSingInPassword.getPassword()).trim());
+        
+        return true;
     }
     
     private void mtdBtnSingUp(){
