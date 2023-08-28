@@ -212,5 +212,11 @@ public class CtrlVentanaHome {
         this.laVista.dispose(); // Se libera la memoria
         SrcChatly.ventanaHome = null;
     }
+    
+    public static void mtdActualizarVentana(){
+        VentanaHome.cmpNombres.setText(SrcChatly.dto.getsNombres());
+        VentanaHome.cmpApellidos.setText(SrcChatly.dto.getsApellidos());
+        VentanaHome.cmpBio.setText(SrcChatly.dto.getsBio());        
+    }
 
 }

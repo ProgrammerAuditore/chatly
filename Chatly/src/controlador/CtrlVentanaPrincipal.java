@@ -103,7 +103,7 @@ public class CtrlVentanaPrincipal {
         if(!mtdVerificarDatosSingIn()){
             return;
         } else
-        if(!dao.mtdVerificarCuenta(this.dto) || !Storage.fncStorageVerificarUnaCuenta(dto.getsCorreo()) ){
+        if(!dao.mtdVerificarPerfil(this.dto) || !Storage.fncStorageVerificarUnaCuenta(dto.getsCorreo()) ){
             JOptionPane.showMessageDialog(null, "Usuario no existente!! Registrate !!", "Acceder", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -156,12 +156,12 @@ public class CtrlVentanaPrincipal {
         if(!mtdVerificarDatosSingUp()){
             return;
         }else
-        if(dao.mtdVerificarCuenta(this.dto) || Storage.fncStorageVerificarUnaCuenta(dto.getsCorreo()) ){
+        if(dao.mtdVerificarPerfil(this.dto) || Storage.fncStorageVerificarUnaCuenta(dto.getsCorreo()) ){
             JOptionPane.showMessageDialog(null, "Usuario ya está registrado!!", "Registrarme", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
-        if( dao.mtdCrearCuenta(dto) && Storage.fncStorageVerificarUnaCuenta(dto.getsCorreo()) ){
+        if( dao.mtdCrearPerfil(dto) && Storage.fncStorageVerificarUnaCuenta(dto.getsCorreo()) ){
             JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente!!", "Registrarme", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Hubo un error al crear la cuenta!!\nIntentalo otra vez!!", "Registrarme", JOptionPane.ERROR_MESSAGE);

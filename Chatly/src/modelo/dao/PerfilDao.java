@@ -8,47 +8,79 @@ import modelo.Storage;
 import modelo.dto.PerfilDto;
 
 public class PerfilDao {
-    
-    public boolean mtdObtenerPerfil(PerfilDto dto){
+
+    public boolean mtdObtenerPerfil(PerfilDto dto) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
         Scanner scanner;
-        
+
         try {
             // ** Obtener datos de la cuenta
-            scanner = new Scanner(new File( srcFile
-                        .replaceAll("%correo%", dto.getsCorreo())
-                        .replaceFirst("%ext%", "data") ));
+            scanner = new Scanner(new File(srcFile
+                    .replaceAll("%correo%", dto.getsCorreo())
+                    .replaceFirst("%ext%", "data")));
             scanner.useDelimiter("\n");
-            
+
             dto.setsNombres(scanner.next().trim());
             dto.setsApellidos(scanner.next().trim());
             dto.setsCorreo(scanner.next().trim());
             dto.setsPassword(scanner.next());
             dto.setsFotoPerfil(scanner.next().trim());
             scanner.close(); // Cerrar archivo
-            
+
             // ** Obtener bio de la cuenta
-            scanner = new Scanner(new File( srcFile
-                        .replaceAll("%correo%", dto.getsCorreo())
-                        .replaceFirst("%ext%", "bio") ));
+            scanner = new Scanner(new File(srcFile
+                    .replaceAll("%correo%", dto.getsCorreo())
+                    .replaceFirst("%ext%", "bio")));
             scanner.useDelimiter("\n");
             String bio = "";
-            
-            while(scanner.hasNextLine()){
+
+            while (scanner.hasNextLine()) {
                 bio += scanner.nextLine() + "\n";
             }
-            
+
             dto.setsBio(bio);
             scanner.close(); // Cerrar archivo
-            
+
         } catch (FileNotFoundException ex) {
             return false;
         }
-        
+
         return true;
     }
 
-    public boolean mtdVerificarCuenta(PerfilDto dto) {
+    public boolean mtdActualizarPerfil(PerfilDto dto) {
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+
+        try {
+
+            // * Registrar datos de la cuenta en DATA
+            FileWriter registrar_datos = new FileWriter(srcFile
+                    .replaceAll("%correo%", dto.getsCorreo())
+                    .replaceFirst("%ext%", "data"));
+
+            registrar_datos.write(dto.getsNombres() + "\n");
+            registrar_datos.write(dto.getsApellidos() + "\n");
+            registrar_datos.write(dto.getsCorreo() + "\n");
+            registrar_datos.write(dto.getsPassword() + "\n");
+            registrar_datos.write(dto.getsFotoPerfil() + "\n");
+            registrar_datos.close();
+            
+            // * Registrar bio de la cuenta en DATA
+            FileWriter registrar_bio = new FileWriter(srcFile
+                    .replaceAll("%correo%", dto.getsCorreo())
+                    .replaceFirst("%ext%", "bio"));
+
+            registrar_bio.write(dto.getsBio());
+            registrar_bio.close();
+
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean mtdVerificarPerfil(PerfilDto dto) {
 
         // * Crear ruta de la carpeta de perfil
         String srcProfile = "storage_profiles/" + dto.getsCorreo();
@@ -57,8 +89,12 @@ public class PerfilDao {
         // * Crear ruta de el archivo .data de perfil
         String srcData = "storage_profiles/" + dto.getsCorreo() + "/profile/" + dto.getsCorreo() + ".data";
         File data = new File(srcData);
+        
+        // * Crear ruta de el archivo .bio de perfil
+        String srcBio = "storage_profiles/" + dto.getsCorreo() + "/profile/" + dto.getsCorreo() + ".bio";
+        File bio = new File(srcBio);
 
-        if (!(profile.isDirectory() && profile.exists())
+        if (!(profile.isDirectory() && profile.exists() && bio.exists())
                 || !(data.isFile() && data.exists())) {
             return false;
         }
@@ -66,7 +102,7 @@ public class PerfilDao {
         return true;
     }
 
-    public boolean mtdCrearCuenta(PerfilDto dto) {
+    public boolean mtdCrearPerfil(PerfilDto dto) {
         String srcDir = "storage_profiles/%correo%/%nombre%";
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
 
@@ -99,11 +135,11 @@ public class PerfilDao {
             registrar_datos.write(dto.getsPassword() + "\n");
             registrar_datos.write(dto.getsFotoPerfil() + "\n");
             registrar_datos.close();
-            
+
             // * Registrar cuenta en database.profiles
             Storage.fncStorageAcoplarUnaLinea(srcDir
                     .replaceFirst("%correo%", "database.profiles")
-                    .replaceFirst("%nombre%", ""), 
+                    .replaceFirst("%nombre%", ""),
                     dto.getsCorreo());
 
         } catch (Exception e) {

@@ -76,7 +76,16 @@ public class CtrlPanelDatos {
             return;
         }
         
-        JOptionPane.showMessageDialog(null, "Datos modificado exitosamente!!", "Cambiar datos", JOptionPane.INFORMATION_MESSAGE);
+        SrcChatly.dto.setsNombres(this.laVista.cmpNombres.getText().trim());
+        SrcChatly.dto.setsApellidos(this.laVista.cmpApellidos.getText().trim());
+        SrcChatly.dto.setsBio(this.laVista.cmpBio.getText().trim());
+        if(SrcChatly.dao.mtdActualizarPerfil(SrcChatly.dto)){
+            this.mtdEstablecerDatos();
+            CtrlVentanaHome.mtdActualizarVentana();
+            JOptionPane.showMessageDialog(null, "Datos modificado exitosamente!!", "Cambiar datos", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al actualizar datos!!", "Cambiar datos", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
     
     private boolean mtdVerificarDatos(){
