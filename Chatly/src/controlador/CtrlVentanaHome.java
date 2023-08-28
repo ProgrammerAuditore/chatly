@@ -98,11 +98,15 @@ public class CtrlVentanaHome {
         mtdEstablecerDatos();
 
     }
-    
-    private void mtdEstablecerDatos(){
-        this.laVista.cmpNombres.setText( SrcChatly.dto.getsNombres() );
-        this.laVista.cmpApellidos.setText( SrcChatly.dto.getsApellidos());
+
+    private void mtdEstablecerDatos() {
+        this.laVista.cmpNombres.setText(SrcChatly.dto.getsNombres());
+        this.laVista.cmpApellidos.setText(SrcChatly.dto.getsApellidos());
         this.laVista.cmpBio.setText(SrcChatly.dto.getsBio());
+
+        if (!SrcChatly.dto.getsFotoPerfil().contains("user_default.png")) {
+            SrcChatly.dao.mtdInsertarFotoPerfil(this.laVista.cmpFotoPerfil, SrcChatly.dto, true);
+        }
     }
 
     private void mtdBtnCerrarSesion() {
@@ -166,8 +170,15 @@ public class CtrlVentanaHome {
             if (archivo.length() > 1000000) {
                 JOptionPane.showMessageDialog(null, "Lo siento, la imagen tiene que ser menor de 1MB.");
             } else {
-                // Mostar mensaje de operacion
-                JOptionPane.showMessageDialog(null, "Foto de perfil actualizado exitosamente.");
+
+                if (SrcChatly.dao.mtdActualizarFotoPerfil(SrcChatly.dto, archivo.getAbsolutePath())
+                    && SrcChatly.dao.mtdActualizarPerfil(SrcChatly.dto)) {
+                    
+                    SrcChatly.dao.mtdInsertarFotoPerfil(this.laVista.cmpFotoPerfil, SrcChatly.dto, true);
+                    JOptionPane.showMessageDialog(null, "Foto de perfil actualizado exitosamente.");
+                
+                }
+
             }
         }
 
@@ -212,11 +223,11 @@ public class CtrlVentanaHome {
         this.laVista.dispose(); // Se libera la memoria
         SrcChatly.ventanaHome = null;
     }
-    
-    public static void mtdActualizarVentana(){
+
+    public static void mtdActualizarVentana() {
         VentanaHome.cmpNombres.setText(SrcChatly.dto.getsNombres());
         VentanaHome.cmpApellidos.setText(SrcChatly.dto.getsApellidos());
-        VentanaHome.cmpBio.setText(SrcChatly.dto.getsBio());        
+        VentanaHome.cmpBio.setText(SrcChatly.dto.getsBio());
     }
 
 }

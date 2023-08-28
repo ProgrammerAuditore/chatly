@@ -41,7 +41,7 @@ public class VentanaHome extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jButton1 = new javax.swing.JButton();
         jPanelBackground1 = new vista.componentes.jpanelbackground.JPanelBackground();
-        jPanelBackground2 = new vista.componentes.jpanelbackground.JPanelBackground();
+        cmpFotoPerfil = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground3 = new vista.componentes.jpanelbackground.JPanelBackground();
         mensaje1 = new vista.componentes.etiqueta.Mensaje();
         cmpNombres = new vista.componentes.campos.CampoDatos();
@@ -89,18 +89,18 @@ public class VentanaHome extends javax.swing.JFrame {
         jPanelBackground1.setImgBackgroundIn_Ex(false);
         jPanelBackground1.setImgRutaInterno("/storage/img/bkg03.png");
 
-        jPanelBackground2.setImgBackgroundEnabled(true);
-        jPanelBackground2.setImgRutaExterno(new java.io.File("C:\\Program Files\\NetBeans-12.4\\<Not Set>"));
-        jPanelBackground2.setImgRutaInterno("/storage/img/user_default.png");
+        cmpFotoPerfil.setImgBackgroundEnabled(true);
+        cmpFotoPerfil.setImgRutaExterno(new java.io.File("C:\\Program Files\\NetBeans-12.4\\<Not Set>"));
+        cmpFotoPerfil.setImgRutaInterno("/storage/img/user_default.png");
 
-        javax.swing.GroupLayout jPanelBackground2Layout = new javax.swing.GroupLayout(jPanelBackground2);
-        jPanelBackground2.setLayout(jPanelBackground2Layout);
-        jPanelBackground2Layout.setHorizontalGroup(
-            jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout cmpFotoPerfilLayout = new javax.swing.GroupLayout(cmpFotoPerfil);
+        cmpFotoPerfil.setLayout(cmpFotoPerfilLayout);
+        cmpFotoPerfilLayout.setHorizontalGroup(
+            cmpFotoPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 140, Short.MAX_VALUE)
         );
-        jPanelBackground2Layout.setVerticalGroup(
-            jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        cmpFotoPerfilLayout.setVerticalGroup(
+            cmpFotoPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -178,7 +178,7 @@ public class VentanaHome extends javax.swing.JFrame {
                         .addComponent(btnConversaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1)
                     .addGroup(jPanelBackground3Layout.createSequentialGroup()
-                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addGap(0, 9, Short.MAX_VALUE)
                         .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -250,11 +250,11 @@ public class VentanaHome extends javax.swing.JFrame {
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
                         .addComponent(jPanelBackground5, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE))
+                        .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
-                        .addComponent(jPanelBackground2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmpFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)))
+                        .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelBackground1Layout.setVerticalGroup(
@@ -263,11 +263,11 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(jPanelBackground2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                    .addComponent(cmpFotoPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                    .addComponent(jPanelBackground5, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
+                    .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                    .addComponent(jPanelBackground5, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -381,6 +381,7 @@ public class VentanaHome extends javax.swing.JFrame {
     public javax.swing.JMenuItem btnItemSalir;
     public static vista.componentes.campos.CampoDatos cmpApellidos;
     public static javax.swing.JTextArea cmpBio;
+    public vista.componentes.jpanelbackground.JPanelBackground cmpFotoPerfil;
     public static vista.componentes.campos.CampoDatos cmpNombres;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
@@ -390,7 +391,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem8;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
-    private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground3;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground4;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground5;
