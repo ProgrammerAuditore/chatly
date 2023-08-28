@@ -20,7 +20,6 @@ public class CtrlVentanaPrincipal {
     private PerfilDao dao;
     private PerfilDto dto;
     
-    
     // * Atributos
     
     // ****** Constructores
@@ -78,6 +77,8 @@ public class CtrlVentanaPrincipal {
             
             mtdDestruirVentana();
             SrcChatly.ventanaHome = new VentanaHome();
+            SrcChatly.dao = dao;
+            SrcChatly.dto = dto;
             CtrlVentanaHome home = new CtrlVentanaHome(SrcChatly.ventanaHome);
             home.laVista.setVisible(true);
             

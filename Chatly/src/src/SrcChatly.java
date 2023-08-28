@@ -2,6 +2,8 @@ package src;
 
 import java.io.File;
 import java.util.Properties;
+import modelo.dao.PerfilDao;
+import modelo.dto.PerfilDto;
 import src.idiomas.Idiomas;
 import vista.ventanas.VentanaAmigos;
 import vista.ventanas.VentanaComunidad;
@@ -16,7 +18,9 @@ public class SrcChatly {
     public static VentanaComunidad ventanaComunidad;
     public static VentanaAmigos ventanaAmigos;
     public static VentanaConversaciones ventanaConversaciones;
-    public static Properties idioma = new Idiomas("en");
+    public static PerfilDao dao;
+    public static PerfilDto dto;
+    public static Properties idioma = new Idiomas("es");
     public static long ctrlID;
     public static String IdiomaDefinido;
     

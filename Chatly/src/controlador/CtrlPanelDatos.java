@@ -8,6 +8,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import src.SrcChatly;
 import vista.paneles.PanelDatos;
 
 public class CtrlPanelDatos {
@@ -52,6 +53,7 @@ public class CtrlPanelDatos {
         modal.setPreferredSize(laVista.getSize() );
         modal.setContentPane(laVista);
         
+        mtdEstablecerDatos();
         mtdBuildEvents();
         modal.addWindowListener(new WindowAdapter() {
             @Override
@@ -61,6 +63,11 @@ public class CtrlPanelDatos {
             }
         });
         
+    }
+    
+    private void mtdEstablecerDatos(){
+        this.laVista.cmpNombres.setText(SrcChatly.dto.getsNombres());
+        this.laVista.cmpApellidos.setText(SrcChatly.dto.getsApellidos());
     }
     
     private void mtdBtnAceptar(){

@@ -265,8 +265,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="mensaje2" max="32767" attributes="0"/>
-                          <Component id="campoDatos2" pref="200" max="32767" attributes="0"/>
-                          <Component id="campoDatos1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cmpApellidos" pref="200" max="32767" attributes="0"/>
+                          <Component id="cmpNombres" alignment="0" max="32767" attributes="0"/>
                           <Component id="mensaje1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -303,11 +303,11 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="campoDatos1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmpNombres" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="mensaje2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Component id="campoDatos2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmpApellidos" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane2" max="32767" attributes="0"/>
                               </Group>
@@ -324,17 +324,23 @@
                 <Property name="text" type="java.lang.String" value="Nombre (s)"/>
               </Properties>
             </Component>
-            <Component class="vista.componentes.campos.CampoDatos" name="campoDatos1">
+            <Component class="vista.componentes.campos.CampoDatos" name="cmpNombres">
               <Properties>
                 <Property name="text" type="java.lang.String" value="campoDatos1"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
-            <Component class="vista.componentes.campos.CampoDatos" name="campoDatos2">
+            <Component class="vista.componentes.campos.CampoDatos" name="cmpApellidos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="campoDatos2"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="vista.componentes.etiqueta.Mensaje" name="mensaje2">
               <Properties>
@@ -385,7 +391,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                <Component class="javax.swing.JTextArea" name="cmpBio">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
@@ -394,9 +400,12 @@
                     </Property>
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Ing. Sistemas de computaciones&#xa;Desarrollador web&#xa;Trabajo en Google"/>
+                    <Property name="text" type="java.lang.String" value="Soy nuevo en Chatly.com"/>
                     <Property name="autoscrolls" type="boolean" value="false"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

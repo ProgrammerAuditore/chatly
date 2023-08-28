@@ -44,8 +44,8 @@ public class VentanaHome extends javax.swing.JFrame {
         jPanelBackground2 = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground3 = new vista.componentes.jpanelbackground.JPanelBackground();
         mensaje1 = new vista.componentes.etiqueta.Mensaje();
-        campoDatos1 = new vista.componentes.campos.CampoDatos();
-        campoDatos2 = new vista.componentes.campos.CampoDatos();
+        cmpNombres = new vista.componentes.campos.CampoDatos();
+        cmpApellidos = new vista.componentes.campos.CampoDatos();
         mensaje2 = new vista.componentes.etiqueta.Mensaje();
         mensaje3 = new vista.componentes.etiqueta.Mensaje();
         btnCoumidad = new vista.componentes.boton.Boton();
@@ -53,7 +53,7 @@ public class VentanaHome extends javax.swing.JFrame {
         btnConversaciones = new vista.componentes.boton.Boton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        cmpBio = new javax.swing.JTextArea();
         jPanelBackground4 = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground5 = new vista.componentes.jpanelbackground.JPanelBackground();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -111,11 +111,11 @@ public class VentanaHome extends javax.swing.JFrame {
 
         mensaje1.setText("Nombre (s)");
 
-        campoDatos1.setText("campoDatos1");
-        campoDatos1.setEnabled(false);
+        cmpNombres.setText("campoDatos1");
+        cmpNombres.setEnabled(false);
 
-        campoDatos2.setText("campoDatos2");
-        campoDatos2.setEnabled(false);
+        cmpApellidos.setText("campoDatos2");
+        cmpApellidos.setEnabled(false);
 
         mensaje2.setText("Apellido (s)");
 
@@ -132,14 +132,14 @@ public class VentanaHome extends javax.swing.JFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Ing. Sistemas de computaciones\nDesarrollador web\nTrabajo en Google");
-        jTextArea1.setAutoscrolls(false);
-        jScrollPane2.setViewportView(jTextArea1);
+        cmpBio.setEditable(false);
+        cmpBio.setColumns(20);
+        cmpBio.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        cmpBio.setLineWrap(true);
+        cmpBio.setRows(5);
+        cmpBio.setText("Soy nuevo en Chatly.com");
+        cmpBio.setAutoscrolls(false);
+        jScrollPane2.setViewportView(cmpBio);
 
         javax.swing.GroupLayout jPanelBackground3Layout = new javax.swing.GroupLayout(jPanelBackground3);
         jPanelBackground3.setLayout(jPanelBackground3Layout);
@@ -153,8 +153,8 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(mensaje2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(campoDatos2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(campoDatos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmpApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(cmpNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,11 +185,11 @@ public class VentanaHome extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanelBackground3Layout.createSequentialGroup()
-                                .addComponent(campoDatos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmpNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(mensaje2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(11, 11, 11)
-                                .addComponent(campoDatos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmpApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2))))
                 .addContainerGap())
         );
@@ -379,8 +379,9 @@ public class VentanaHome extends javax.swing.JFrame {
     public vista.componentes.boton.Boton btnCoumidad;
     public javax.swing.JMenuItem btnHomeCerrarSesion;
     public javax.swing.JMenuItem btnItemSalir;
-    private vista.componentes.campos.CampoDatos campoDatos1;
-    private vista.componentes.campos.CampoDatos campoDatos2;
+    public vista.componentes.campos.CampoDatos cmpApellidos;
+    public javax.swing.JTextArea cmpBio;
+    public vista.componentes.campos.CampoDatos cmpNombres;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JList<String> jList1;
@@ -397,7 +398,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JTextArea jTextArea1;
     private vista.componentes.etiqueta.Mensaje mensaje1;
     private vista.componentes.etiqueta.Mensaje mensaje2;
     private vista.componentes.etiqueta.Mensaje mensaje3;

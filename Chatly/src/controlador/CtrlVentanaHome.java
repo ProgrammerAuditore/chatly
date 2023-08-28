@@ -22,7 +22,7 @@ import vista.ventanas.VentanaPrincipal;
 public class CtrlVentanaHome {
 
     // ****** Vista
-    VentanaHome laVista;
+    public VentanaHome laVista;
 
     // ****** Modelos 
     // ****** Atributos
@@ -95,7 +95,13 @@ public class CtrlVentanaHome {
         // * Definir oyentes
         laVista.setLocationRelativeTo(null);
         mtdBuildEvents();
+        mtdEstablecerDatos();
 
+    }
+    
+    private void mtdEstablecerDatos(){
+        this.laVista.cmpNombres.setText( SrcChatly.dto.getsNombres() );
+        this.laVista.cmpApellidos.setText( SrcChatly.dto.getsApellidos());
     }
 
     private void mtdBtnCerrarSesion() {
