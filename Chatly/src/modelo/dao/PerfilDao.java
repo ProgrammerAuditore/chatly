@@ -117,7 +117,7 @@ public class PerfilDao {
             }
 
             // * Crear archivos de almacenamiento
-            String[] archivos = {"data", "chats", "tome", "friends", "notify"};
+            String[] archivos = {"data", "chats", "tome", "friends", "notify", "bio"};
             for (String ext : archivos) {
                 new File(srcFile
                         .replaceAll("%correo%", dto.getsCorreo())
@@ -135,6 +135,14 @@ public class PerfilDao {
             registrar_datos.write(dto.getsPassword() + "\n");
             registrar_datos.write(dto.getsFotoPerfil() + "\n");
             registrar_datos.close();
+            
+            // * Registrar bio de la cuenta en DATA
+            FileWriter registrar_bio = new FileWriter(srcFile
+                    .replaceAll("%correo%", dto.getsCorreo())
+                    .replaceFirst("%ext%", archivos[5]));
+
+            registrar_bio.write(dto.getsBio());
+            registrar_bio.close();
 
             // * Registrar cuenta en database.profiles
             Storage.fncStorageAcoplarUnaLinea(srcDir

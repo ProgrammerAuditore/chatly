@@ -204,6 +204,7 @@ public class CtrlVentanaPrincipal {
         this.dto.setsCorreo(this.laVista.cmpSingUpEmail.getText().trim());
         this.dto.setsPassword(String.valueOf(this.laVista.cmpSingUpPassword.getPassword()).trim());
         this.dto.setsFotoPerfil("user_default.png");
+        this.dto.setsBio("Soy nuevo en Chatly \n" + "Firma mi mural 😄!!");
         
         return true;
     }
