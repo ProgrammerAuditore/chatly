@@ -1,5 +1,8 @@
 package controlador;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -53,12 +56,46 @@ public class CtrlVentanaPrincipal {
         this.laVista.btnSingUp.addMouseListener(evt);
         this.laVista.addMouseListener(evt);
     }
+    
+    private void mtdBuildKeyEvents(){
+        KeyListener evt = null;
+        this.laVista.removeKeyListener(evt);
+        
+        evt = new KeyAdapter(){
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if( e.getKeyCode() == KeyEvent.VK_ENTER && e.getSource() == laVista.cmpSingInEmail ){
+                    laVista.requestFocusInWindow();
+                    mtdBtnSingIn();
+                } else 
+                if( e.getKeyCode() == KeyEvent.VK_ENTER && e.getSource() == laVista.cmpSingInPassword ){
+                    laVista.requestFocusInWindow();
+                    mtdBtnSingIn();
+                } else 
+                if( e.getKeyCode() == KeyEvent.VK_ENTER && e.getSource() == laVista.cmpSingUpEmail ){
+                    laVista.requestFocusInWindow();
+                    mtdBtnSingUp();
+                } else 
+                if( e.getKeyCode() == KeyEvent.VK_ENTER && e.getSource() == laVista.cmpSingUpPassword ){
+                    laVista.requestFocusInWindow();
+                    mtdBtnSingUp();
+                } 
+            }
+        };
+        
+        this.laVista.cmpSingInEmail.addKeyListener(evt);
+        this.laVista.cmpSingInPassword.addKeyListener(evt);
+        this.laVista.cmpSingUpEmail.addKeyListener(evt);
+        this.laVista.cmpSingUpPassword.addKeyListener(evt);
+        this.laVista.addKeyListener(evt);
+    }
 
     private void mtdInit() {
 
         // * Definir oyentes
         laVista.setLocationRelativeTo(null);
         mtdBuildEvents();
+        mtdBuildKeyEvents();
         
     }
 
