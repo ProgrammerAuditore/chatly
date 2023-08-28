@@ -68,10 +68,19 @@ public class CtrlVentanaHome {
                     mtdBtnEliminarCuenta();
                 } else if (e.getSource() == laVista.btnItemSalir) {
                     mtdBtnSalir();
+                } else if (e.getSource() == laVista.menuPopFotoEliminar) {
+                    mtdBtnEliminarFoto();
+                } else if (e.getSource() == laVista.menuPopFotoCambiar) {
+                    mtdBtnCambiarFoto();
+                } else if (e.getSource() == laVista.cmpFotoPerfil) {
+                    laVista.menuPopFoto.show(laVista.cmpFotoPerfil, e.getX(), e.getY());
+                } else if (e.getSource() == laVista.cmpFotoPerfil && e.getButton() == MouseEvent.BUTTON3) {
+                    laVista.menuPopFoto.show(laVista.cmpFotoPerfil, e.getX(), e.getY());
                 }
             }
         };
 
+        this.laVista.cmpFotoPerfil.addMouseListener(evt);
         this.laVista.btnHomeCerrarSesion.addMouseListener(evt);
         this.laVista.btnCoumidad.addMouseListener(evt);
         this.laVista.btnConversaciones.addMouseListener(evt);
@@ -86,6 +95,8 @@ public class CtrlVentanaHome {
         this.laVista.menuItemCambiarFoto.addMouseListener(evt);
         this.laVista.menuItemEliminarCuenta.addMouseListener(evt);
         this.laVista.btnItemSalir.addMouseListener(evt);
+        this.laVista.menuPopFotoCambiar.addMouseListener(evt);
+        this.laVista.menuPopFotoEliminar.addMouseListener(evt);
         this.laVista.addMouseListener(evt);
     }
 
@@ -172,16 +183,31 @@ public class CtrlVentanaHome {
             } else {
 
                 if (SrcChatly.dao.mtdActualizarFotoPerfil(SrcChatly.dto, archivo.getAbsolutePath())
-                    && SrcChatly.dao.mtdActualizarPerfil(SrcChatly.dto)) {
-                    
+                        && SrcChatly.dao.mtdActualizarPerfil(SrcChatly.dto)) {
+
                     SrcChatly.dao.mtdInsertarFotoPerfil(this.laVista.cmpFotoPerfil, SrcChatly.dto, true);
                     JOptionPane.showMessageDialog(null, "Foto de perfil actualizado exitosamente.");
-                
+
                 }
 
             }
         }
 
+    }
+
+    private void mtdBtnEliminarFoto() {
+        int respuesta = JOptionPane.showConfirmDialog(null, "Seguro que deseas eliminar tu foto de perfil? ",
+                "Confirmar...", JOptionPane.YES_NO_OPTION);
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            SrcChatly.dto.setsFotoPerfil("user_default.png");
+            if (SrcChatly.dao.mtdActualizarPerfil(SrcChatly.dto)) {
+                SrcChatly.dao.mtdEliminarFotoPerfil(this.laVista.cmpFotoPerfil, SrcChatly.dto, true);
+                JOptionPane.showMessageDialog(null, "Foto de perfil eliminado, exitosamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Lo siento foto de perfil no eliminado.");
+            }
+        }
     }
 
     private void mtdBtnVaciarNotificaciones() {

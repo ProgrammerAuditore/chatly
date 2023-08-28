@@ -40,6 +40,9 @@ public class VentanaHome extends javax.swing.JFrame {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jButton1 = new javax.swing.JButton();
+        menuPopFoto = new javax.swing.JPopupMenu();
+        menuPopFotoCambiar = new javax.swing.JMenuItem();
+        menuPopFotoEliminar = new javax.swing.JMenuItem();
         jPanelBackground1 = new vista.componentes.jpanelbackground.JPanelBackground();
         cmpFotoPerfil = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground3 = new vista.componentes.jpanelbackground.JPanelBackground();
@@ -81,6 +84,14 @@ public class VentanaHome extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         jButton1.setText("jButton1");
+
+        menuPopFoto.setComponentPopupMenu(menuPopFoto);
+
+        menuPopFotoCambiar.setText("Cambiar foto");
+        menuPopFoto.add(menuPopFotoCambiar);
+
+        menuPopFotoEliminar.setText("Eliminar foto");
+        menuPopFoto.add(menuPopFotoEliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -412,5 +423,8 @@ public class VentanaHome extends javax.swing.JFrame {
     public javax.swing.JMenu menuItemSalir;
     public javax.swing.JMenuItem menuItemVaciarMural;
     public javax.swing.JMenuItem menuItemVaciarNotificaciones;
+    public javax.swing.JPopupMenu menuPopFoto;
+    public javax.swing.JMenuItem menuPopFotoCambiar;
+    public javax.swing.JMenuItem menuPopFotoEliminar;
     // End of variables declaration//GEN-END:variables
 }

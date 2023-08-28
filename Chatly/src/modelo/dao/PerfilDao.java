@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modelo.Storage;
 import modelo.dto.PerfilDto;
+import vista.componentes.jpanelbackground.JPanelBackground;
 
 public class PerfilDao {
 
@@ -180,7 +181,7 @@ public class PerfilDao {
 
             // Establecer el nuevo nombre del foto de perfil (Email + .svg)
             // como ... example@extension 
-            dto.setsFotoPerfil( dto.getsCorreo() + ".svg");
+            dto.setsFotoPerfil(dto.getsCorreo() + ".svg");
 
             int b = 0;
             while (b != -1) {
@@ -220,6 +221,23 @@ public class PerfilDao {
             contenedor.repaint();
         }
 
+    }
+
+    public void mtdEliminarFotoPerfil(JPanelBackground contenedor, PerfilDto dto, boolean vaciar) {
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+        
+        contenedor.removeAll();
+        contenedor.setImgBackgroundEnabled(true);
+        contenedor.setImgRutaInterno("/storage/img/user_default.png");
+        contenedor.setImgRutaInternoActivo(true);
+        contenedor.validate();
+        contenedor.repaint();
+        
+        String SrcFotoPerfil = srcFile
+                .replaceAll("%correo%", dto.getsCorreo())
+                .replaceFirst("%ext%", "svg");
+        
+        new File(SrcFotoPerfil).delete();
     }
 
 }
