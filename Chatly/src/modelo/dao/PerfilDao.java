@@ -14,10 +14,10 @@ public class PerfilDao {
         Scanner scanner;
         
         try {
+            // ** Obtener datos de la cuenta
             scanner = new Scanner(new File( srcFile
                         .replaceAll("%correo%", dto.getsCorreo())
                         .replaceFirst("%ext%", "data") ));
-            
             scanner.useDelimiter("\n");
             
             dto.setsNombres(scanner.next().trim());
@@ -25,8 +25,22 @@ public class PerfilDao {
             dto.setsCorreo(scanner.next().trim());
             dto.setsPassword(scanner.next());
             dto.setsFotoPerfil(scanner.next().trim());
+            scanner.close(); // Cerrar archivo
             
-            scanner.close();
+            // ** Obtener bio de la cuenta
+            scanner = new Scanner(new File( srcFile
+                        .replaceAll("%correo%", dto.getsCorreo())
+                        .replaceFirst("%ext%", "bio") ));
+            scanner.useDelimiter("\n");
+            String bio = "";
+            
+            while(scanner.hasNextLine()){
+                bio += scanner.nextLine() + "\n";
+            }
+            
+            dto.setsBio(bio);
+            scanner.close(); // Cerrar archivo
+            
         } catch (FileNotFoundException ex) {
             return false;
         }

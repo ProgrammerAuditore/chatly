@@ -68,6 +68,7 @@ public class CtrlPanelDatos {
     private void mtdEstablecerDatos(){
         this.laVista.cmpNombres.setText(SrcChatly.dto.getsNombres());
         this.laVista.cmpApellidos.setText(SrcChatly.dto.getsApellidos());
+        this.laVista.cmpBio.setText(SrcChatly.dto.getsBio());
     }
     
     private void mtdBtnAceptar(){

@@ -8,6 +8,7 @@ public class PerfilDto implements Serializable{
     private String sApellidos;
     private String sCorreo;
     private String sPassword;
+    private String sBio;
     private String sFotoPerfil;
 
     public String getsNombres() {
@@ -42,6 +43,14 @@ public class PerfilDto implements Serializable{
         this.sPassword = sPassword;
     }
 
+    public String getsBio() {
+        return sBio;
+    }
+
+    public void setsBio(String sBio) {
+        this.sBio = sBio;
+    }
+
     public String getsFotoPerfil() {
         return sFotoPerfil;
     }
@@ -49,10 +58,10 @@ public class PerfilDto implements Serializable{
     public void setsFotoPerfil(String sFotoPerfil) {
         this.sFotoPerfil = sFotoPerfil;
     }
-    
+
     @Override
     public String toString() {
-        return "PerfilDto{" + "sNombres=" + sNombres + ", sApellidos=" + sApellidos + ", sCorreo=" + sCorreo + ", sPassword=" + sPassword + ", sFotoPerfil=" + sFotoPerfil + '}';
+        return "PerfilDto{" + "sNombres=" + sNombres + ", sApellidos=" + sApellidos + ", sCorreo=" + sCorreo + ", sPassword=" + sPassword + ", sBio=" + sBio + ", sFotoPerfil=" + sFotoPerfil + '}';
     }
     
 }
