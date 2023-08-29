@@ -8,6 +8,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import src.SrcChatly;
 import vista.paneles.PanelPassword;
 
 public class CtrlPanelPassword {
@@ -69,7 +70,15 @@ public class CtrlPanelPassword {
             return;
         }
         
-        JOptionPane.showMessageDialog(null, "Contraseña modificado exitosamente!!", "Cambiar contraseña", JOptionPane.INFORMATION_MESSAGE);
+        SrcChatly.dao.mtdObtenerPerfil(SrcChatly.dto);
+        if( SrcChatly.dto.getsPassword().equals(String.valueOf(this.laVista.cmpPasswdActual.getPassword()).trim()) ){
+            SrcChatly.dto.setsPassword(String.valueOf(this.laVista.cmpPasswdNuevaRepetir.getPassword()).trim());
+            SrcChatly.dao.mtdActualizarPerfil(SrcChatly.dto);
+            JOptionPane.showMessageDialog(null, "Contraseña modificado exitosamente!!", "Cambiar contraseña", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error la contraseña actual es incorrecta!!", "Cambiar contraseña", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
     }
     
     private boolean mtdVerificarDatos(){
