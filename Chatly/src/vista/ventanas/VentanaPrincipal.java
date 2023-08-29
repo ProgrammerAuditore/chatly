@@ -16,6 +16,8 @@
  */
 package vista.ventanas;
 
+import src.Info;
+
 /**
  *
  * @author victor
@@ -26,6 +28,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
+        this.setTitle(Info.NombreSoftware);
         initComponents();
     }
 

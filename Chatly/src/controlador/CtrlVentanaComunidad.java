@@ -3,6 +3,7 @@ package controlador;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import src.Info;
 import src.SrcChatly;
 import vista.ventanas.VentanaComunidad;
 import vista.ventanas.VentanaHome;
@@ -40,6 +41,7 @@ public class CtrlVentanaComunidad {
     // ****** Métodos
     private void mtdInit(){
         this.laVista.setLocationRelativeTo(null);
+        SrcChatly.ventanaComunidad.setTitle(Info.NombreSoftware + " - " + SrcChatly.dto.getsCorreo() );
         mtdBuildEventBtnVolver();
     }
     

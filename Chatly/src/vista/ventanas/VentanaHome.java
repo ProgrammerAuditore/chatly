@@ -16,6 +16,8 @@
  */
 package vista.ventanas;
 
+import src.Info;
+
 /**
  *
  * @author victor
@@ -26,6 +28,7 @@ public class VentanaHome extends javax.swing.JFrame {
      * Creates new form VentanaHome
      */
     public VentanaHome() {
+        this.setTitle(Info.NombreSoftware);
         initComponents();
     }
 

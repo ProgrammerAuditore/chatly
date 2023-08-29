@@ -16,6 +16,8 @@
  */
 package vista.ventanas;
 
+import src.Info;
+
 /**
  *
  * @author victor
@@ -26,6 +28,7 @@ public class VentanaConversaciones extends javax.swing.JFrame {
      * Creates new form VentanaConversaciones
      */
     public VentanaConversaciones() {
+        this.setTitle(Info.NombreSoftware);
         initComponents();
         this.jPanelBackground6.setVisible(true);
     }

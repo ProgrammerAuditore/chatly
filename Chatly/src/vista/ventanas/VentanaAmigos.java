@@ -16,6 +16,8 @@
  */
 package vista.ventanas;
 
+import src.Info;
+
 /**
  *
  * @author victor
@@ -26,6 +28,7 @@ public class VentanaAmigos extends javax.swing.JFrame {
      * Creates new form VentanaAmigos
      */
     public VentanaAmigos() {
+        this.setTitle(Info.NombreSoftware);
         initComponents();
     }
 
