@@ -233,7 +233,14 @@ public class CtrlVentanaHome {
                 "Confirmar...", JOptionPane.YES_NO_OPTION);
 
         if (respuesta == JOptionPane.YES_OPTION) {
-            JOptionPane.showMessageDialog(null, "Cuenta eliminado, exitosamente.");
+            if( SrcChatly.dao.mtdEliminarPerfil(SrcChatly.dto) ){
+                SrcChatly.dao = null;
+                SrcChatly.dto = null;
+                this.mtdBtnCerrarSesion();
+                JOptionPane.showMessageDialog(null, "Cuenta eliminado, exitosamente.");
+            }else {
+                JOptionPane.showMessageDialog(null, "Hubo un error al eliminar la cuenta.");
+            }
         }
     }
 

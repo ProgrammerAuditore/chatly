@@ -166,6 +166,43 @@ public class PerfilDao {
         return true;
     }
 
+    public boolean mtdEliminarPerfil(PerfilDto dto) {
+        String srcDir = "storage_profiles/%correo%/%nombre%";
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+
+        try {
+
+            // * Registrar cuenta en database.profiles
+            if (Storage.fncStorageEliminarUnaLinea(srcDir
+                    .replaceFirst("%correo%", "database.profiles")
+                    .replaceFirst("%nombre%", ""),
+                    dto.getsCorreo())) {
+
+                // * Crear archivos de almacenamiento
+                String[] archivos = {"data", "chats", "tome", "friends", "notify", "bio"};
+                for (String ext : archivos) {
+                    new File(srcFile
+                            .replaceAll("%correo%", dto.getsCorreo())
+                            .replaceFirst("%ext%", ext)).delete();
+                }
+
+                // * Crear ruta de la carpeta de perfil
+                String[] directorios = {"chats", "profile", ""};
+                for (String nombre : directorios) {
+                    new File(srcDir
+                            .replaceFirst("%correo%", dto.getsCorreo())
+                            .replaceFirst("%nombre%", nombre)).delete();
+                }
+                
+            }
+
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    }
+
     public boolean mtdActualizarFotoPerfil(PerfilDto dto, String srcFotoNueva) {
         // Crear la nueva ruta del foto de perfil (Email + .svg)
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
@@ -225,18 +262,18 @@ public class PerfilDao {
 
     public void mtdEliminarFotoPerfil(JPanelBackground contenedor, PerfilDto dto, boolean vaciar) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
-        
+
         contenedor.removeAll();
         contenedor.setImgBackgroundEnabled(true);
         contenedor.setImgRutaInterno("/storage/img/user_default.png");
         contenedor.setImgRutaInternoActivo(true);
         contenedor.validate();
         contenedor.repaint();
-        
+
         String SrcFotoPerfil = srcFile
                 .replaceAll("%correo%", dto.getsCorreo())
                 .replaceFirst("%ext%", "svg");
-        
+
         new File(SrcFotoPerfil).delete();
     }
 

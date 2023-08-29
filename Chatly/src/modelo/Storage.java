@@ -61,5 +61,47 @@ public class Storage {
 
         return true;
     }
+    
+    public synchronized static boolean fncStorageEliminarUnaLinea(String srcArchivo, String eliminar_linea) {
+        try {
+
+                File enArchivo = new File(srcArchivo);
+                File archivo_tmp = new File(enArchivo.getPath() + "_tmp000.txt");
+                if (archivo_tmp.createNewFile()) {
+
+                    try (FileWriter sobrescribirArchivo = new FileWriter(enArchivo.getPath() + "_tmp000.txt")) {
+                        BufferedReader leerArchivo = new BufferedReader(new FileReader(enArchivo.getPath()));
+                        String linea;
+
+                        while ((linea = leerArchivo.readLine()) != null) {
+                            // Sobreescribiendo archivo
+                            //System.out.println(linea.trim());
+                            if ( linea.trim().equals(eliminar_linea) || linea.trim().isEmpty()) {
+                                //System.out.println(linea.trim()+ " ** Deleted ** ");
+                                continue;
+                            }
+                            sobrescribirArchivo.write(linea.trim() + "\n");
+                        }
+                        enArchivo.delete();
+                        enArchivo.delete();
+                        sobrescribirArchivo.close();
+                        sobrescribirArchivo.close();
+                        leerArchivo.close();
+                        leerArchivo.close();
+                    }
+
+                    // Cambio de storage
+                    enArchivo.delete();
+                    enArchivo.delete();
+                    archivo_tmp.renameTo(new File(enArchivo.getPath()));
+                    archivo_tmp.renameTo(new File(enArchivo.getPath()));
+                }
+
+            } catch (Exception e) {
+                return false;
+            }
+        
+        return true;
+    }
 
 }
