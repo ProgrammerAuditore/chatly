@@ -57,7 +57,7 @@ public class VentanaHome extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         cmpBio = new javax.swing.JTextArea();
         jPanelBackground4 = new vista.componentes.jpanelbackground.JPanelBackground();
-        jPanelBackground5 = new vista.componentes.jpanelbackground.JPanelBackground();
+        pnlNotificaciones = new vista.componentes.jpanelbackground.JPanelBackground();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         mensaje4 = new vista.componentes.etiqueta.Mensaje();
@@ -68,7 +68,7 @@ public class VentanaHome extends javax.swing.JFrame {
         menuItemConversaciones = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        menuItemCambiarFoto = new javax.swing.JMenuItem();
+        menuItemVerNotificaciones = new javax.swing.JMenuItem();
         menuItemVaciarMural = new javax.swing.JMenuItem();
         menuItemVaciarNotificaciones = new javax.swing.JMenuItem();
         menuItemSalir = new javax.swing.JMenu();
@@ -213,7 +213,7 @@ public class VentanaHome extends javax.swing.JFrame {
             .addGap(0, 334, Short.MAX_VALUE)
         );
 
-        jPanelBackground5.setBackground(new java.awt.Color(51, 51, 51));
+        pnlNotificaciones.setBackground(new java.awt.Color(51, 51, 51));
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Sin notificaciones..." };
@@ -227,19 +227,19 @@ public class VentanaHome extends javax.swing.JFrame {
         mensaje4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mensaje4.setText("Notificaciones");
 
-        javax.swing.GroupLayout jPanelBackground5Layout = new javax.swing.GroupLayout(jPanelBackground5);
-        jPanelBackground5.setLayout(jPanelBackground5Layout);
-        jPanelBackground5Layout.setHorizontalGroup(
-            jPanelBackground5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlNotificacionesLayout = new javax.swing.GroupLayout(pnlNotificaciones);
+        pnlNotificaciones.setLayout(pnlNotificacionesLayout);
+        pnlNotificacionesLayout.setHorizontalGroup(
+            pnlNotificacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-            .addGroup(jPanelBackground5Layout.createSequentialGroup()
+            .addGroup(pnlNotificacionesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mensaje4, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanelBackground5Layout.setVerticalGroup(
-            jPanelBackground5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackground5Layout.createSequentialGroup()
+        pnlNotificacionesLayout.setVerticalGroup(
+            pnlNotificacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNotificacionesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mensaje4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -254,7 +254,7 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
-                        .addComponent(jPanelBackground5, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlNotificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
@@ -273,7 +273,7 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                    .addComponent(jPanelBackground5, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
+                    .addComponent(pnlNotificaciones, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -297,8 +297,8 @@ public class VentanaHome extends javax.swing.JFrame {
 
         jMenu2.setText("Perfil");
 
-        menuItemCambiarFoto.setText("Cambiar foto");
-        jMenu2.add(menuItemCambiarFoto);
+        menuItemVerNotificaciones.setText("Ver notificaciones");
+        jMenu2.add(menuItemVerNotificaciones);
 
         menuItemVaciarMural.setText("Vaciar mural");
         jMenu2.add(menuItemVaciarMural);
@@ -400,7 +400,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground3;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground4;
-    private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
@@ -408,7 +407,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private vista.componentes.etiqueta.Mensaje mensaje3;
     private vista.componentes.etiqueta.Mensaje mensaje4;
     public javax.swing.JMenuItem menuItemAmigos;
-    public javax.swing.JMenuItem menuItemCambiarFoto;
     public javax.swing.JMenuItem menuItemComunidad;
     public javax.swing.JMenuItem menuItemConversaciones;
     public javax.swing.JMenuItem menuItemDatos;
@@ -417,8 +415,10 @@ public class VentanaHome extends javax.swing.JFrame {
     public javax.swing.JMenu menuItemSalir;
     public javax.swing.JMenuItem menuItemVaciarMural;
     public javax.swing.JMenuItem menuItemVaciarNotificaciones;
+    public javax.swing.JMenuItem menuItemVerNotificaciones;
     public javax.swing.JPopupMenu menuPopFoto;
     public javax.swing.JMenuItem menuPopFotoCambiar;
     public javax.swing.JMenuItem menuPopFotoEliminar;
+    public vista.componentes.jpanelbackground.JPanelBackground pnlNotificaciones;
     // End of variables declaration//GEN-END:variables
 }

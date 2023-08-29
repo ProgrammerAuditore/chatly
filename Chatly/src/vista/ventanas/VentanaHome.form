@@ -93,9 +93,9 @@
             <Property name="text" type="java.lang.String" value="Perfil"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItemCambiarFoto">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemVerNotificaciones">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cambiar foto"/>
+                <Property name="text" type="java.lang.String" value="Ver notificaciones"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -222,7 +222,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jPanelBackground5" min="-2" pref="237" max="-2" attributes="0"/>
+                          <Component id="pnlNotificaciones" min="-2" pref="237" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jPanelBackground4" pref="583" max="32767" attributes="0"/>
                       </Group>
@@ -247,7 +247,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanelBackground4" pref="334" max="32767" attributes="0"/>
-                      <Component id="jPanelBackground5" pref="334" max="32767" attributes="0"/>
+                      <Component id="pnlNotificaciones" pref="334" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -458,12 +458,15 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Container class="vista.componentes.jpanelbackground.JPanelBackground" name="jPanelBackground5">
+        <Container class="vista.componentes.jpanelbackground.JPanelBackground" name="pnlNotificaciones">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">

@@ -58,8 +58,8 @@ public class CtrlVentanaHome {
                     mtdBtnDatos();
                 } else if (e.getSource() == laVista.menuItemPassword) {
                     mtdBtnPassword();
-                } else if (e.getSource() == laVista.menuItemCambiarFoto) {
-                    mtdBtnCambiarFoto();
+                } else if (e.getSource() == laVista.menuItemVerNotificaciones) {
+                    mtdBtnVerNotificaciones();
                 } else if (e.getSource() == laVista.menuItemVaciarNotificaciones) {
                     mtdBtnVaciarNotificaciones();
                 } else if (e.getSource() == laVista.menuItemVaciarMural) {
@@ -92,7 +92,7 @@ public class CtrlVentanaHome {
         this.laVista.menuItemPassword.addMouseListener(evt);
         this.laVista.menuItemVaciarNotificaciones.addMouseListener(evt);
         this.laVista.menuItemVaciarMural.addMouseListener(evt);
-        this.laVista.menuItemCambiarFoto.addMouseListener(evt);
+        this.laVista.menuItemVerNotificaciones.addMouseListener(evt);
         this.laVista.menuItemEliminarCuenta.addMouseListener(evt);
         this.laVista.btnItemSalir.addMouseListener(evt);
         this.laVista.menuPopFotoCambiar.addMouseListener(evt);
@@ -173,6 +173,10 @@ public class CtrlVentanaHome {
         ctrl.mtdInit();
         ctrl.modal.setLocationRelativeTo(laVista);
         ctrl.modal.setVisible(true);
+    }
+    
+    private void mtdBtnVerNotificaciones(){
+        this.laVista.pnlNotificaciones.setVisible(!this.laVista.pnlNotificaciones.isVisible());
     }
 
     private void mtdBtnCambiarFoto() {
