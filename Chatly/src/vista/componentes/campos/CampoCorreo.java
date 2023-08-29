@@ -165,6 +165,8 @@ public class CampoCorreo extends JTextField implements FocusListener, KeyListene
     
     @Override
     public void focusGained(FocusEvent e) {
+        if( !this.isEditable() ) return;
+        
         getEstiloTextEscritura();
         if( getText().equals( getPlaceholder() ) ){
             setText(null);
@@ -174,6 +176,8 @@ public class CampoCorreo extends JTextField implements FocusListener, KeyListene
 
     @Override
     public void focusLost(FocusEvent e) {
+        if( !this.isEditable() ) return;
+        
         if( getText().isEmpty() ){
             setText(getPlaceholder());
             getEstiloTextEmpty();

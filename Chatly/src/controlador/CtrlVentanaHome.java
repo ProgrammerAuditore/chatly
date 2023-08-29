@@ -111,8 +111,15 @@ public class CtrlVentanaHome {
     }
 
     private void mtdEstablecerDatos() {
+        this.laVista.cmpCorreo.setText(SrcChatly.dto.getsCorreo());
+        this.laVista.cmpCorreo.setPlaceholder(SrcChatly.dto.getsCorreo());
+        
         this.laVista.cmpNombres.setText(SrcChatly.dto.getsNombres());
+        this.laVista.cmpNombres.setPlaceholder(SrcChatly.dto.getsNombres());
+        
         this.laVista.cmpApellidos.setText(SrcChatly.dto.getsApellidos());
+        this.laVista.cmpApellidos.setPlaceholder(SrcChatly.dto.getsApellidos());
+        
         this.laVista.cmpBio.setText(SrcChatly.dto.getsBio());
 
         if (!SrcChatly.dto.getsFotoPerfil().contains("user_default.png")) {

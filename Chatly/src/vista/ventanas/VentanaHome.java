@@ -46,10 +46,8 @@ public class VentanaHome extends javax.swing.JFrame {
         jPanelBackground1 = new vista.componentes.jpanelbackground.JPanelBackground();
         cmpFotoPerfil = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground3 = new vista.componentes.jpanelbackground.JPanelBackground();
-        mensaje1 = new vista.componentes.etiqueta.Mensaje();
         cmpNombres = new vista.componentes.campos.CampoDatos();
         cmpApellidos = new vista.componentes.campos.CampoDatos();
-        mensaje2 = new vista.componentes.etiqueta.Mensaje();
         mensaje3 = new vista.componentes.etiqueta.Mensaje();
         btnCoumidad = new vista.componentes.boton.Boton();
         btnAmigos = new vista.componentes.boton.Boton();
@@ -57,6 +55,7 @@ public class VentanaHome extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         cmpBio = new javax.swing.JTextArea();
+        cmpCorreo = new vista.componentes.campos.CampoCorreo();
         jPanelBackground4 = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground5 = new vista.componentes.jpanelbackground.JPanelBackground();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -121,15 +120,11 @@ public class VentanaHome extends javax.swing.JFrame {
         jPanelBackground3.setImgOpacidad(0.3F);
         jPanelBackground3.setImgRutaInterno("/storage/img/bkg04.jpg");
 
-        mensaje1.setText("Nombre (s)");
-
+        cmpNombres.setEditable(false);
         cmpNombres.setText("campoDatos1");
-        cmpNombres.setEnabled(false);
 
+        cmpApellidos.setEditable(false);
         cmpApellidos.setText("campoDatos2");
-        cmpApellidos.setEnabled(false);
-
-        mensaje2.setText("Apellido (s)");
 
         mensaje3.setText("Bio");
 
@@ -153,6 +148,9 @@ public class VentanaHome extends javax.swing.JFrame {
         cmpBio.setAutoscrolls(false);
         jScrollPane2.setViewportView(cmpBio);
 
+        cmpCorreo.setEditable(false);
+        cmpCorreo.setText("campoCorreo1");
+
         javax.swing.GroupLayout jPanelBackground3Layout = new javax.swing.GroupLayout(jPanelBackground3);
         jPanelBackground3.setLayout(jPanelBackground3Layout);
         jPanelBackground3Layout.setHorizontalGroup(
@@ -161,14 +159,14 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(mensaje2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmpApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(cmpNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(mensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelBackground3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmpApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmpNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(cmpCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,23 +184,20 @@ public class VentanaHome extends javax.swing.JFrame {
                         .addComponent(btnCoumidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addComponent(btnConversaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1)
                     .addGroup(jPanelBackground3Layout.createSequentialGroup()
-                        .addGap(0, 3, Short.MAX_VALUE)
-                        .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
                             .addGroup(jPanelBackground3Layout.createSequentialGroup()
+                                .addComponent(cmpCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cmpNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mensaje2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
-                                .addComponent(cmpApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2))))
+                                .addComponent(cmpApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
 
@@ -216,7 +211,7 @@ public class VentanaHome extends javax.swing.JFrame {
         );
         jPanelBackground4Layout.setVerticalGroup(
             jPanelBackground4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGap(0, 334, Short.MAX_VALUE)
         );
 
         jPanelBackground5.setBackground(new java.awt.Color(51, 51, 51));
@@ -249,7 +244,7 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(mensaje4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelBackground1Layout = new javax.swing.GroupLayout(jPanelBackground1);
@@ -262,11 +257,11 @@ public class VentanaHome extends javax.swing.JFrame {
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
                         .addComponent(jPanelBackground5, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE))
+                        .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
                         .addComponent(cmpFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)))
+                        .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelBackground1Layout.setVerticalGroup(
@@ -278,8 +273,8 @@ public class VentanaHome extends javax.swing.JFrame {
                     .addComponent(cmpFotoPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                    .addComponent(jPanelBackground5, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
+                    .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                    .addComponent(jPanelBackground5, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -393,6 +388,7 @@ public class VentanaHome extends javax.swing.JFrame {
     public javax.swing.JMenuItem btnItemSalir;
     public static vista.componentes.campos.CampoDatos cmpApellidos;
     public static javax.swing.JTextArea cmpBio;
+    public vista.componentes.campos.CampoCorreo cmpCorreo;
     public vista.componentes.jpanelbackground.JPanelBackground cmpFotoPerfil;
     public static vista.componentes.campos.CampoDatos cmpNombres;
     private javax.swing.JButton jButton1;
@@ -410,8 +406,6 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private vista.componentes.etiqueta.Mensaje mensaje1;
-    private vista.componentes.etiqueta.Mensaje mensaje2;
     private vista.componentes.etiqueta.Mensaje mensaje3;
     private vista.componentes.etiqueta.Mensaje mensaje4;
     public javax.swing.JMenuItem menuItemAmigos;

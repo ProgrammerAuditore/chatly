@@ -143,6 +143,8 @@ public class CampoDatos extends JTextField implements FocusListener, KeyListener
         
     @Override
     public void focusGained(FocusEvent e) {
+        if( !this.isEditable() ) return;
+        
         getEstiloTextEscritura();
         if( getText().equals( getPlaceholder() ) ){
             setText(null);
@@ -152,6 +154,8 @@ public class CampoDatos extends JTextField implements FocusListener, KeyListener
 
     @Override
     public void focusLost(FocusEvent e) {
+        if( !this.isEditable() ) return;
+        
         if( getText().isEmpty() ){
             setText(getPlaceholder());
             getEstiloTextEmpty();
