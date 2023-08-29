@@ -224,12 +224,12 @@
                       <Group type="102" attributes="0">
                           <Component id="jPanelBackground5" min="-2" pref="237" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jPanelBackground4" pref="583" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground4" pref="577" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="cmpFotoPerfil" min="-2" pref="140" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jPanelBackground3" pref="680" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground3" pref="674" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -246,8 +246,8 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanelBackground4" pref="334" max="32767" attributes="0"/>
-                      <Component id="jPanelBackground5" pref="334" max="32767" attributes="0"/>
+                      <Component id="jPanelBackground4" pref="330" max="32767" attributes="0"/>
+                      <Component id="jPanelBackground5" pref="330" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -262,6 +262,7 @@
               <SerializedValue value="-84,-19,0,5,115,114,0,12,106,97,118,97,46,105,111,46,70,105,108,101,4,45,-92,69,14,13,-28,-1,3,0,1,76,0,4,112,97,116,104,116,0,18,76,106,97,118,97,47,108,97,110,103,47,83,116,114,105,110,103,59,120,112,116,0,9,60,78,111,116,32,83,101,116,62,119,2,0,92,120"/>
             </Property>
             <Property name="imgRutaInterno" type="java.lang.String" value="/storage/img/user_default.png"/>
+            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -330,7 +331,7 @@
                           </Group>
                           <Component id="jSeparator1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="mensaje1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="mensaje3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -435,7 +436,7 @@
                     </Property>
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Soy nuevo en Chatly.com"/>
+                    <Property name="text" type="java.lang.String" value="Soy nuevo en Chatly"/>
                     <Property name="autoscrolls" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>

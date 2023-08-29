@@ -103,6 +103,7 @@ public class VentanaHome extends javax.swing.JFrame {
         cmpFotoPerfil.setImgBackgroundEnabled(true);
         cmpFotoPerfil.setImgRutaExterno(new java.io.File("C:\\Program Files\\NetBeans-12.4\\<Not Set>"));
         cmpFotoPerfil.setImgRutaInterno("/storage/img/user_default.png");
+        cmpFotoPerfil.setOpaque(false);
 
         javax.swing.GroupLayout cmpFotoPerfilLayout = new javax.swing.GroupLayout(cmpFotoPerfil);
         cmpFotoPerfil.setLayout(cmpFotoPerfilLayout);
@@ -148,7 +149,7 @@ public class VentanaHome extends javax.swing.JFrame {
         cmpBio.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
         cmpBio.setLineWrap(true);
         cmpBio.setRows(5);
-        cmpBio.setText("Soy nuevo en Chatly.com");
+        cmpBio.setText("Soy nuevo en Chatly");
         cmpBio.setAutoscrolls(false);
         jScrollPane2.setViewportView(cmpBio);
 
@@ -189,7 +190,7 @@ public class VentanaHome extends javax.swing.JFrame {
                         .addComponent(btnConversaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1)
                     .addGroup(jPanelBackground3Layout.createSequentialGroup()
-                        .addGap(0, 9, Short.MAX_VALUE)
+                        .addGap(0, 3, Short.MAX_VALUE)
                         .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -261,11 +262,11 @@ public class VentanaHome extends javax.swing.JFrame {
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
                         .addComponent(jPanelBackground5, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
+                        .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE))
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
                         .addComponent(cmpFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)))
+                        .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelBackground1Layout.setVerticalGroup(
@@ -277,8 +278,8 @@ public class VentanaHome extends javax.swing.JFrame {
                     .addComponent(cmpFotoPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                    .addComponent(jPanelBackground5, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
+                    .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                    .addComponent(jPanelBackground5, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
                 .addContainerGap())
         );
 

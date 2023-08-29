@@ -179,7 +179,7 @@ public class PerfilDao {
                     dto.getsCorreo())) {
 
                 // * Crear archivos de almacenamiento
-                String[] archivos = {"data", "chats", "tome", "friends", "notify", "bio"};
+                String[] archivos = {"data", "chats", "tome", "friends", "notify", "bio", "svg"};
                 for (String ext : archivos) {
                     new File(srcFile
                             .replaceAll("%correo%", dto.getsCorreo())
@@ -235,21 +235,27 @@ public class PerfilDao {
         return true;
     }
 
-    public void mtdInsertarFotoPerfil(JPanel contenedor, PerfilDto dto, boolean vaciar) {
+    public void mtdInsertarFotoPerfil(JPanelBackground contenedor, PerfilDto dto, boolean vaciar) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
-
+        String SrcFotoPerfil = srcFile
+                .replaceAll("%correo%", dto.getsCorreo())
+                .replaceFirst("%ext%", "svg");
+        
         if (vaciar) {
             contenedor.removeAll();
         }
 
-        String SrcFotoPerfil = srcFile
-                .replaceAll("%correo%", dto.getsCorreo())
-                .replaceFirst("%ext%", "svg");
-        ImageIcon icono = new ImageIcon(new File(SrcFotoPerfil).getAbsolutePath());
-        JLabel etiquetaImagen = new JLabel();
-        etiquetaImagen.setBounds(0, 0, contenedor.getWidth(), contenedor.getHeight());
-        etiquetaImagen.setIcon(new ImageIcon(icono.getImage().getScaledInstance(etiquetaImagen.getWidth(), etiquetaImagen.getHeight(), Image.SCALE_SMOOTH)));
-        contenedor.add(etiquetaImagen);
+        contenedor.setOpaque(false);
+        contenedor.setImgBackgroundEnabled(true);
+        contenedor.setImgRutaInternoActivo(false);
+        contenedor.setImgBackgroundIn_Ex(true);
+        contenedor.setImgRutaExterno(new File(SrcFotoPerfil));
+        
+//        ImageIcon icono = new ImageIcon(new File(SrcFotoPerfil).getAbsolutePath());
+//        JLabel etiquetaImagen = new JLabel();
+//        etiquetaImagen.setBounds(0, 0, contenedor.getWidth(), contenedor.getHeight());
+//        etiquetaImagen.setIcon(new ImageIcon(icono.getImage().getScaledInstance(etiquetaImagen.getWidth(), etiquetaImagen.getHeight(), Image.SCALE_SMOOTH)));
+//        contenedor.add(etiquetaImagen);
 
         if (vaciar) {
             contenedor.validate();
@@ -259,11 +265,29 @@ public class PerfilDao {
         }
 
     }
+    
+//    public void mtdInsertarFotoPerfil(JPanelBackground contenedor, PerfilDto dto, boolean vaciar) {
+//        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+//        String SrcFotoPerfil = srcFile
+//                .replaceAll("%correo%", dto.getsCorreo())
+//                .replaceFirst("%ext%", "svg");
+//
+//        contenedor.removeAll();
+//        contenedor.setImgRutaExterno(new File(SrcFotoPerfil));
+//        contenedor.setImgBackgroundEnabled(true);
+//        contenedor.setImgRutaInternoActivo(false);
+//        contenedor.setImgBackgroundIn_Ex(true);
+//        contenedor.validate();
+//        contenedor.repaint();
+//
+//        new File(SrcFotoPerfil).delete();
+//    }
 
     public void mtdEliminarFotoPerfil(JPanelBackground contenedor, PerfilDto dto, boolean vaciar) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
 
         contenedor.removeAll();
+        contenedor.setOpaque(false);
         contenedor.setImgBackgroundEnabled(true);
         contenedor.setImgRutaInterno("/storage/img/user_default.png");
         contenedor.setImgRutaInternoActivo(true);
