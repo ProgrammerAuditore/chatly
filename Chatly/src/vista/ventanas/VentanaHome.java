@@ -48,14 +48,14 @@ public class VentanaHome extends javax.swing.JFrame {
         jPanelBackground3 = new vista.componentes.jpanelbackground.JPanelBackground();
         cmpNombres = new vista.componentes.campos.CampoDatos();
         cmpApellidos = new vista.componentes.campos.CampoDatos();
-        mensaje3 = new vista.componentes.etiqueta.Mensaje();
         btnCoumidad = new vista.componentes.boton.Boton();
         btnAmigos = new vista.componentes.boton.Boton();
         btnConversaciones = new vista.componentes.boton.Boton();
         jSeparator1 = new javax.swing.JSeparator();
+        cmpCorreo = new vista.componentes.campos.CampoCorreo();
+        mensaje3 = new vista.componentes.etiqueta.Mensaje();
         jScrollPane2 = new javax.swing.JScrollPane();
         cmpBio = new javax.swing.JTextArea();
-        cmpCorreo = new vista.componentes.campos.CampoCorreo();
         jPanelBackground4 = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground5 = new vista.componentes.jpanelbackground.JPanelBackground();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -126,8 +126,6 @@ public class VentanaHome extends javax.swing.JFrame {
         cmpApellidos.setEditable(false);
         cmpApellidos.setText("campoDatos2");
 
-        mensaje3.setText("Bio");
-
         btnCoumidad.setImgButtonType("info");
         btnCoumidad.setTexto("Comunidad");
 
@@ -139,6 +137,11 @@ public class VentanaHome extends javax.swing.JFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        cmpCorreo.setEditable(false);
+        cmpCorreo.setText("campoCorreo1");
+
+        mensaje3.setText("Bio");
+
         cmpBio.setEditable(false);
         cmpBio.setColumns(20);
         cmpBio.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
@@ -148,25 +151,21 @@ public class VentanaHome extends javax.swing.JFrame {
         cmpBio.setAutoscrolls(false);
         jScrollPane2.setViewportView(cmpBio);
 
-        cmpCorreo.setEditable(false);
-        cmpCorreo.setText("campoCorreo1");
-
         javax.swing.GroupLayout jPanelBackground3Layout = new javax.swing.GroupLayout(jPanelBackground3);
         jPanelBackground3.setLayout(jPanelBackground3Layout);
         jPanelBackground3Layout.setHorizontalGroup(
             jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackground3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelBackground3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmpApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmpNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(cmpCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmpApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmpNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmpCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,27 +176,27 @@ public class VentanaHome extends javax.swing.JFrame {
         );
         jPanelBackground3Layout.setVerticalGroup(
             jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBackground3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackground3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelBackground3Layout.createSequentialGroup()
+                        .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBackground3Layout.createSequentialGroup()
                         .addComponent(btnCoumidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addComponent(btnConversaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator1)
-                    .addGroup(jPanelBackground3Layout.createSequentialGroup()
-                        .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBackground3Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(cmpCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmpNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addGroup(jPanelBackground3Layout.createSequentialGroup()
-                                .addComponent(cmpCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cmpNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmpApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(cmpApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -207,7 +206,7 @@ public class VentanaHome extends javax.swing.JFrame {
         jPanelBackground4.setLayout(jPanelBackground4Layout);
         jPanelBackground4Layout.setHorizontalGroup(
             jPanelBackground4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+            .addGap(0, 583, Short.MAX_VALUE)
         );
         jPanelBackground4Layout.setVerticalGroup(
             jPanelBackground4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
