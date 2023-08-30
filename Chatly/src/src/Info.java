@@ -3,8 +3,8 @@ package src;
 // Aquí se incluye la información del softwares
 public class Info {
     public static final String sNombre = "Chatly";
-    public static final String sVersionName = "v0.0.1";
-    public static final String sVersionNum = "0010";
+    public static final String sVersionName = "v0.1.2";
+    public static final String sVersionNum = "0120";
     public static final String sProduccion = "Alpha";
     public static final String Autor = "Victor J. Maximo";
     public static final String Avatar = "ProgrammerAuditore";
