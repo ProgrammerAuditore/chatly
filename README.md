@@ -1,4 +1,4 @@
-# Chatly v0.0.1Alpha
+# Chatly v0.1.2Alpha
 
 ![logo chatly][logo_chatly]
 <br>
