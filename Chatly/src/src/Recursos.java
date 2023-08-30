@@ -15,6 +15,7 @@ public class Recursos {
     public static final File dataPreferencias(){ return new CargarRecurgos().dataPreferencias(); }
     public static final Image imgIconoDefault(){ return new CargarRecurgos().iconoDefault(); }
     public static final HashMap<String, String> docCotizacionJasper(){ return new CargarRecurgos().docCotizacionJasper(); }
+    public static final String srcProfilesDatabase = Rutas.path_profiles;
     //public static final HashMap<String, String> docInformeJasper = new CargarRecurgos().docInformeJasper();
     
     // * Recursos internos
