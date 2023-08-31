@@ -108,8 +108,9 @@ public class PerfilDao {
         String srcBio = "storage_profiles/" + dto.getsCorreo() + "/profile/" + dto.getsCorreo() + ".bio";
         File bio = new File(srcBio);
 
-        if (!(profile.isDirectory() && profile.exists() && bio.exists())
-                || !(data.isFile() && data.exists())) {
+        if (!(profile.isDirectory() && profile.exists())
+        || !(data.isFile() && data.exists())
+        || !(bio.isFile() && bio.exists())) {
             return false;
         }
 

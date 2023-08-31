@@ -110,7 +110,7 @@ public class CtrlVentanaPrincipal {
         
         // * Obtenemos los datos de la cuenta y verificamos la contraseña
         dao.mtdObtenerPerfil(this.dto);
-        if( this.dto.getsPassword().equals(String.valueOf(this.laVista.cmpSingInPassword.getPassword())) ){
+        if( this.dto.getsPassword().trim().equals(String.valueOf(this.laVista.cmpSingInPassword.getPassword()).trim()) ){
             
             mtdDestruirVentana();
             SrcChatly.ventanaHome = new VentanaHome();
