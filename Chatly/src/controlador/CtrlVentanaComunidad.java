@@ -67,7 +67,7 @@ public class CtrlVentanaComunidad {
         int totalPerfiles = 0;
         this.laVista.pnlContenedorPerfiles.removeAll();
 
-        listaPerfiles = SrcChatly.dao.mtdListarPerfiles(SrcChatly.dto);
+        listaPerfiles = SrcChatly.dao.mtdListarPerfiles();
         totalPerfiles = listaPerfiles.size();
 
         if (totalPerfiles > 0) {
@@ -77,7 +77,7 @@ public class CtrlVentanaComunidad {
             for (int i = 0; i < totalPerfiles; i++) {
                 if (SrcChatly.dto.getsCorreo().equals(listaPerfiles.get(i).getsCorreo())) {
                     continue;
-                }
+                } 
 
                 CtrlPanelPerfilShort card = new CtrlPanelPerfilShort(listaPerfiles.get(i));
                 card.setFilaAndColumna(fila, columna);

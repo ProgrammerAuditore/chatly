@@ -240,7 +240,33 @@ public class PerfilDao {
         return true;
     }
 
-    public List<PerfilDto> mtdListarPerfiles(PerfilDto dto) {
+    public boolean mtdVerificarAmistadPerfil(PerfilDto dtoSesion, PerfilDto dtoPerfil) {
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+        String path = srcFile
+                .replaceAll("%correo%", dtoSesion.getsCorreo())
+                .replaceFirst("%ext%", "friends");
+        File archivo = new File(path);
+
+        try {
+
+            BufferedReader db_profiles = new BufferedReader(new FileReader(archivo));
+            String linea;
+            while ((linea = db_profiles.readLine()) != null) {
+                if (linea.trim().isEmpty()) {
+                    continue;
+                }else 
+                if (dtoPerfil.getsCorreo().equals(linea.trim())) {
+                    return true;
+                }
+            }
+
+        } catch (Exception e) {
+        }
+
+        return false;
+    }
+
+    public List<PerfilDto> mtdListarPerfiles() {
         List<PerfilDto> perfiles = new ArrayList<>();
         File archivo = new File(Recursos.srcProfilesDatabase);
         PerfilDao dao = new PerfilDao();
@@ -253,10 +279,7 @@ public class PerfilDao {
             while ((linea = db_profiles.readLine()) != null) {
                 PerfilDto dtoPerfil = new PerfilDto();
                 dtoPerfil.setsCorreo(linea.trim());
-                
-                if(dto.getsCorreo().equals(dtoPerfil.getsCorreo()))
-                    continue;
-                
+
                 if (dao.mtdVerificarPerfil(dtoPerfil)) {
                     if (dao.mtdObtenerPerfil(dtoPerfil)) {
                         System.out.println(dtoPerfil.toString() + "\n\n");
