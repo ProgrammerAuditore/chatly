@@ -39,79 +39,84 @@ public class PanelPerfilShort extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanelBackground1 = new vista.componentes.jpanelbackground.JPanelBackground();
-        pnlFotoPerfil = new vista.componentes.jpanelbackground.JPanelBackground();
+        cmpFotoPerfil = new vista.componentes.jpanelbackground.JPanelBackground();
         btnVerPerfl = new vista.componentes.boton.Boton();
-        cmpNombres = new vista.componentes.campos.CampoDatos();
-        cmpApellidos = new vista.componentes.campos.CampoDatos();
         btnAmigoPlus = new vista.componentes.boton.Boton();
+        cmpNombres = new vista.componentes.etiqueta.Mensaje();
+        cmpApellidos = new vista.componentes.etiqueta.Mensaje();
+
+        setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanelBackground1.setImgBackgroundEnabled(true);
-        jPanelBackground1.setImgRutaInterno("/storage/img/bkg08.jpg");
+        jPanelBackground1.setImgRutaInterno("/storage/img/frame02.jpg");
 
-        pnlFotoPerfil.setImgBackgroundEnabled(true);
-        pnlFotoPerfil.setImgRutaInterno("/storage/img/user_default.png");
-        pnlFotoPerfil.setOpaque(false);
+        cmpFotoPerfil.setImgBackgroundEnabled(true);
+        cmpFotoPerfil.setImgRutaInterno("/storage/img/user_default.png");
+        cmpFotoPerfil.setOpaque(false);
 
-        javax.swing.GroupLayout pnlFotoPerfilLayout = new javax.swing.GroupLayout(pnlFotoPerfil);
-        pnlFotoPerfil.setLayout(pnlFotoPerfilLayout);
-        pnlFotoPerfilLayout.setHorizontalGroup(
-            pnlFotoPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout cmpFotoPerfilLayout = new javax.swing.GroupLayout(cmpFotoPerfil);
+        cmpFotoPerfil.setLayout(cmpFotoPerfilLayout);
+        cmpFotoPerfilLayout.setHorizontalGroup(
+            cmpFotoPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 160, Short.MAX_VALUE)
         );
-        pnlFotoPerfilLayout.setVerticalGroup(
-            pnlFotoPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 171, Short.MAX_VALUE)
+        cmpFotoPerfilLayout.setVerticalGroup(
+            cmpFotoPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 145, Short.MAX_VALUE)
         );
 
-        btnVerPerfl.setImgButtonType("info");
         btnVerPerfl.setTexto("Ver perfil");
-
-        cmpNombres.setEditable(false);
-
-        cmpApellidos.setEditable(false);
 
         btnAmigoPlus.setImgButtonType("danger");
         btnAmigoPlus.setTexto("Amigo +1");
+
+        cmpNombres.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cmpNombres.setFont(new java.awt.Font("K2D SemiBold", 1, 14)); // NOI18N
+
+        cmpApellidos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanelBackground1Layout = new javax.swing.GroupLayout(jPanelBackground1);
         jPanelBackground1.setLayout(jPanelBackground1Layout);
         jPanelBackground1Layout.setHorizontalGroup(
             jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackground1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlFotoPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                    .addComponent(btnAmigoPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVerPerfl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmpNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                    .addComponent(cmpApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAmigoPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmpNombres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmpApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackground1Layout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(cmpFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
         jPanelBackground1Layout.setVerticalGroup(
             jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackground1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
+                .addComponent(cmpFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmpNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmpApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnVerPerfl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAmigoPlus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(jPanelBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+            .addComponent(jPanelBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -119,9 +124,9 @@ public class PanelPerfilShort extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public vista.componentes.boton.Boton btnAmigoPlus;
     public vista.componentes.boton.Boton btnVerPerfl;
-    public vista.componentes.campos.CampoDatos cmpApellidos;
-    public vista.componentes.campos.CampoDatos cmpNombres;
+    public vista.componentes.etiqueta.Mensaje cmpApellidos;
+    public vista.componentes.jpanelbackground.JPanelBackground cmpFotoPerfil;
+    public vista.componentes.etiqueta.Mensaje cmpNombres;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
-    public vista.componentes.jpanelbackground.JPanelBackground pnlFotoPerfil;
     // End of variables declaration//GEN-END:variables
 }

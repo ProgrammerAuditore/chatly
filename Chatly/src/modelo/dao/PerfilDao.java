@@ -3,17 +3,22 @@ package modelo.dao;
 import java.awt.Image;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modelo.Storage;
 import modelo.dto.PerfilDto;
+import src.Recursos;
 import vista.componentes.jpanelbackground.JPanelBackground;
 
 public class PerfilDao {
@@ -193,7 +198,7 @@ public class PerfilDao {
                             .replaceFirst("%correo%", dto.getsCorreo())
                             .replaceFirst("%nombre%", nombre)).delete();
                 }
-                
+
             }
 
         } catch (Exception e) {
@@ -235,12 +240,39 @@ public class PerfilDao {
         return true;
     }
 
+    public List<PerfilDto> mtdListarPerfiles() {
+        List<PerfilDto> perfiles = new ArrayList<>();
+        File archivo = new File(Recursos.srcProfilesDatabase);
+        PerfilDao dao = new PerfilDao();
+
+        try {
+
+            BufferedReader db_profiles = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while ((linea = db_profiles.readLine()) != null) {
+                PerfilDto dto = new PerfilDto();
+                dto.setsCorreo(linea);
+                if (dao.mtdVerificarPerfil(dto)) {
+                    if (dao.mtdObtenerPerfil(dto)) {
+                        System.out.println(dto.toString() + "\n\n");
+                        perfiles.add(dto);
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+        }
+
+        return perfiles;
+    }
+
     public void mtdInsertarFotoPerfil(JPanelBackground contenedor, PerfilDto dto, boolean vaciar) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
         String SrcFotoPerfil = srcFile
                 .replaceAll("%correo%", dto.getsCorreo())
                 .replaceFirst("%ext%", "svg");
-        
+
         if (vaciar) {
             contenedor.removeAll();
         }
