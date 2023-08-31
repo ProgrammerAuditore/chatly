@@ -277,12 +277,15 @@ public class PerfilDao {
             String linea;
 
             while ((linea = db_profiles.readLine()) != null) {
+                if (linea.trim().isEmpty()) {
+                    continue;
+                }
+                
                 PerfilDto dtoPerfil = new PerfilDto();
                 dtoPerfil.setsCorreo(linea.trim());
 
                 if (dao.mtdVerificarPerfil(dtoPerfil)) {
                     if (dao.mtdObtenerPerfil(dtoPerfil)) {
-                        System.out.println(dtoPerfil.toString() + "\n\n");
                         perfiles.add(dtoPerfil);
                     }
                 }

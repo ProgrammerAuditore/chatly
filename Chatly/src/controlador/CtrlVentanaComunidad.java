@@ -70,7 +70,7 @@ public class CtrlVentanaComunidad {
         listaPerfiles = SrcChatly.dao.mtdListarPerfiles();
         totalPerfiles = listaPerfiles.size();
 
-        if (totalPerfiles > 0) {
+        if (totalPerfiles > 1) {
 
             int columna = 0, fila = 0; // Establecer contadores para columnas y filas
             int perfiles = 3; // Establecer cantida de producto a mostrar por fila
