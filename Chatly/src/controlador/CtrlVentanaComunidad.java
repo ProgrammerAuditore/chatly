@@ -1,5 +1,7 @@
 package controlador;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -8,6 +10,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 import modelo.dto.PerfilDto;
 import modelo.watcher.WatcherPerfiles;
@@ -63,7 +67,7 @@ public class CtrlVentanaComunidad {
         int totalPerfiles = 0;
         this.laVista.pnlContenedorPerfiles.removeAll();
 
-        listaPerfiles = SrcChatly.dao.mtdListarPerfiles();
+        listaPerfiles = SrcChatly.dao.mtdListarPerfiles(SrcChatly.dto);
         totalPerfiles = listaPerfiles.size();
 
         if (totalPerfiles > 0) {
@@ -71,8 +75,10 @@ public class CtrlVentanaComunidad {
             int columna = 0, fila = 0; // Establecer contadores para columnas y filas
             int perfiles = 3; // Establecer cantida de producto a mostrar por fila
             for (int i = 0; i < totalPerfiles; i++) {
-                if( SrcChatly.dto.getsCorreo().equals(listaPerfiles.get(i).getsCorreo()) ) continue;
-                
+                if (SrcChatly.dto.getsCorreo().equals(listaPerfiles.get(i).getsCorreo())) {
+                    continue;
+                }
+
                 CtrlPanelPerfilShort card = new CtrlPanelPerfilShort(listaPerfiles.get(i));
                 card.setFilaAndColumna(fila, columna);
                 card.mtdInit();
@@ -84,10 +90,15 @@ public class CtrlVentanaComunidad {
                     columna = 0;
                     fila++;
                 }
-                
-                try { Thread.sleep(60); } catch (InterruptedException ex) { }
+
+                try {
+                    Thread.sleep(60);
+                } catch (InterruptedException ex) {
+                }
             }
 
+        } else {
+            mtdMensaje("No hay perfiles que mostrar aún...");
         }
 
         this.laVista.pnlContenedorPerfiles.validate();
@@ -121,6 +132,28 @@ public class CtrlVentanaComunidad {
 //        } catch (Exception error) {
 //        }
 //    }
+    private void mtdMensaje(String msg) {
+        mtdVaciarContenedor();
+        //JPanel mensaje = new JPanel();
+        JLabel titulo = new JLabel();
+
+        titulo.setForeground(Color.WHITE);
+        titulo.setBounds(290, 10, 220, 20);
+        titulo.setText(msg);
+        titulo.setFont(new Font("Arial ", Font.PLAIN, 12));
+        //mensaje.add(titulo);
+        laVista.pnlContenedorPerfiles.add(titulo);
+
+        laVista.pnlContenedorPerfiles.validate();
+        laVista.pnlContenedorPerfiles.repaint();
+    }
+
+    private void mtdVaciarContenedor() {
+        laVista.pnlContenedorPerfiles.removeAll();
+        laVista.pnlContenedorPerfiles.validate();
+        laVista.pnlContenedorPerfiles.revalidate();
+        laVista.pnlContenedorPerfiles.repaint();
+    }
 
     private void mtdBtnVolver() {
         mtdDestruirVentana();

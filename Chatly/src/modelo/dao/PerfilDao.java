@@ -240,7 +240,7 @@ public class PerfilDao {
         return true;
     }
 
-    public List<PerfilDto> mtdListarPerfiles() {
+    public List<PerfilDto> mtdListarPerfiles(PerfilDto dto) {
         List<PerfilDto> perfiles = new ArrayList<>();
         File archivo = new File(Recursos.srcProfilesDatabase);
         PerfilDao dao = new PerfilDao();
@@ -251,12 +251,16 @@ public class PerfilDao {
             String linea;
 
             while ((linea = db_profiles.readLine()) != null) {
-                PerfilDto dto = new PerfilDto();
-                dto.setsCorreo(linea);
-                if (dao.mtdVerificarPerfil(dto)) {
-                    if (dao.mtdObtenerPerfil(dto)) {
-                        System.out.println(dto.toString() + "\n\n");
-                        perfiles.add(dto);
+                PerfilDto dtoPerfil = new PerfilDto();
+                dtoPerfil.setsCorreo(linea.trim());
+                
+                if(dto.getsCorreo().equals(dtoPerfil.getsCorreo()))
+                    continue;
+                
+                if (dao.mtdVerificarPerfil(dtoPerfil)) {
+                    if (dao.mtdObtenerPerfil(dtoPerfil)) {
+                        System.out.println(dtoPerfil.toString() + "\n\n");
+                        perfiles.add(dtoPerfil);
                     }
                 }
             }
