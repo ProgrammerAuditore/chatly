@@ -68,6 +68,8 @@ public class VentanaComunidad extends javax.swing.JFrame {
         jPanelBackground1 = new vista.componentes.jpanelbackground.JPanelBackground();
         jPanelBackground2 = new vista.componentes.jpanelbackground.JPanelBackground();
         btnVolver = new vista.componentes.boton.Boton();
+        cmpBuscar = new vista.componentes.campos.CampoTexto();
+        btnRefrescar = new vista.componentes.boton.Boton();
         pnlScroll = new javax.swing.JScrollPane();
         pnlContenedorPerfiles = new javax.swing.JPanel();
 
@@ -80,12 +82,22 @@ public class VentanaComunidad extends javax.swing.JFrame {
 
         btnVolver.setTexto("Volver");
 
+        cmpBuscar.setPlaceholder("Buscar perfil");
+
+        btnRefrescar.setToolTipText("Refrescar");
+        btnRefrescar.setImgButtonType("info");
+        btnRefrescar.setTexto("R");
+
         javax.swing.GroupLayout jPanelBackground2Layout = new javax.swing.GroupLayout(jPanelBackground2);
         jPanelBackground2.setLayout(jPanelBackground2Layout);
         jPanelBackground2Layout.setHorizontalGroup(
             jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackground2Layout.createSequentialGroup()
-                .addContainerGap(694, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmpBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -93,7 +105,11 @@ public class VentanaComunidad extends javax.swing.JFrame {
             jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackground2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmpBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -127,7 +143,7 @@ public class VentanaComunidad extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanelBackground2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(pnlScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                .addComponent(pnlScroll)
                 .addContainerGap())
         );
 
@@ -181,7 +197,9 @@ public class VentanaComunidad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public vista.componentes.boton.Boton btnRefrescar;
     public vista.componentes.boton.Boton btnVolver;
+    public vista.componentes.campos.CampoTexto cmpBuscar;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
     public javax.swing.JPanel pnlContenedorPerfiles;

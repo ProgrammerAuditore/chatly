@@ -58,6 +58,10 @@ public class PerfilDto implements Serializable{
     public void setsFotoPerfil(String sFotoPerfil) {
         this.sFotoPerfil = sFotoPerfil;
     }
+    
+    public String getsNombreCompleto(){
+        return this.sNombres + " " + this.sApellidos;
+    }
 
     @Override
     public String toString() {

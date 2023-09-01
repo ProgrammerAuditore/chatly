@@ -58,7 +58,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanelBackground2" min="-2" pref="56" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="pnlScroll" pref="440" max="32767" attributes="0"/>
+                  <Component id="pnlScroll" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -76,7 +76,11 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="694" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnRefrescar" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cmpBuscar" min="-2" pref="260" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -86,7 +90,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="btnRefrescar" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmpBuscar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -96,6 +106,24 @@
             <Component class="vista.componentes.boton.Boton" name="btnVolver">
               <Properties>
                 <Property name="texto" type="java.lang.String" value="Volver"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="vista.componentes.campos.CampoTexto" name="cmpBuscar">
+              <Properties>
+                <Property name="placeholder" type="java.lang.String" value="Buscar perfil"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="vista.componentes.boton.Boton" name="btnRefrescar">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Refrescar"/>
+                <Property name="imgButtonType" type="java.lang.String" value="info"/>
+                <Property name="texto" type="java.lang.String" value="R"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
