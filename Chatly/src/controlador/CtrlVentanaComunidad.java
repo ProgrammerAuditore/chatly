@@ -109,34 +109,32 @@ public class CtrlVentanaComunidad {
     private void mtdCargarPerfilesDao() {
         int totalPerfiles = 0;
         this.laVista.pnlContenedorPerfiles.removeAll();
+        listaPerfiles = SrcChatly.dao.mtdListarPerfiles(SrcChatly.dto);
 
-        listaPerfiles = SrcChatly.dao.mtdListarPerfiles();
         totalPerfiles = listaPerfiles.size();
+        if (totalPerfiles <= 0) {
+            mtdMensaje("Sin resultados de busqueda...");
+            return;
+        }
 
-        if (totalPerfiles > 1) {
-
-            int columna = 0, fila = 0; // Establecer contadores para columnas y filas
-            int perfiles = 3; // Establecer cantida de producto a mostrar por fila
-            for (int i = 0; i < totalPerfiles; i++) {
-                if (SrcChatly.dto.getsCorreo().equals(listaPerfiles.get(i).getsCorreo())) {
-                    continue;
-                }
-
-                CtrlPanelPerfilShort card = new CtrlPanelPerfilShort(listaPerfiles.get(i));
-                card.setFilaAndColumna(fila, columna);
-                card.mtdInit();
-
-                this.laVista.pnlContenedorPerfiles.add(card.panelPerfil, card.getPanelConstraints());
-                columna++;
-
-                if (columna >= perfiles) {
-                    columna = 0;
-                    fila++;
-                }
+        int columna = 0, fila = 0; // Establecer contadores para columnas y filas
+        int perfiles = 3; // Establecer cantida de producto a mostrar por fila
+        for (int i = 0; i < totalPerfiles; i++) {
+            if (SrcChatly.dto.getsCorreo().equals(listaPerfiles.get(i).getsCorreo())) {
+                continue;
             }
 
-        } else {
-            mtdMensaje("No hay perfiles que mostrar aún...");
+            CtrlPanelPerfilShort card = new CtrlPanelPerfilShort(listaPerfiles.get(i));
+            card.setFilaAndColumna(fila, columna);
+            card.mtdInit();
+
+            this.laVista.pnlContenedorPerfiles.add(card.panelPerfil, card.getPanelConstraints());
+            columna++;
+
+            if (columna >= perfiles) {
+                columna = 0;
+                fila++;
+            }
         }
 
         this.laVista.pnlContenedorPerfiles.validate();

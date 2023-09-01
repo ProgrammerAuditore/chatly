@@ -267,7 +267,7 @@ public class PerfilDao {
         return false;
     }
 
-    public List<PerfilDto> mtdListarPerfiles() {
+    public List<PerfilDto> mtdListarPerfiles(PerfilDto dto) {
         List<PerfilDto> perfiles = new ArrayList<>();
         File archivo = new File(Recursos.srcProfilesDatabase);
         PerfilDao dao = new PerfilDao();
@@ -279,6 +279,9 @@ public class PerfilDao {
 
             while ((linea = db_profiles.readLine()) != null) {
                 if (linea.trim().isEmpty()) {
+                    continue;
+                } else 
+                if(dto.getsCorreo().equals(linea.trim())){
                     continue;
                 }
                 
