@@ -9,6 +9,7 @@ import vista.ventanas.VentanaAmigos;
 import vista.ventanas.VentanaComunidad;
 import vista.ventanas.VentanaConversaciones;
 import vista.ventanas.VentanaHome;
+import vista.ventanas.VentanaPerfil;
 import vista.ventanas.VentanaPrincipal;
 
 public class SrcChatly {
@@ -18,6 +19,7 @@ public class SrcChatly {
     public static VentanaComunidad ventanaComunidad;
     public static VentanaAmigos ventanaAmigos;
     public static VentanaConversaciones ventanaConversaciones;
+    public static VentanaPerfil ventanaPerfil;
     public static PerfilDao dao;
     public static PerfilDto dto;
     public static Properties idioma = new Idiomas("es");
