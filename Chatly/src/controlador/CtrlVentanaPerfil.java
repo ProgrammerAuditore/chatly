@@ -3,8 +3,14 @@ package controlador;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.JOptionPane;
 import modelo.dao.PerfilDao;
 import modelo.dto.PerfilDto;
+import src.Info;
+import src.Recursos;
 import src.SrcChatly;
 import vista.ventanas.VentanaComunidad;
 import vista.ventanas.VentanaHome;
@@ -46,10 +52,26 @@ public class CtrlVentanaPerfil {
         this.laVista.removeMouseListener(evt);
     }
     
+    private void mtdBuildWindownListener(){
+        WindowListener evt = null;
+        this.laVista.removeWindowListener(evt);
+        
+        evt = new WindowAdapter(){
+            @Override
+            public void windowOpened(WindowEvent e) {
+                mtdBienvenida();
+            }
+        };
+        
+       this.laVista.addWindowListener(evt);
+    }
+    
     // ****** Métodos
     private void mtdInit(){
-        this.laVista.setLocationRelativeTo(null);        
+        this.laVista.setLocationRelativeTo(null);
+        SrcChatly.ventanaPerfil.setTitle(Info.NombreSoftware + " - " + SrcChatly.dto.getsCorreo());
         mtdEstablecerDatos();
+        mtdBuildWindownListener();
         mtdBuildMouseListener();
     }
     
@@ -60,9 +82,8 @@ public class CtrlVentanaPerfil {
         this.laVista.cmpApellidos.setPlaceholder(this.dto.getsApellidos());
         this.laVista.cmpApellidos.setText(this.dto.getsApellidos());
         
-        
-        this.laVista.cmpCorreo.setPlaceholder(this.dto.getsCorreo());
-        this.laVista.cmpCorreo.setText(this.dto.getsCorreo());
+        this.laVista.cmpCorreo.setPlaceholder("Example".replaceAll(".", "*"));
+        this.laVista.cmpCorreo.setText("Example".replaceAll(".", "*"));
         
         this.laVista.cmpBio.setText(this.dto.getsBio());
         
@@ -70,6 +91,20 @@ public class CtrlVentanaPerfil {
             this.dao.mtdInsertarFotoPerfil(this.laVista.cmpFotoPerfil, dto, true);
         }
         
+    }
+    
+    private void mtdBienvenida(){
+        mtdVerificarAmistad();
+       JOptionPane.showMessageDialog(null, "Bienvenido a mural de: \n" + this.dto.getsNombreCompleto()
+               , Info.NombreSoftware , JOptionPane.INFORMATION_MESSAGE);
+       JOptionPane.showMessageDialog(null, "Deja una firma para el mural de: \n" + this.dto.getsNombreCompleto()
+               , Info.NombreSoftware , JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void mtdVerificarAmistad() {
+        if (SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto)) {
+            this.laVista.cmpCorreo.setText(this.dto.getsCorreo());
+        }
     }
     
     private void mtdBtnVolver() {

@@ -95,12 +95,12 @@
                       <Group type="102" attributes="0">
                           <Component id="pnlNotificaciones" min="-2" pref="237" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jPanelBackground4" pref="583" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground4" pref="579" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="cmpFotoPerfil" min="-2" pref="140" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jPanelBackground3" pref="680" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground3" pref="676" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -117,8 +117,8 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanelBackground4" pref="360" max="32767" attributes="0"/>
-                      <Component id="pnlNotificaciones" pref="360" max="32767" attributes="0"/>
+                      <Component id="jPanelBackground4" pref="356" max="32767" attributes="0"/>
+                      <Component id="pnlNotificaciones" pref="356" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -166,9 +166,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cmpApellidos" max="32767" attributes="0"/>
+                          <Component id="cmpApellidos" pref="200" max="32767" attributes="0"/>
                           <Component id="cmpNombres" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cmpCorreo" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="cmpCorreo" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -192,11 +192,6 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="mensaje3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" max="32767" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -206,12 +201,18 @@
                           </Group>
                           <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="cmpCorreo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="9" max="32767" attributes="0"/>
-                              <Component id="cmpNombres" min="-2" max="-2" attributes="0"/>
+                              <Component id="mensaje3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cmpApellidos" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="cmpCorreo" min="-2" pref="26" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="cmpNombres" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="cmpApellidos" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane2" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
