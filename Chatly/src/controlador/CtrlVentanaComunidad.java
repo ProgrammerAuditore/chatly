@@ -18,6 +18,7 @@ import javax.swing.Timer;
 import modelo.dto.PerfilDto;
 import modelo.watcher.WatcherPerfiles;
 import src.Info;
+import src.Recursos;
 import src.SrcChatly;
 import vista.ventanas.VentanaComunidad;
 import vista.ventanas.VentanaHome;
@@ -100,6 +101,7 @@ public class CtrlVentanaComunidad {
         this.laVista.cmpBuscar.requestFocusInWindow();
         this.laVista.pnlContenedorPerfiles.setLayout(new GridBagLayout());
         this.laVista.setLocationRelativeTo(null);
+        this.laVista.setIconImage(Recursos.imgIconoDefault());
         SrcChatly.ventanaComunidad.setTitle(Info.NombreSoftware + " - " + SrcChatly.dto.getsCorreo());
         mtdBuildEventBtnBuscar();
         mtdBuildEventMouseListener();

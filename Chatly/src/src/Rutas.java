@@ -42,8 +42,8 @@ class Rutas {
     public static String pathBkgConexionOff = "/storage/img/logo-mysql-off.png";
     public static String pathBkgConexionOn = "/storage/img/logo-mysql-on.png";
     public static String pathBkgPortada = "/storage/img/panel_logo.png";
-    public static String pathIconoDefultMs = "/storage/img/ms-icon-70x70.png";
-    public static String pathIconoDefultApple = "/storage/img/apple-icon-60x60.png";
+    public static String pathIconoDefultMs = "/storage/img/chatly-30x30.png";
+    public static String pathIconoDefultApple = "/storage/img/chatly-30x30.png";
     public static String pathDocumentoVersionesXml = "/storage/etc/MyFreeLab_Versions.xml";
     //public static String pathBkgSplash = "/storage/img/banner.png";
     

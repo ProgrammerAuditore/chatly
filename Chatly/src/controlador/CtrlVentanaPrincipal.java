@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import modelo.Storage;
 import modelo.dao.PerfilDao;
 import modelo.dto.PerfilDto;
+import src.Recursos;
 import src.SrcChatly;
 import vista.ventanas.VentanaHome;
 import vista.ventanas.VentanaPrincipal;
@@ -93,7 +94,8 @@ public class CtrlVentanaPrincipal {
     private void mtdInit() {
 
         // * Definir oyentes
-        laVista.setLocationRelativeTo(null);
+        this.laVista.setLocationRelativeTo(null);
+        this.laVista.setIconImage(Recursos.imgIconoDefault());
         mtdBuildEvents();
         mtdBuildKeyEvents();
         

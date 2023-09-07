@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import src.Info;
+import src.Recursos;
 import src.SrcChatly;
 import vista.ventanas.VentanaConversaciones;
 import vista.ventanas.VentanaHome;
@@ -41,6 +42,7 @@ public class CtrlVentanaConversaciones {
     // ****** Métodos
     private void mtdInit(){
         this.laVista.setLocationRelativeTo(null);
+        this.laVista.setIconImage(Recursos.imgIconoDefault());
         SrcChatly.ventanaConversaciones.setTitle(Info.NombreSoftware + " - " + SrcChatly.dto.getsCorreo() );
         mtdBuildEventBtnVolver();
     }

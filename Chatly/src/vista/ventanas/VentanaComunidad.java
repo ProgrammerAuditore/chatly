@@ -74,6 +74,7 @@ public class VentanaComunidad extends javax.swing.JFrame {
         pnlContenedorPerfiles = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanelBackground1.setImgBackgroundEnabled(true);
         jPanelBackground1.setImgRutaInterno("/storage/img/bkg02.jpg");
