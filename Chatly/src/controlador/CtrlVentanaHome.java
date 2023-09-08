@@ -11,6 +11,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.dao.PerfilDao;
 import modelo.dto.PerfilDto;
 import src.Info;
+import src.Recursos;
 import src.SrcChatly;
 import vista.paneles.PanelDatos;
 import vista.paneles.PanelPassword;
@@ -105,7 +106,8 @@ public class CtrlVentanaHome {
     private void mtdInit() {
 
         // * Definir oyentes
-        laVista.setLocationRelativeTo(null);
+        this.laVista.setLocationRelativeTo(null);
+        this.laVista.setIconImage(Recursos.imgIconoDefault());
         SrcChatly.ventanaHome.setTitle(Info.NombreSoftware + " - " + SrcChatly.dto.getsCorreo() );
         mtdBuildEvents();
         mtdEstablecerDatos();

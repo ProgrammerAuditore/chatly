@@ -49,6 +49,7 @@ public class VentanaAmigos extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanelBackground1.setImgBackgroundEnabled(true);
         jPanelBackground1.setImgRutaInterno("/storage/img/bkg02.jpg");

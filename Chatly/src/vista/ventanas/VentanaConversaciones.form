@@ -20,6 +20,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -65,8 +66,8 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jPanelBackground3" pref="830" max="32767" attributes="0"/>
-                      <Component id="jPanelBackground2" pref="830" max="32767" attributes="0"/>
+                      <Component id="jPanelBackground3" pref="826" max="32767" attributes="0"/>
+                      <Component id="jPanelBackground2" pref="826" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -78,7 +79,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanelBackground2" min="-2" pref="56" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jPanelBackground3" pref="444" max="32767" attributes="0"/>
+                  <Component id="jPanelBackground3" pref="440" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -112,7 +113,7 @@
                           <Component id="campoTexto1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -226,9 +227,9 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanelBackground6" pref="524" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground6" pref="520" max="32767" attributes="0"/>
                           <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPanelBackground7" alignment="0" pref="524" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground7" alignment="0" pref="520" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">

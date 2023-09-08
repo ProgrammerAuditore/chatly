@@ -75,6 +75,7 @@ public class VentanaConversaciones extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanelBackground1.setImgBackgroundEnabled(true);
         jPanelBackground1.setImgRutaExterno(new java.io.File("C:\\Program Files\\NetBeans-12.4\\<Not Set>"));
@@ -105,7 +106,7 @@ public class VentanaConversaciones extends javax.swing.JFrame {
                 .addGroup(jPanelBackground2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(campoTexto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setDividerLocation(300);
@@ -201,9 +202,9 @@ public class VentanaConversaciones extends javax.swing.JFrame {
         jPanelBackground5.setLayout(jPanelBackground5Layout);
         jPanelBackground5Layout.setHorizontalGroup(
             jPanelBackground5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBackground6, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+            .addComponent(jPanelBackground6, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
             .addComponent(jScrollPane2)
-            .addComponent(jPanelBackground7, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+            .addComponent(jPanelBackground7, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
         );
         jPanelBackground5Layout.setVerticalGroup(
             jPanelBackground5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,8 +237,8 @@ public class VentanaConversaciones extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackground1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
-                    .addComponent(jPanelBackground2, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE))
+                    .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
+                    .addComponent(jPanelBackground2, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelBackground1Layout.setVerticalGroup(
@@ -246,7 +247,7 @@ public class VentanaConversaciones extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanelBackground2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
+                .addComponent(jPanelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

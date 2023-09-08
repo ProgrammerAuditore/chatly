@@ -69,6 +69,7 @@ public class CtrlVentanaPerfil {
     // ****** Métodos
     private void mtdInit(){
         this.laVista.setLocationRelativeTo(null);
+        this.laVista.setIconImage(Recursos.imgIconoDefault());
         SrcChatly.ventanaPerfil.setTitle(Info.NombreSoftware + " - " + SrcChatly.dto.getsCorreo());
         mtdEstablecerDatos();
         mtdBuildWindownListener();
