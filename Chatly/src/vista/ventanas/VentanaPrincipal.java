@@ -30,6 +30,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         this.setTitle(Info.NombreSoftware);
         initComponents();
+        this.cmpTitulo.setText(Info.NombreSoftware);
     }
 
     /**
@@ -60,7 +61,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         singIn_email = new vista.componentes.etiqueta.Mensaje();
         singIn_password = new vista.componentes.etiqueta.Mensaje();
         btnSingIn = new vista.componentes.boton.Boton();
-        titulo2 = new vista.componentes.etiqueta.Titulo();
+        cmpTitulo = new vista.componentes.etiqueta.Mensaje();
+        jPanelBackground3 = new vista.componentes.jpanelbackground.JPanelBackground();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -150,7 +152,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(cmpSingUpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSingUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         titulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -169,8 +171,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnSingIn.setImgButtonType("success");
         btnSingIn.setTexto("Acceder");
 
-        titulo2.setForeground(new java.awt.Color(204, 255, 255));
-        titulo2.setText("Chatly");
+        cmpTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        cmpTitulo.setText("Chatly v0.0.0Alpha");
+
+        jPanelBackground3.setImgBackgroundEnabled(true);
+        jPanelBackground3.setImgRutaInterno("/storage/img/user_default.png");
+        jPanelBackground3.setOpaque(false);
+
+        javax.swing.GroupLayout jPanelBackground3Layout = new javax.swing.GroupLayout(jPanelBackground3);
+        jPanelBackground3.setLayout(jPanelBackground3Layout);
+        jPanelBackground3Layout.setHorizontalGroup(
+            jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 95, Short.MAX_VALUE)
+        );
+        jPanelBackground3Layout.setVerticalGroup(
+            jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 95, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanelBackground1Layout = new javax.swing.GroupLayout(jPanelBackground1);
         jPanelBackground1.setLayout(jPanelBackground1Layout);
@@ -179,19 +196,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanelBackground1Layout.createSequentialGroup()
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cmpTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelBackground1Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
                         .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(titulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(singIn_email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cmpSingInEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cmpSingInPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(singIn_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackground1Layout.createSequentialGroup()
-                        .addContainerGap(22, Short.MAX_VALUE)
-                        .addComponent(titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                            .addComponent(btnSingIn, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(titulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelBackground1Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jPanelBackground3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 108, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addComponent(jPanelBackground2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -201,10 +221,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
-                        .addComponent(titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanelBackground3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
+                        .addGap(26, 26, 26)
                         .addComponent(singIn_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmpSingInEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,10 +235,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(cmpSingInPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSingIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111))
-                    .addGroup(jPanelBackground1Layout.createSequentialGroup()
-                        .addComponent(jPanelBackground2, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(82, 82, 82)
+                        .addComponent(cmpTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelBackground2, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -278,8 +299,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public vista.componentes.campos.CampoDatos cmpSingUpFirstNames;
     public vista.componentes.campos.CampoDatos cmpSingUpLasttNames;
     public vista.componentes.campos.CampoPassword cmpSingUpPassword;
+    private vista.componentes.etiqueta.Mensaje cmpTitulo;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground1;
     private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground2;
+    private vista.componentes.jpanelbackground.JPanelBackground jPanelBackground3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private vista.componentes.etiqueta.Mensaje mensaje3;
@@ -289,6 +312,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private vista.componentes.etiqueta.Mensaje singIn_email;
     private vista.componentes.etiqueta.Mensaje singIn_password;
     private vista.componentes.etiqueta.Titulo titulo1;
-    private vista.componentes.etiqueta.Titulo titulo2;
     // End of variables declaration//GEN-END:variables
 }
