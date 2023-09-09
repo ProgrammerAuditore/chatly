@@ -77,6 +77,9 @@ public class CtrlPanelPerfilShort {
             this.panelPerfil.btnAmigoPlus.setTexto("Amistad enviada +1");
         } else if (estadoAmistad == 200) { // Amistad recibida
             this.panelPerfil.btnAmigoPlus.setTexto("Amistad recibida +1");
+        } else {
+            this.estadoAmistad = 0;
+            this.panelPerfil.btnAmigoPlus.setTexto("Amigos +1");
         }
     }
 
@@ -114,7 +117,7 @@ public class CtrlPanelPerfilShort {
             JOptionPane.showMessageDialog(null,
                     "Solicitud de amistad enviada a: \n" + this.dto.getsNombreCompleto(),
                     "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
-            this.panelPerfil.btnAmigoPlus.setTexto("Amistad enviada +1");
+            this.mtdVerificarAmistad();
         } else {
             JOptionPane.showMessageDialog(null,
                     "Errar al enviar solicitud de amistad a: \n" + this.dto.getsNombreCompleto(),
@@ -127,13 +130,16 @@ public class CtrlPanelPerfilShort {
 
         int resp = JOptionPane.showConfirmDialog(null,
                 "¿Deseas cancelar la solicitud de amistadad a: \n" + this.dto.getsNombreCompleto(),
-                "Solicitud de amistad.", JOptionPane.YES_NO_OPTION);
+                "Solicitud de amistad.", JOptionPane.YES_NO_CANCEL_OPTION);
 
         if (resp == JOptionPane.YES_OPTION) {
-            JOptionPane.showMessageDialog(null,
-                    "Solicitud de amistad cancelada a: \n" + this.dto.getsNombreCompleto(),
-                    "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
-            this.panelPerfil.btnAmigoPlus.setTexto("Amigos +1");
+            if (SrcChatly.dao.mtdRechazarAmistadPerfil(SrcChatly.dto, dto)
+                    && this.dao.mtdRechazarAmistadPerfil(dto, SrcChatly.dto)) {
+                JOptionPane.showMessageDialog(null,
+                        "Solicitud de amistad cancelada a: \n" + this.dto.getsNombreCompleto(),
+                        "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+                this.mtdVerificarAmistad();
+            }
         }
 
     }
@@ -142,21 +148,25 @@ public class CtrlPanelPerfilShort {
 
         int resp = JOptionPane.showConfirmDialog(null,
                 "¿Deseas aceptar la solicitud de amistadad de: \n" + this.dto.getsNombreCompleto(),
-                "Solicitud de amistad.", JOptionPane.YES_NO_OPTION);
+                "Solicitud de amistad.", JOptionPane.YES_NO_CANCEL_OPTION);
 
         if (resp == JOptionPane.YES_OPTION) {
-            JOptionPane.showMessageDialog(null,
-                    "Solicitud de amistad aceptada de: \n" + this.dto.getsNombreCompleto(),
-                    "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
-            
-            this.panelPerfil.btnAmigoPlus.setEnabled(false);
-            this.panelPerfil.btnAmigoPlus.setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Solicitud de amistad rechazada a: \n" + this.dto.getsNombreCompleto(),
-                    "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
-            
-            this.panelPerfil.btnAmigoPlus.setTexto("Amigos +1");
+            if (SrcChatly.dao.mtdActualizarEstadoAmistadPerfil(SrcChatly.dto, dto, 1000)
+                    && this.dao.mtdActualizarEstadoAmistadPerfil(dto, SrcChatly.dto, 1000)) {
+                JOptionPane.showMessageDialog(null,
+                        "Solicitud de amistad aceptada de: \n" + this.dto.getsNombreCompleto(),
+                        "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            }
+            this.mtdVerificarAmistad();
+        } else 
+        if (resp == JOptionPane.NO_OPTION) {
+            if (SrcChatly.dao.mtdRechazarAmistadPerfil(SrcChatly.dto, dto)
+                    && this.dao.mtdRechazarAmistadPerfil(dto, SrcChatly.dto)) {
+                JOptionPane.showMessageDialog(null,
+                        "Solicitud de amistad rechazada a: \n" + this.dto.getsNombreCompleto(),
+                        "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            }
+            this.mtdVerificarAmistad();
         }
 
     }

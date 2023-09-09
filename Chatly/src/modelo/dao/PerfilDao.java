@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -267,6 +268,122 @@ public class PerfilDao {
         return 0;
     }
     
+    public boolean mtdActualizarEstadoAmistadPerfil(PerfilDto dtoSesion, PerfilDto dtoPerfil, int estadoAmistad) {
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+
+        String path = srcFile
+                .replaceAll("%correo%", dtoSesion.getsCorreo())
+                .replaceFirst("%ext%", "friends");
+
+        String pathTmp = srcFile
+                .replaceAll("%correo%", dtoSesion.getsCorreo())
+                .replaceFirst("%ext%", "_tmp00");
+
+        File archivo = new File(path);
+        File archivo_tmp = new File(pathTmp);
+
+        try {
+            
+            archivo_tmp.delete();
+            archivo_tmp.delete();
+            
+            if (archivo_tmp.createNewFile()) {
+                try (FileWriter sobrescribirArchivo = new FileWriter(pathTmp)) {
+
+                    BufferedReader db_profiles = new BufferedReader(new FileReader(archivo));
+                    String linea;
+                    while ((linea = db_profiles.readLine()) != null) {
+                        if (linea.trim().isEmpty()) {
+                            continue;
+                        } else if (linea.trim().contains(dtoPerfil.getsCorreo())) {
+                            sobrescribirArchivo.write(dtoPerfil.getsCorreo() + " " + this.mtdVerificarEstadoAmistad(estadoAmistad) + "\n");
+                        } else {
+                            sobrescribirArchivo.write(linea.trim() + "\n");
+                        }
+                    }
+
+                    archivo.delete();
+                    archivo.delete();
+                    db_profiles.close();
+                    db_profiles.close();
+
+                } catch (Exception e) {
+                    return false;
+                }
+
+                archivo.delete();
+                archivo.delete();
+                archivo_tmp.renameTo(new File(path));
+                archivo_tmp.renameTo(new File(path));
+
+            } else {
+                return false;
+            }
+        } catch (IOException e) {
+            return false;
+        }
+
+        return true;
+    }
+    
+    public boolean mtdRechazarAmistadPerfil(PerfilDto dtoSesion, PerfilDto dtoPerfil) {
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+
+        String path = srcFile
+                .replaceAll("%correo%", dtoSesion.getsCorreo())
+                .replaceFirst("%ext%", "friends");
+
+        String pathTmp = srcFile
+                .replaceAll("%correo%", dtoSesion.getsCorreo())
+                .replaceFirst("%ext%", "_tmp00");
+
+        File archivo = new File(path);
+        File archivo_tmp = new File(pathTmp);
+
+        try {
+            
+            archivo_tmp.delete();
+            archivo_tmp.delete();
+                
+            if (archivo_tmp.createNewFile()) {
+                try (FileWriter sobrescribirArchivo = new FileWriter(pathTmp)) {
+
+                    BufferedReader db_profiles = new BufferedReader(new FileReader(archivo));
+                    String linea;
+                    while ((linea = db_profiles.readLine()) != null) {
+                        if (linea.trim().isEmpty()) {
+                            continue;
+                        } else if (linea.trim().contains(dtoPerfil.getsCorreo())) {
+                            continue;
+                        } else {
+                            sobrescribirArchivo.write(linea.trim() + "\n");
+                        }
+                    }
+
+                    archivo.delete();
+                    archivo.delete();
+                    db_profiles.close();
+                    db_profiles.close();
+
+                } catch (Exception e) {
+                    return false;
+                }
+
+                archivo.delete();
+                archivo.delete();
+                archivo_tmp.renameTo(new File(path));
+                archivo_tmp.renameTo(new File(path));
+
+            } else {
+                return false;
+            }
+        } catch (IOException e) {
+            return false;
+        }
+
+        return true;
+    }
+    
     private int mtdVerificarEstadoAmistad(String amistad){
         
         if( amistad.contains("*Send*") ){
@@ -279,6 +396,22 @@ public class PerfilDao {
             return 1000;
         } else {
             return 0;
+        } 
+        
+    }
+    
+    private String mtdVerificarEstadoAmistad(int amistad){
+        
+        if( amistad == 100 ){
+            return "*Send*";
+        }else
+        if( amistad == 200 ){
+            return "*Received*";
+        } else
+        if( amistad == 1000 ){
+            return "*Done*";
+        } else {
+            return "";
         } 
         
     }
