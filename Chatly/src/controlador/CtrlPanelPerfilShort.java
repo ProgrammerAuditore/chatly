@@ -38,7 +38,11 @@ public class CtrlPanelPerfilShort {
                 if (e.getSource() == panelPerfil.btnVerPerfl) {
                     mtdBtnVerPerfil();
                 } else if (e.getSource() == panelPerfil.btnAmigoPlus && estadoAmistad == 0) {
-                    mtdBtnAmigoPlus();
+                    mtdBtnAmigoPlusEnviarAmistad();
+                } else if (e.getSource() == panelPerfil.btnAmigoPlus && estadoAmistad == 100) {
+                    mtdBtnAmigoPlusEnviadaAmistad();
+                } else if (e.getSource() == panelPerfil.btnAmigoPlus && estadoAmistad == 200) {
+                    mtdBtnAmigoPlusRechazarAmistad();
                 }
             }
         };
@@ -66,14 +70,12 @@ public class CtrlPanelPerfilShort {
 
     private void mtdVerificarAmistad() {
         estadoAmistad = SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto);
-        if ( estadoAmistad == 1000) {
+        if (estadoAmistad == 1000) { // Amigos
             this.panelPerfil.btnAmigoPlus.setEnabled(false);
             this.panelPerfil.btnAmigoPlus.setVisible(false);
-        } else 
-        if(estadoAmistad == 100){
+        } else if (estadoAmistad == 100) { // Amistad enviada
             this.panelPerfil.btnAmigoPlus.setTexto("Amistad enviada +1");
-        } else 
-        if(estadoAmistad == 200){
+        } else if (estadoAmistad == 200) { // Amistad recibida
             this.panelPerfil.btnAmigoPlus.setTexto("Amistad recibida +1");
         }
     }
@@ -106,9 +108,9 @@ public class CtrlPanelPerfilShort {
         ctrl.laVista.setVisible(true);
     }
 
-    private void mtdBtnAmigoPlus() {
+    private void mtdBtnAmigoPlusEnviarAmistad() {
 
-        if (this.dao.mtdEnviarSolicitudDeAmistad(SrcChatly.dto, this.dto)) {
+        if (this.dao.mtdEnviarSolicitudDeAmistad(SrcChatly.dto, this.dto) && this.estadoAmistad == 0) {
             JOptionPane.showMessageDialog(null,
                     "Solicitud de amistad enviada a: \n" + this.dto.getsNombreCompleto(),
                     "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
@@ -118,8 +120,46 @@ public class CtrlPanelPerfilShort {
                     "Errar al enviar solicitud de amistad a: \n" + this.dto.getsNombreCompleto(),
                     "Solicitud de amistad.", JOptionPane.ERROR_MESSAGE);
         }
-       
-    } 
+
+    }
+
+    private void mtdBtnAmigoPlusEnviadaAmistad() {
+
+        int resp = JOptionPane.showConfirmDialog(null,
+                "¿Deseas cancelar la solicitud de amistadad a: \n" + this.dto.getsNombreCompleto(),
+                "Solicitud de amistad.", JOptionPane.YES_NO_OPTION);
+
+        if (resp == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null,
+                    "Solicitud de amistad cancelada a: \n" + this.dto.getsNombreCompleto(),
+                    "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            this.panelPerfil.btnAmigoPlus.setTexto("Amigos +1");
+        }
+
+    }
+
+    private void mtdBtnAmigoPlusRechazarAmistad() {
+
+        int resp = JOptionPane.showConfirmDialog(null,
+                "¿Deseas aceptar la solicitud de amistadad de: \n" + this.dto.getsNombreCompleto(),
+                "Solicitud de amistad.", JOptionPane.YES_NO_OPTION);
+
+        if (resp == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null,
+                    "Solicitud de amistad aceptada de: \n" + this.dto.getsNombreCompleto(),
+                    "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            
+            this.panelPerfil.btnAmigoPlus.setEnabled(false);
+            this.panelPerfil.btnAmigoPlus.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Solicitud de amistad rechazada a: \n" + this.dto.getsNombreCompleto(),
+                    "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            
+            this.panelPerfil.btnAmigoPlus.setTexto("Amigos +1");
+        }
+
+    }
 
     private void destruirVetanaComunidad() {
         SrcChatly.ventanaComunidad.setVisible(false);
