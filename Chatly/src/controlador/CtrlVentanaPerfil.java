@@ -103,7 +103,8 @@ public class CtrlVentanaPerfil {
     }
     
     private void mtdVerificarAmistad() {
-        if (SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto)) {
+        int estado = SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto);
+        if ( estado == 1000) {
             this.laVista.cmpCorreo.setText(this.dto.getsCorreo());
         }
     }

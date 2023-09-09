@@ -241,7 +241,7 @@ public class PerfilDao {
         return true;
     }
 
-    public boolean mtdVerificarAmistadPerfil(PerfilDto dtoSesion, PerfilDto dtoPerfil) {
+    public int mtdVerificarAmistadPerfil(PerfilDto dtoSesion, PerfilDto dtoPerfil) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
         String path = srcFile
                 .replaceAll("%correo%", dtoSesion.getsCorreo())
@@ -256,15 +256,31 @@ public class PerfilDao {
                 if (linea.trim().isEmpty()) {
                     continue;
                 }else 
-                if (dtoPerfil.getsCorreo().equals(linea.trim())) {
-                    return true;
+                if ( linea.trim().contains(dtoPerfil.getsCorreo()) ) {
+                    return this.mtdVerificarEstadoAmistad(linea);
                 }
             }
 
         } catch (Exception e) {
         }
 
-        return false;
+        return 0;
+    }
+    
+    private int mtdVerificarEstadoAmistad(String amistad){
+        
+        if( amistad.contains("*Send*") ){
+            return 100;
+        }else
+        if( amistad.contains("*Received*") ){
+            return 200;
+        } else
+        if( amistad.contains("*Done*") ){
+            return 1000;
+        } else {
+            return 0;
+        } 
+        
     }
 
     public List<PerfilDto> mtdListarPerfiles(PerfilDto dto) {
@@ -299,6 +315,30 @@ public class PerfilDao {
         }
 
         return perfiles;
+    }
+    
+    public boolean mtdEnviarSolicitudDeAmistad(PerfilDto dtoSession, PerfilDto dtoPerfil) {
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+
+        try {
+
+            // * Registrar solicitud de mistad para dtoSession
+            Storage.fncStorageAcoplarUnaLinea(srcFile
+                    .replaceAll("%correo%", dtoSession.getsCorreo())
+                    .replaceFirst("%ext%", "friends"),
+                   dtoPerfil.getsCorreo()  + " *Send*");
+            
+            // * Registrar solicitud de mistad para dtoPerfil
+            Storage.fncStorageAcoplarUnaLinea(srcFile
+                    .replaceAll("%correo%", dtoPerfil.getsCorreo())
+                    .replaceFirst("%ext%", "friends"),
+                    dtoSession.getsCorreo() + " *Received*");
+
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
     }
 
     public void mtdInsertarFotoPerfil(JPanelBackground contenedor, PerfilDto dto, boolean vaciar) {

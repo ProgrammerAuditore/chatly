@@ -5,11 +5,11 @@ import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import modelo.dao.PerfilDao;
 import modelo.dto.PerfilDto;
 import src.SrcChatly;
 import vista.paneles.PanelPerfilShort;
-import vista.ventanas.VentanaHome;
 import vista.ventanas.VentanaPerfil;
 
 public class CtrlPanelPerfilShort {
@@ -25,25 +25,29 @@ public class CtrlPanelPerfilShort {
     private GridBagConstraints panelConstraints;
     private Integer fila;
     private Integer columna;
+    private Integer estadoAmistad;
 
     // ***** Contruir eventos
-    private void mtdBuildEventMouseListener(){
+    private void mtdBuildEventMouseListener() {
         MouseListener evt = null;
         this.panelPerfil.removeMouseListener(evt);
-        
-        evt = new MouseAdapter(){
+
+        evt = new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
-                if( e.getSource() == panelPerfil.btnVerPerfl ){
+                if (e.getSource() == panelPerfil.btnVerPerfl) {
                     mtdBtnVerPerfil();
+                } else if (e.getSource() == panelPerfil.btnAmigoPlus && estadoAmistad == 0) {
+                    mtdBtnAmigoPlus();
                 }
             }
         };
-        
+
         this.panelPerfil.btnVerPerfl.addMouseListener(evt);
+        this.panelPerfil.btnAmigoPlus.addMouseListener(evt);
         this.panelPerfil.addMouseListener(evt);
     }
-    
+
     // ***** Constructores
     public CtrlPanelPerfilShort(PerfilDto dto) {
         this.dto = dto;
@@ -61,9 +65,16 @@ public class CtrlPanelPerfilShort {
     }
 
     private void mtdVerificarAmistad() {
-        if (SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto)) {
+        estadoAmistad = SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto);
+        if ( estadoAmistad == 1000) {
             this.panelPerfil.btnAmigoPlus.setEnabled(false);
             this.panelPerfil.btnAmigoPlus.setVisible(false);
+        } else 
+        if(estadoAmistad == 100){
+            this.panelPerfil.btnAmigoPlus.setTexto("Amistad enviada +1");
+        } else 
+        if(estadoAmistad == 200){
+            this.panelPerfil.btnAmigoPlus.setTexto("Amistad recibida +1");
         }
     }
 
@@ -87,15 +98,30 @@ public class CtrlPanelPerfilShort {
         panelConstraints.fill = GridBagConstraints.BOTH; // El modo de estirar
         panelPerfil.setVisible(true);
     }
-    
-    private void mtdBtnVerPerfil(){
+
+    private void mtdBtnVerPerfil() {
         destruirVetanaComunidad();
         SrcChatly.ventanaPerfil = new VentanaPerfil();
         CtrlVentanaPerfil ctrl = new CtrlVentanaPerfil(SrcChatly.ventanaPerfil, dto, dao);
         ctrl.laVista.setVisible(true);
     }
-    
-    private void destruirVetanaComunidad(){
+
+    private void mtdBtnAmigoPlus() {
+
+        if (this.dao.mtdEnviarSolicitudDeAmistad(SrcChatly.dto, this.dto)) {
+            JOptionPane.showMessageDialog(null,
+                    "Solicitud de amistad enviada a: \n" + this.dto.getsNombreCompleto(),
+                    "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            this.panelPerfil.btnAmigoPlus.setTexto("Amistad enviada +1");
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Errar al enviar solicitud de amistad a: \n" + this.dto.getsNombreCompleto(),
+                    "Solicitud de amistad.", JOptionPane.ERROR_MESSAGE);
+        }
+       
+    } 
+
+    private void destruirVetanaComunidad() {
         SrcChatly.ventanaComunidad.setVisible(false);
         SrcChatly.ventanaComunidad.dispose();
         SrcChatly.ventanaComunidad = null;
