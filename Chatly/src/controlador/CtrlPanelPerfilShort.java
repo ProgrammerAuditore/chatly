@@ -62,6 +62,7 @@ public class CtrlPanelPerfilShort {
         this.dao = new PerfilDao();
         this.panelConstraints = new GridBagConstraints();
         this.panelPerfil = new PanelPerfilShort();
+        estadoAmistad = SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto);
         mtdVerificarAmistad();
         mtdEstablecerDatos();
         mtdEstablecerDimensiones();
@@ -69,17 +70,19 @@ public class CtrlPanelPerfilShort {
     }
 
     private void mtdVerificarAmistad() {
-        estadoAmistad = SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto);
         if (estadoAmistad == 1000) { // Amigos
             this.panelPerfil.btnAmigoPlus.setEnabled(false);
             this.panelPerfil.btnAmigoPlus.setVisible(false);
+            this.estadoAmistad = 1000;
         } else if (estadoAmistad == 100) { // Amistad enviada
             this.panelPerfil.btnAmigoPlus.setTexto("Amistad enviada +1");
+            this.estadoAmistad = 100;
         } else if (estadoAmistad == 200) { // Amistad recibida
             this.panelPerfil.btnAmigoPlus.setTexto("Amistad recibida +1");
+            this.estadoAmistad = 200;
         } else {
-            this.estadoAmistad = 0;
             this.panelPerfil.btnAmigoPlus.setTexto("Amigos +1");
+            this.estadoAmistad = 0;
         }
     }
 
@@ -117,11 +120,14 @@ public class CtrlPanelPerfilShort {
             JOptionPane.showMessageDialog(null,
                     "Solicitud de amistad enviada a: \n" + this.dto.getsNombreCompleto(),
                     "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            this.estadoAmistad = 100; // 100 ; Solicitud enviado
             this.mtdVerificarAmistad();
         } else {
             JOptionPane.showMessageDialog(null,
                     "Errar al enviar solicitud de amistad a: \n" + this.dto.getsNombreCompleto(),
                     "Solicitud de amistad.", JOptionPane.ERROR_MESSAGE);
+            this.estadoAmistad = 0; // 0 ; Solicitud no enviado
+            this.mtdVerificarAmistad();
         }
 
     }
@@ -138,6 +144,7 @@ public class CtrlPanelPerfilShort {
                 JOptionPane.showMessageDialog(null,
                         "Solicitud de amistad cancelada a: \n" + this.dto.getsNombreCompleto(),
                         "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+                this.estadoAmistad = 0; // 0 ; No son amigos
                 this.mtdVerificarAmistad();
             }
         }
@@ -157,6 +164,7 @@ public class CtrlPanelPerfilShort {
                         "Solicitud de amistad aceptada de: \n" + this.dto.getsNombreCompleto(),
                         "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
             }
+            this.estadoAmistad = 1000; // 1000 ; Son amigos
             this.mtdVerificarAmistad();
         } else 
         if (resp == JOptionPane.NO_OPTION) {
@@ -166,6 +174,7 @@ public class CtrlPanelPerfilShort {
                         "Solicitud de amistad rechazada a: \n" + this.dto.getsNombreCompleto(),
                         "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
             }
+            this.estadoAmistad = 0; // 0 ; No son amigos
             this.mtdVerificarAmistad();
         }
 

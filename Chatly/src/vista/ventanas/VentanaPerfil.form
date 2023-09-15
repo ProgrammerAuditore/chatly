@@ -95,12 +95,13 @@
                       <Group type="102" attributes="0">
                           <Component id="pnlNotificaciones" min="-2" pref="237" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jPanelBackground4" pref="579" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground4" pref="577" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="cmpFotoPerfil" min="-2" pref="140" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jPanelBackground3" pref="676" max="32767" attributes="0"/>
+                          <Component id="jPanelBackground3" min="-2" pref="674" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -170,20 +171,20 @@
                           <Component id="cmpNombres" alignment="0" max="32767" attributes="0"/>
                           <Component id="cmpCorreo" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jScrollPane2" max="32767" attributes="0"/>
-                          <Component id="mensaje3" min="-2" pref="270" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jSeparator1" min="-2" pref="25" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnVolver" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAmigos" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnConversaciones" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="mensaje3" min="-2" pref="270" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="11" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnVolver" alignment="0" pref="147" max="32767" attributes="0"/>
+                          <Component id="btnAmigos" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnConversaciones" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

@@ -26,6 +26,8 @@ public class CtrlVentanaPerfil {
     private PerfilDao dao;
     
     // ****** Atributos
+    private Integer estadoAmistad;
+    
     // ****** Constructores
     public CtrlVentanaPerfil(VentanaPerfil laVista, PerfilDto dto, PerfilDao dao) {
         this.laVista = laVista;
@@ -44,11 +46,18 @@ public class CtrlVentanaPerfil {
             public void mouseReleased(MouseEvent e) {
                 if( e.getSource() == laVista.btnVolver ){
                     mtdBtnVolver();
+                } else if (e.getSource() == laVista.btnAmigos && estadoAmistad == 0) {
+                    mtdBtnAmigoPlusEnviarAmistad();
+                } else if (e.getSource() == laVista.btnAmigos&& estadoAmistad == 100) {
+                    mtdBtnAmigoPlusEnviadaAmistad();
+                } else if (e.getSource() == laVista.btnAmigos && estadoAmistad == 200) {
+                    mtdBtnAmigoPlusRechazarAmistad();
                 }
             }
         };
         
         this.laVista.btnVolver.addMouseListener(evt);
+        this.laVista.btnAmigos.addMouseListener(evt);
         this.laVista.removeMouseListener(evt);
     }
     
@@ -71,9 +80,27 @@ public class CtrlVentanaPerfil {
         this.laVista.setLocationRelativeTo(null);
         this.laVista.setIconImage(Recursos.imgIconoDefault());
         SrcChatly.ventanaPerfil.setTitle(Info.NombreSoftware + " - " + SrcChatly.dto.getsCorreo());
+        estadoAmistad = SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto);
         mtdEstablecerDatos();
         mtdBuildWindownListener();
         mtdBuildMouseListener();
+    }
+    
+    private void mtdVerificarAmistad() {
+        if (estadoAmistad == 1000) { // Amigos
+            this.laVista.btnAmigos.setEnabled(false);
+            this.laVista.btnAmigos.setVisible(false);
+            this.estadoAmistad = 1000;
+        } else if (estadoAmistad == 100) { // Amistad enviada
+            this.laVista.btnAmigos.setTexto("Amistad enviada +1");
+            this.estadoAmistad = 100;
+        } else if (estadoAmistad == 200) { // Amistad recibida
+            this.laVista.btnAmigos.setTexto("Amistad recibida +1");
+            this.estadoAmistad = 200;
+        } else {
+            this.laVista.btnAmigos.setTexto("Amigos +1");
+            this.estadoAmistad = 0;
+        }
     }
     
     private void mtdEstablecerDatos(){
@@ -94,19 +121,78 @@ public class CtrlVentanaPerfil {
         
     }
     
+    private void mtdBtnAmigoPlusEnviarAmistad() {
+
+        if (this.dao.mtdEnviarSolicitudDeAmistad(SrcChatly.dto, this.dto) && this.estadoAmistad == 0) {
+            JOptionPane.showMessageDialog(null,
+                    "Solicitud de amistad enviada a: \n" + this.dto.getsNombreCompleto(),
+                    "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            this.estadoAmistad = 100; // 100 ; Solicitud enviado
+            this.mtdVerificarAmistad();
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Errar al enviar solicitud de amistad a: \n" + this.dto.getsNombreCompleto(),
+                    "Solicitud de amistad.", JOptionPane.ERROR_MESSAGE);
+            this.estadoAmistad = 0; // 0 ; Solicitud no enviado
+            this.mtdVerificarAmistad();
+        }
+
+    }
+
+    private void mtdBtnAmigoPlusEnviadaAmistad() {
+
+        int resp = JOptionPane.showConfirmDialog(null,
+                "¿Deseas cancelar la solicitud de amistadad a: \n" + this.dto.getsNombreCompleto(),
+                "Solicitud de amistad.", JOptionPane.YES_NO_CANCEL_OPTION);
+
+        if (resp == JOptionPane.YES_OPTION) {
+            if (SrcChatly.dao.mtdRechazarAmistadPerfil(SrcChatly.dto, dto)
+                    && this.dao.mtdRechazarAmistadPerfil(dto, SrcChatly.dto)) {
+                JOptionPane.showMessageDialog(null,
+                        "Solicitud de amistad cancelada a: \n" + this.dto.getsNombreCompleto(),
+                        "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+                this.estadoAmistad = 0; // 0 ; No son amigos
+                this.mtdVerificarAmistad();
+            }
+        }
+
+    }
+
+    private void mtdBtnAmigoPlusRechazarAmistad() {
+
+        int resp = JOptionPane.showConfirmDialog(null,
+                "¿Deseas aceptar la solicitud de amistadad de: \n" + this.dto.getsNombreCompleto(),
+                "Solicitud de amistad.", JOptionPane.YES_NO_CANCEL_OPTION);
+
+        if (resp == JOptionPane.YES_OPTION) {
+            if (SrcChatly.dao.mtdActualizarEstadoAmistadPerfil(SrcChatly.dto, dto, 1000)
+                    && this.dao.mtdActualizarEstadoAmistadPerfil(dto, SrcChatly.dto, 1000)) {
+                JOptionPane.showMessageDialog(null,
+                        "Solicitud de amistad aceptada de: \n" + this.dto.getsNombreCompleto(),
+                        "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            }
+            this.estadoAmistad = 1000; // 1000 ; Son amigos
+            this.mtdVerificarAmistad();
+        } else 
+        if (resp == JOptionPane.NO_OPTION) {
+            if (SrcChatly.dao.mtdRechazarAmistadPerfil(SrcChatly.dto, dto)
+                    && this.dao.mtdRechazarAmistadPerfil(dto, SrcChatly.dto)) {
+                JOptionPane.showMessageDialog(null,
+                        "Solicitud de amistad rechazada a: \n" + this.dto.getsNombreCompleto(),
+                        "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            }
+            this.estadoAmistad = 0; // 0 ; No son amigos
+            this.mtdVerificarAmistad();
+        }
+
+    }
+    
     private void mtdBienvenida(){
         mtdVerificarAmistad();
        JOptionPane.showMessageDialog(null, "Bienvenido a mural de: \n" + this.dto.getsNombreCompleto()
                , Info.NombreSoftware , JOptionPane.INFORMATION_MESSAGE);
        JOptionPane.showMessageDialog(null, "Deja una firma para el mural de: \n" + this.dto.getsNombreCompleto()
                , Info.NombreSoftware , JOptionPane.INFORMATION_MESSAGE);
-    }
-    
-    private void mtdVerificarAmistad() {
-        int estado = SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto);
-        if ( estado == 1000) {
-            this.laVista.cmpCorreo.setText(this.dto.getsCorreo());
-        }
     }
     
     private void mtdBtnVolver() {
