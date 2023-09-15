@@ -52,6 +52,8 @@ public class CtrlVentanaPerfil {
                     mtdBtnAmigoPlusEnviadaAmistad();
                 } else if (e.getSource() == laVista.btnAmigos && estadoAmistad == 200) {
                     mtdBtnAmigoPlusRechazarAmistad();
+                } else if (e.getSource() == laVista.btnAmigos && estadoAmistad == 1000) {
+                    mtdBtnAmigoPlusEliminarAmistad();
                 }
             }
         };
@@ -81,6 +83,7 @@ public class CtrlVentanaPerfil {
         this.laVista.setIconImage(Recursos.imgIconoDefault());
         SrcChatly.ventanaPerfil.setTitle(Info.NombreSoftware + " - " + SrcChatly.dto.getsCorreo());
         estadoAmistad = SrcChatly.dao.mtdVerificarAmistadPerfil(SrcChatly.dto, dto);
+        mtdVerificarAmistad();
         mtdEstablecerDatos();
         mtdBuildWindownListener();
         mtdBuildMouseListener();
@@ -88,8 +91,10 @@ public class CtrlVentanaPerfil {
     
     private void mtdVerificarAmistad() {
         if (estadoAmistad == 1000) { // Amigos
-            this.laVista.btnAmigos.setEnabled(false);
-            this.laVista.btnAmigos.setVisible(false);
+            this.laVista.cmpCorreo.setPlaceholder(this.dto.getsCorreo());
+            this.laVista.cmpCorreo.setText(this.dto.getsCorreo());
+            this.laVista.btnAmigos.setTexto("Son amigos +1");
+            this.laVista.btnAmigos.setImgButtonType("success");
             this.estadoAmistad = 1000;
         } else if (estadoAmistad == 100) { // Amistad enviada
             this.laVista.btnAmigos.setTexto("Amistad enviada +1");
@@ -98,7 +103,10 @@ public class CtrlVentanaPerfil {
             this.laVista.btnAmigos.setTexto("Amistad recibida +1");
             this.estadoAmistad = 200;
         } else {
+            this.laVista.cmpCorreo.setPlaceholder("Example".replaceAll(".", "*"));
+            this.laVista.cmpCorreo.setText("Example".replaceAll(".", "*"));
             this.laVista.btnAmigos.setTexto("Amigos +1");
+            this.laVista.btnAmigos.setImgButtonType("danger");
             this.estadoAmistad = 0;
         }
     }
@@ -184,6 +192,25 @@ public class CtrlVentanaPerfil {
             this.estadoAmistad = 0; // 0 ; No son amigos
             this.mtdVerificarAmistad();
         }
+
+    }
+    
+    private void mtdBtnAmigoPlusEliminarAmistad() {
+
+        int resp = JOptionPane.showConfirmDialog(null,
+                "¿Deseas eliminar la amistadad de: \n" + this.dto.getsNombreCompleto(),
+                "Solicitud de amistad.", JOptionPane.YES_NO_CANCEL_OPTION);
+
+        if (resp == JOptionPane.YES_OPTION) {
+            if (SrcChatly.dao.mtdRechazarAmistadPerfil(SrcChatly.dto, dto)
+                    && this.dao.mtdRechazarAmistadPerfil(dto, SrcChatly.dto)) {
+                JOptionPane.showMessageDialog(null,
+                        "Solicitud de amistad rechazada a: \n" + this.dto.getsNombreCompleto(),
+                        "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            }
+            this.estadoAmistad = 0; // 0 ; No son amigos
+            this.mtdVerificarAmistad();
+        } 
 
     }
     

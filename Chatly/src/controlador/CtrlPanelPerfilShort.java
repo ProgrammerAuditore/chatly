@@ -179,7 +179,7 @@ public class CtrlPanelPerfilShort {
         }
 
     }
-
+    
     private void destruirVetanaComunidad() {
         SrcChatly.ventanaComunidad.setVisible(false);
         SrcChatly.ventanaComunidad.dispose();

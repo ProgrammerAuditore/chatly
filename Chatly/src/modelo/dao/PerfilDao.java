@@ -248,8 +248,18 @@ public class PerfilDao {
                 .replaceAll("%correo%", dtoSesion.getsCorreo())
                 .replaceFirst("%ext%", "friends");
         File archivo = new File(path);
+        
+        String pathTmp = srcFile
+                .replaceAll("%correo%", dtoSesion.getsCorreo())
+                .replaceFirst("%ext%", "_tmp00");
+        File archivo_tmp = new File(pathTmp);
 
         try {
+            
+            if(archivo_tmp.exists()){
+                archivo.delete();
+                archivo_tmp.renameTo(archivo);
+            }
 
             BufferedReader db_profiles = new BufferedReader(new FileReader(archivo));
             String linea;
@@ -261,6 +271,9 @@ public class PerfilDao {
                     return this.mtdVerificarEstadoAmistad(linea);
                 }
             }
+            
+            db_profiles.close();
+            db_profiles.close();
 
         } catch (Exception e) {
         }
@@ -284,8 +297,10 @@ public class PerfilDao {
 
         try {
             
-            archivo_tmp.delete();
-            archivo_tmp.delete();
+            if(archivo_tmp.exists()){
+                archivo.delete();
+                archivo_tmp.renameTo(archivo);
+            }
             
             if (archivo_tmp.createNewFile()) {
                 try (FileWriter sobrescribirArchivo = new FileWriter(pathTmp)) {
@@ -302,10 +317,12 @@ public class PerfilDao {
                         }
                     }
 
-                    archivo.delete();
-                    archivo.delete();
+                    sobrescribirArchivo.close();
+                    sobrescribirArchivo.close();
                     db_profiles.close();
                     db_profiles.close();
+                    archivo.delete();
+                    archivo.delete();
 
                 } catch (Exception e) {
                     return false;
@@ -342,8 +359,10 @@ public class PerfilDao {
 
         try {
             
-            archivo_tmp.delete();
-            archivo_tmp.delete();
+            if(archivo_tmp.exists()){
+                archivo.delete();
+                archivo_tmp.renameTo(archivo);
+            }
                 
             if (archivo_tmp.createNewFile()) {
                 try (FileWriter sobrescribirArchivo = new FileWriter(pathTmp)) {
@@ -360,10 +379,12 @@ public class PerfilDao {
                         }
                     }
 
-                    archivo.delete();
-                    archivo.delete();
+                    sobrescribirArchivo.close();
+                    sobrescribirArchivo.close();
                     db_profiles.close();
                     db_profiles.close();
+                    archivo.delete();
+                    archivo.delete();
 
                 } catch (Exception e) {
                     return false;
