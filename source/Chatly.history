@@ -5,11 +5,11 @@
             <!-- Información del software -->
             <app_autor>ProgrammerAuditore</app_autor>
             <app_contacto>victorvj098@gmail.com</app_contacto>
-            <app_name_version>v0.3.0Alpha</app_name_version>
-            <app_num_version>0300</app_num_version>
+            <app_name_version>v0.4.0Alpha</app_name_version>
+            <app_num_version>0400</app_num_version>
             <!-- Links de descarga -->
-            <app_link_exe>https://gitlab.com/ProgrammerAuditore/chatly-releases/-/raw/main/v0.3.0Alpha/Setup_-_Chatly_v0.3.0Alpha.exe?inline=false</app_link_exe>
-            <app_link_deb>https://gitlab.com/ProgrammerAuditore/chatly-releases/-/raw/main/v0.3.0Alpha/chatly-0.0.1-all.deb?inline=false</app_link_deb>
+            <app_link_exe>https://gitlab.com/ProgrammerAuditore/chatly-releases/-/raw/main/v0.4.0Alpha/Setup_-_Chatly_v0.4.0Alpha.exe?inline=false</app_link_exe>
+            <app_link_deb>https://gitlab.com/ProgrammerAuditore/chatly-releases/-/raw/main/v0.4.0Alpha/chatly-0.0.1-all.deb?inline=false</app_link_deb>
             <!-- Lista de novedades -->
             <app_novedades>
                 <novedades>* Se agrego propiedades avanzadas en establecer conexión</novedades>
