@@ -30,6 +30,7 @@ public class Recursos {
     public static final String botonesContenedor = Rutas.pahtContenedorBotones;
     public static final String iconosContenedor = Rutas.pathContenedorIconos;
     public static final String fuentesContenedor = Rutas.pathContenedorFuentes;
+    public static final String getFechayHora(){ return new CargarRecurgos().getFechayHora(); }
     //public static final String docVersionesXml = Rutas.pathDocumentoVersionesXml;
     
     // * Recursos del sistema

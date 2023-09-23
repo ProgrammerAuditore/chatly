@@ -18,7 +18,7 @@ public class Storage {
     public final static String identificador_boots = " *boot";
     public static final String extension_rs = "@gobim.dev";
 
-    public static boolean fncStorageVerificarUnaCuenta(String encontrar_cuenta) {
+    public static boolean fncStorageVerificarUnaCuenta(String correo_electronico) {
         String srcProfiles = "storage_profiles/database.profiles";
         
         // Si el File no existe y el String es vacio retorna false
@@ -30,7 +30,7 @@ public class Storage {
             while ((linea = db_archivo.readLine()) != null) {
 
                 // Si encuentra la cuenta se rompe el bucle
-                if (linea.contains(encontrar_cuenta) && !linea.isEmpty()) {
+                if (linea.contains(correo_electronico) && !linea.isEmpty()) {
                     return true;
                 } 
                 
@@ -82,12 +82,13 @@ public class Storage {
                             }
                             sobrescribirArchivo.write(linea.trim() + "\n");
                         }
-                        enArchivo.delete();
-                        enArchivo.delete();
+                       
                         sobrescribirArchivo.close();
                         sobrescribirArchivo.close();
                         leerArchivo.close();
                         leerArchivo.close();
+                        enArchivo.delete();
+                        enArchivo.delete();
                     }
 
                     // Cambio de storage

@@ -537,5 +537,23 @@ public class PerfilDao {
 
         new File(SrcFotoPerfil).delete();
     }
+    
+    public static boolean mtdRegistrarNotificacion(PerfilDto dtoPerfil, String notificacion){
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+        
+        String srcNotify = srcFile
+                    .replaceAll("%correo%", dtoPerfil.getsCorreo())
+                    .replaceFirst("%ext%", "notify");
+        
+        // * Verificar que la cuenta perfil y que el archivo .notify de session_activa exista
+        if(Storage.fncStorageVerificarUnaCuenta(dtoPerfil.getsCorreo())){
+            String notify = notificacion + ". | " + Recursos.getFechayHora() + "\n";
+            
+            Storage.fncStorageAcoplarUnaLinea(srcNotify, notify );
+        } else
+            return false;
+        
+        return true;
+    }
 
 }

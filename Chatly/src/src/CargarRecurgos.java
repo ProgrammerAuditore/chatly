@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
+import java.util.Calendar;
 import java.util.HashMap;
 
 class CargarRecurgos {
@@ -211,6 +212,23 @@ class CargarRecurgos {
         time = time.replaceAll("-", "");
         
         return time;
+    }
+    
+    public String getFechayHora(){
+        
+        Calendar fechaActual = Calendar.getInstance();
+        String cadenaFecha = String.format("%04d-%02d-%02d",
+          fechaActual.get(Calendar.YEAR),
+          fechaActual.get(Calendar.MONTH)+1,
+          fechaActual.get(Calendar.DAY_OF_MONTH));
+        
+        Calendar a = Calendar.getInstance();
+        String horaActual = String.format("%02d:%02d:%02d",
+          fechaActual.get(Calendar.HOUR_OF_DAY),
+          fechaActual.get(Calendar.MINUTE),
+          fechaActual.get(Calendar.SECOND));
+        
+        return "["+cadenaFecha+" "+horaActual+"]";
     }
         
 }
