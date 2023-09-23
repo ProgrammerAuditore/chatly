@@ -62,7 +62,7 @@ public class VentanaHome extends javax.swing.JFrame {
         jPanelBackground4 = new vista.componentes.jpanelbackground.JPanelBackground();
         pnlNotificaciones = new vista.componentes.jpanelbackground.JPanelBackground();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lstNotificaciones = new javax.swing.JList<>();
         mensaje4 = new vista.componentes.etiqueta.Mensaje();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
@@ -164,7 +164,7 @@ public class VentanaHome extends javax.swing.JFrame {
                     .addComponent(cmpApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmpNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmpCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2)
                     .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -209,7 +209,7 @@ public class VentanaHome extends javax.swing.JFrame {
         jPanelBackground4.setLayout(jPanelBackground4Layout);
         jPanelBackground4Layout.setHorizontalGroup(
             jPanelBackground4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 583, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanelBackground4Layout.setVerticalGroup(
             jPanelBackground4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,13 +218,13 @@ public class VentanaHome extends javax.swing.JFrame {
 
         pnlNotificaciones.setBackground(new java.awt.Color(51, 51, 51));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        lstNotificaciones.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Sin notificaciones..." };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setEnabled(false);
-        jScrollPane1.setViewportView(jList1);
+        lstNotificaciones.setEnabled(false);
+        jScrollPane1.setViewportView(lstNotificaciones);
 
         mensaje4.setForeground(new java.awt.Color(255, 255, 255));
         mensaje4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -234,10 +234,10 @@ public class VentanaHome extends javax.swing.JFrame {
         pnlNotificaciones.setLayout(pnlNotificacionesLayout);
         pnlNotificacionesLayout.setHorizontalGroup(
             pnlNotificacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
             .addGroup(pnlNotificacionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mensaje4, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                .addComponent(mensaje4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlNotificacionesLayout.setVerticalGroup(
@@ -257,9 +257,9 @@ public class VentanaHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
-                        .addComponent(pnlNotificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlNotificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
+                        .addComponent(jPanelBackground4, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE))
                     .addGroup(jPanelBackground1Layout.createSequentialGroup()
                         .addComponent(cmpFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -395,7 +395,6 @@ public class VentanaHome extends javax.swing.JFrame {
     public static vista.componentes.campos.CampoDatos cmpNombres;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -407,6 +406,7 @@ public class VentanaHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    public javax.swing.JList<String> lstNotificaciones;
     private vista.componentes.etiqueta.Mensaje mensaje3;
     private vista.componentes.etiqueta.Mensaje mensaje4;
     public javax.swing.JMenuItem menuItemAmigos;

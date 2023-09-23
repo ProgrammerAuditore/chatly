@@ -1,15 +1,22 @@
 package controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.dao.PerfilDao;
 import modelo.dto.PerfilDto;
+import modelo.watcher.WatcherNotificaciones;
 import src.Info;
 import src.Recursos;
 import src.SrcChatly;
@@ -28,6 +35,9 @@ public class CtrlVentanaHome {
 
     // ****** Modelos 
     // ****** Atributos
+    private ActionListener oyente;
+    private Timer observador = new Timer(1000, oyente);
+    
     // ****** Constructores
     public CtrlVentanaHome(VentanaHome vista) {
         this.laVista = vista;
@@ -35,7 +45,7 @@ public class CtrlVentanaHome {
     }
 
     // ****** Construir eventos
-    private void mtdBuildEvents() {
+    private void mtdBuildEventMouseListener() {
         MouseListener evt = null;
         this.laVista.removeMouseListener(evt);
 
@@ -101,6 +111,21 @@ public class CtrlVentanaHome {
         this.laVista.menuPopFotoEliminar.addMouseListener(evt);
         this.laVista.addMouseListener(evt);
     }
+    
+    private void mtdBuildEventWindowListener(){
+        WindowListener evt = null;
+        this.laVista.removeWindowListener(evt);
+        
+        
+        evt = new WindowAdapter() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                mtdWatcherNotificaciones();
+            }
+        };
+        
+        this.laVista.addWindowListener(evt);
+    }
 
     // ****** Métodos
     private void mtdInit() {
@@ -109,7 +134,9 @@ public class CtrlVentanaHome {
         this.laVista.setLocationRelativeTo(null);
         this.laVista.setIconImage(Recursos.imgIconoDefault());
         SrcChatly.ventanaHome.setTitle(Info.NombreSoftware + " - " + SrcChatly.dto.getsCorreo() );
-        mtdBuildEvents();
+        mtdBuildEventMouseListener();
+        mtdBuildEventWindowListener();
+       
         mtdEstablecerDatos();
 
     }
@@ -129,6 +156,31 @@ public class CtrlVentanaHome {
         if (!SrcChatly.dto.getsFotoPerfil().contains("user_default.png")) {
             SrcChatly.dao.mtdInsertarFotoPerfil(this.laVista.cmpFotoPerfil, SrcChatly.dto, true);
         }
+    }
+    
+    private void mtdWatcherNotificaciones(){
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+        String srcNotify = srcFile.replaceAll("%correo%", 
+                SrcChatly.dto.getsCorreo())
+                .replaceFirst("%ext%", "notify");
+        
+        WatcherNotificaciones notify = new WatcherNotificaciones(srcNotify, this.laVista.lstNotificaciones);
+        notify.setLista_vacio("Sin notificaciones");
+                
+        try{
+             
+            ActionListener tarea;
+            tarea = (ActionEvent e) -> {
+                
+                // Observadores o Watchers para notificaciones (Depende de Session)
+                notify.Inicializar();
+                
+            };
+
+           observador.addActionListener(tarea);
+           observador.start();
+           
+        }catch(Exception a){}
     }
 
     private void mtdBtnCerrarSesion() {
