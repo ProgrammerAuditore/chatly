@@ -120,8 +120,12 @@ public class CtrlPanelPerfilShort {
             JOptionPane.showMessageDialog(null,
                     "Solicitud de amistad enviada a: \n" + this.dto.getsNombreCompleto(),
                     "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+            
             this.estadoAmistad = 100; // 100 ; Solicitud enviado
             this.mtdVerificarAmistad();
+            SrcChatly.dao.mtdRegistrarNotificacion(SrcChatly.dto, "Has enviado una solicitud de amistad.");
+            this.dao.mtdRegistrarNotificacion(this.dto, "Has recibido una solicitud de amistad");
+            
         } else {
             JOptionPane.showMessageDialog(null,
                     "Errar al enviar solicitud de amistad a: \n" + this.dto.getsNombreCompleto(),
@@ -144,6 +148,7 @@ public class CtrlPanelPerfilShort {
                 JOptionPane.showMessageDialog(null,
                         "Solicitud de amistad cancelada a: \n" + this.dto.getsNombreCompleto(),
                         "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
+                
                 this.estadoAmistad = 0; // 0 ; No son amigos
                 this.mtdVerificarAmistad();
             }
@@ -164,8 +169,13 @@ public class CtrlPanelPerfilShort {
                         "Solicitud de amistad aceptada de: \n" + this.dto.getsNombreCompleto(),
                         "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
             }
+            
+            
             this.estadoAmistad = 1000; // 1000 ; Son amigos
             this.mtdVerificarAmistad();
+            SrcChatly.dao.mtdRegistrarNotificacion(SrcChatly.dto, "Has aceptado una solicitud de amistad.");
+            this.dao.mtdRegistrarNotificacion(this.dto, "Han aceptado tu solicitud de amistad.");
+            
         } else 
         if (resp == JOptionPane.NO_OPTION) {
             if (SrcChatly.dao.mtdRechazarAmistadPerfil(SrcChatly.dto, dto)
@@ -174,8 +184,13 @@ public class CtrlPanelPerfilShort {
                         "Solicitud de amistad rechazada a: \n" + this.dto.getsNombreCompleto(),
                         "Solicitud de amistad.", JOptionPane.INFORMATION_MESSAGE);
             }
+            
+            
             this.estadoAmistad = 0; // 0 ; No son amigos
             this.mtdVerificarAmistad();
+            SrcChatly.dao.mtdRegistrarNotificacion(SrcChatly.dto, "Has rechazado una solicitud de amistad.");
+            this.dao.mtdRegistrarNotificacion(this.dto, "Han rechazado tu solicitud de amistad.");
+            
         }
 
     }

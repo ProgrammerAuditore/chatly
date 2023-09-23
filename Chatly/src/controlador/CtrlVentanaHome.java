@@ -121,7 +121,7 @@ public class CtrlVentanaHome {
             @Override
             public void windowOpened(WindowEvent e) {
                 mtdWatcherNotificaciones();
-                SrcChatly.dao.mtdRegistrarNotificacion(SrcChatly.dto, "Haz iniciado sesión a tu cuenta");
+                //SrcChatly.dao.mtdRegistrarNotificacion(SrcChatly.dto, "Haz iniciado sesión a tu cuenta");
             }
         };
         
