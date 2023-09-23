@@ -283,7 +283,10 @@ public class CtrlVentanaHome {
                 "Confirmar...", JOptionPane.YES_NO_OPTION);
 
         if (respuesta == JOptionPane.YES_OPTION) {
-            JOptionPane.showMessageDialog(null, "Se eliminaron todas las notificaciones, exitosamente.");
+            if(SrcChatly.dao.mtdViciarNotificaciones(SrcChatly.dto))
+                JOptionPane.showMessageDialog(null, "Se eliminaron todas las notificaciones, exitosamente.");
+            else
+                JOptionPane.showMessageDialog(null, "Vuelva a internarlo, por favor.");
         }
     }
 

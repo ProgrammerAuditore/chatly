@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -110,8 +112,8 @@ public class PerfilDao {
         File bio = new File(srcBio);
 
         if (!(profile.isDirectory() && profile.exists())
-        || !(data.isFile() && data.exists())
-        || !(bio.isFile() && bio.exists())) {
+                || !(data.isFile() && data.exists())
+                || !(bio.isFile() && bio.exists())) {
             return false;
         }
 
@@ -248,15 +250,15 @@ public class PerfilDao {
                 .replaceAll("%correo%", dtoSesion.getsCorreo())
                 .replaceFirst("%ext%", "friends");
         File archivo = new File(path);
-        
+
         String pathTmp = srcFile
                 .replaceAll("%correo%", dtoSesion.getsCorreo())
                 .replaceFirst("%ext%", "_tmp00");
         File archivo_tmp = new File(pathTmp);
 
         try {
-            
-            if(archivo_tmp.exists()){
+
+            if (archivo_tmp.exists()) {
                 archivo.delete();
                 archivo_tmp.renameTo(archivo);
             }
@@ -266,12 +268,11 @@ public class PerfilDao {
             while ((linea = db_profiles.readLine()) != null) {
                 if (linea.trim().isEmpty()) {
                     continue;
-                }else 
-                if ( linea.trim().contains(dtoPerfil.getsCorreo()) ) {
+                } else if (linea.trim().contains(dtoPerfil.getsCorreo())) {
                     return this.mtdVerificarEstadoAmistad(linea);
                 }
             }
-            
+
             db_profiles.close();
             db_profiles.close();
 
@@ -280,7 +281,7 @@ public class PerfilDao {
 
         return 0;
     }
-    
+
     public boolean mtdActualizarEstadoAmistadPerfil(PerfilDto dtoSesion, PerfilDto dtoPerfil, int estadoAmistad) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
 
@@ -296,12 +297,12 @@ public class PerfilDao {
         File archivo_tmp = new File(pathTmp);
 
         try {
-            
-            if(archivo_tmp.exists()){
+
+            if (archivo_tmp.exists()) {
                 archivo.delete();
                 archivo_tmp.renameTo(archivo);
             }
-            
+
             if (archivo_tmp.createNewFile()) {
                 try (FileWriter sobrescribirArchivo = new FileWriter(pathTmp)) {
 
@@ -342,7 +343,7 @@ public class PerfilDao {
 
         return true;
     }
-    
+
     public boolean mtdRechazarAmistadPerfil(PerfilDto dtoSesion, PerfilDto dtoPerfil) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
 
@@ -358,12 +359,12 @@ public class PerfilDao {
         File archivo_tmp = new File(pathTmp);
 
         try {
-            
-            if(archivo_tmp.exists()){
+
+            if (archivo_tmp.exists()) {
                 archivo.delete();
                 archivo_tmp.renameTo(archivo);
             }
-                
+
             if (archivo_tmp.createNewFile()) {
                 try (FileWriter sobrescribirArchivo = new FileWriter(pathTmp)) {
 
@@ -404,37 +405,33 @@ public class PerfilDao {
 
         return true;
     }
-    
-    private int mtdVerificarEstadoAmistad(String amistad){
-        
-        if( amistad.contains("*Send*") ){
+
+    private int mtdVerificarEstadoAmistad(String amistad) {
+
+        if (amistad.contains("*Send*")) {
             return 100;
-        }else
-        if( amistad.contains("*Received*") ){
+        } else if (amistad.contains("*Received*")) {
             return 200;
-        } else
-        if( amistad.contains("*Done*") ){
+        } else if (amistad.contains("*Done*")) {
             return 1000;
         } else {
             return 0;
-        } 
-        
+        }
+
     }
-    
-    private String mtdVerificarEstadoAmistad(int amistad){
-        
-        if( amistad == 100 ){
+
+    private String mtdVerificarEstadoAmistad(int amistad) {
+
+        if (amistad == 100) {
             return "*Send*";
-        }else
-        if( amistad == 200 ){
+        } else if (amistad == 200) {
             return "*Received*";
-        } else
-        if( amistad == 1000 ){
+        } else if (amistad == 1000) {
             return "*Done*";
         } else {
             return "";
-        } 
-        
+        }
+
     }
 
     public List<PerfilDto> mtdListarPerfiles(PerfilDto dto) {
@@ -450,11 +447,10 @@ public class PerfilDao {
             while ((linea = db_profiles.readLine()) != null) {
                 if (linea.trim().isEmpty()) {
                     continue;
-                } else 
-                if(dto.getsCorreo().equals(linea.trim())){
+                } else if (dto.getsCorreo().equals(linea.trim())) {
                     continue;
                 }
-                
+
                 PerfilDto dtoPerfil = new PerfilDto();
                 dtoPerfil.setsCorreo(linea.trim());
 
@@ -470,7 +466,7 @@ public class PerfilDao {
 
         return perfiles;
     }
-    
+
     public boolean mtdEnviarSolicitudDeAmistad(PerfilDto dtoSession, PerfilDto dtoPerfil) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
 
@@ -480,8 +476,8 @@ public class PerfilDao {
             Storage.fncStorageAcoplarUnaLinea(srcFile
                     .replaceAll("%correo%", dtoSession.getsCorreo())
                     .replaceFirst("%ext%", "friends"),
-                   dtoPerfil.getsCorreo()  + " *Send*");
-            
+                    dtoPerfil.getsCorreo() + " *Send*");
+
             // * Registrar solicitud de mistad para dtoPerfil
             Storage.fncStorageAcoplarUnaLinea(srcFile
                     .replaceAll("%correo%", dtoPerfil.getsCorreo())
@@ -537,23 +533,51 @@ public class PerfilDao {
 
         new File(SrcFotoPerfil).delete();
     }
-    
-    public static boolean mtdRegistrarNotificacion(PerfilDto dtoPerfil, String notificacion){
+
+    public boolean mtdRegistrarNotificacion(PerfilDto dtoPerfil, String notificacion) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
-        
+
         String srcNotify = srcFile
-                    .replaceAll("%correo%", dtoPerfil.getsCorreo())
-                    .replaceFirst("%ext%", "notify");
-        
+                .replaceAll("%correo%", dtoPerfil.getsCorreo())
+                .replaceFirst("%ext%", "notify");
+
         // * Verificar que la cuenta perfil y que el archivo .notify de session_activa exista
-        if(Storage.fncStorageVerificarUnaCuenta(dtoPerfil.getsCorreo())){
+        if (Storage.fncStorageVerificarUnaCuenta(dtoPerfil.getsCorreo())) {
             String notify = notificacion + ". | " + Recursos.getFechayHora() + "\n";
-            
-            Storage.fncStorageAcoplarUnaLinea(srcNotify, notify );
-        } else
+
+            Storage.fncStorageAcoplarUnaLinea(srcNotify, notify);
+        } else {
             return false;
-        
+        }
+
         return true;
+    }
+
+    public boolean mtdViciarNotificaciones(PerfilDto dto) {
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+
+        String srcNotify = srcFile
+                .replaceAll("%correo%", dto.getsCorreo())
+                .replaceFirst("%ext%", "notify");
+
+        File archivo = new File(srcNotify);
+
+        try {
+
+            archivo.delete();
+            archivo.delete();
+            archivo.delete();
+            archivo.createNewFile();
+            archivo.createNewFile();
+
+            if (archivo.exists()) {
+                return true;
+            }
+
+            return true;
+        } catch (IOException ex) {}
+
+        return false;
     }
 
 }
