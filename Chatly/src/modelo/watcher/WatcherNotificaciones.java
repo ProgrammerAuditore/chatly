@@ -1,20 +1,12 @@
 package modelo.watcher;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import modelo.Observador;
-import modelo.dao.PerfilDao;
-import modelo.dto.PerfilDto;
-import src.Recursos;
-import vista.componentes.jpanelbackground.JPanelBackground;
 
 public class WatcherNotificaciones extends Observador{
     
