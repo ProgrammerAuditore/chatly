@@ -466,6 +466,46 @@ public class PerfilDao {
 
         return perfiles;
     }
+    
+    public List<PerfilDto> mtdListarAmigos(PerfilDto dto) {
+        List<PerfilDto> perfiles = new ArrayList<>();
+        PerfilDao dao = new PerfilDao();
+        String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
+        
+        String path = srcFile
+                .replaceAll("%correo%", dto.getsCorreo())
+                .replaceFirst("%ext%", "friends");
+        
+        File archivo = new File(path);
+
+        try {
+
+            BufferedReader db_profiles = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while ((linea = db_profiles.readLine()) != null) {
+                String email = linea.split(" ")[0];
+                if (linea.trim().isEmpty() || !linea.contains("*Done*") || !email.contains("@")) {
+                    continue;
+                } else if (dto.getsCorreo().equals(linea.trim())) {
+                    continue;
+                }
+
+                PerfilDto dtoPerfil = new PerfilDto();
+                dtoPerfil.setsCorreo(email.trim());
+
+                if (dao.mtdVerificarPerfil(dtoPerfil)) {
+                    if (dao.mtdObtenerPerfil(dtoPerfil)) {
+                        perfiles.add(dtoPerfil);
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+        }
+
+        return perfiles;
+    }
 
     public boolean mtdEnviarSolicitudDeAmistad(PerfilDto dtoSession, PerfilDto dtoPerfil) {
         String srcFile = "storage_profiles/%correo%/profile/%correo%.%ext%";
